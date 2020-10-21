@@ -1,6 +1,7 @@
 <!-- External Css -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 
+
 <style>
 .swal2-popup{
   font-size: 14px !important;
@@ -55,7 +56,7 @@
   letter-spacing: 1px;
   line-height: 40px;
   position: absolute;
-  text-align: center;
+  text-align: left;
   text-transform: uppercase;
   top: 20px;
   width: 40px;
@@ -76,23 +77,33 @@
   opacity: 0.8;
 }
 #shop--list<?php echo $uniqid; ?> .shop--imovel__content{
-  text-align: center;
+  text-align: left;
   padding: 30px 15px;
   position: relative;
 }
 #shop--list<?php echo $uniqid; ?> .shop--imovel__info, #shop--list<?php echo $uniqid; ?> .shop--imovel__action{
-  position: relative;
-  width: 100%;
-  transition: all 250ms ease-in-out 0s;
+    border-radius: 3px;
+    width: 30% !important;
+    position: relative;
+    word-wrap: normal !important;
+    text-align: center !important;
+
 }
 #shop--list<?php echo $uniqid; ?> .shop--imovel__action a, #shop--list<?php echo $uniqid; ?> .shop--imovel__btn a{
   color: #fff !important;
   border: none;
   border-radius: 30px;
   padding: 6px 10px;
+  width:100% !important;
+  
 }
-#shop--list<?php echo $uniqid; ?> .shop--imovel__name a{
-  color: <?php echo $config['listagem_cor_titulo']; ?> !important;
+#shop--list<?php echo $uniqid; ?> .shop--imovel__name {
+  color: #fff !important;
+  border-radius: 30px !important;
+    padding: 6px 10px !important;
+}
+#shop--list<?php echo $uniqid; ?> .shop--imovel__info h3{
+  background-color: <?php echo $config['listagem_cor_titulo']; ?> !important;
 }
 #shop--list<?php echo $uniqid; ?> .shop--imovel__price{
   color: <?php echo $config['listagem_cor_preco']; ?> !important;
@@ -134,18 +145,19 @@
           <div class="shop--imovel__wrapper">
             <div class="shop--imovel__img">
               <a href="<?php echo $url;?>">
-                <img class="shop--imovel__primary-img" src="<?php echo RemoveHttpS(ConfigPainel('base_url')); ?>wa/imobiliaria/uploads/<?php echo $imovel['id_foto_capa']; ?>" alt="Foto Imóvel <?php echo $imovel['nome']; ?> 1">
+                <img class="shop--imovel__primary-img" src="<?php echo RemoveHttpS(ConfigPainel('base_url')); ?>wa/imobiliaria/uploads/<?php echo $imovel['id_foto_capa']; ?>" alt="Foto Im贸vel <?php echo $imovel['nome']; ?> 1">
 
                 <?php if($segunda_foto){ ?>
-                  <img class="shop--imovel__secondary-img" src="<?php echo RemoveHttpS(ConfigPainel('base_url')); ?>wa/imobiliaria/uploads/<?php echo $segunda_foto; ?>" alt="Foto Imóvel <?php echo $imovel['nome']; ?> 2">
+                  <img class="shop--imovel__secondary-img" src="<?php echo RemoveHttpS(ConfigPainel('base_url')); ?>wa/imobiliaria/uploads/<?php echo $segunda_foto; ?>" alt="Foto Im贸vel <?php echo $imovel['nome']; ?> 2">
                 <?php } ?>
               </a>
             </div>
             <div class="shop--imovel__content">
               <div class="shop--imovel__info">
-                <h4 class="shop--imovel__name">
-                   <a href="<?php echo $url;?>"><?php echo $imovel['nome']; ?></a>
-                </h4>
+                <h3 class="shop--imovel__name">
+                   <?php echo $tipos['nome']; ?>
+                   
+                </h3>
                 <div class="shop--imovel__price">
                   <?php if($imovel['a_consultar'] == 'S') {?>
                     A consultar
@@ -154,9 +166,9 @@
                   <?php } ?>
                 </div>
               </div>
-              <div class="shop--imovel__action">
-                <a class="btn btn-primary btn-lg btn-block" href="<?php echo $url;?>">Ver o Imóvel</a>
-              </div>
+              <center><div class="shop--imovel__action">
+                <a class="btn btn-primary btn-lg btn-block" href="<?php echo $url;?>">Ver o Im贸vel</a>
+              </div></center>
             </div>
             
           </div>
