@@ -1,6 +1,6 @@
 <?php
 if (isset($_GET['AdicionarItemLista'])) {
-	require_once('mobiliaria/listagens/item/add.php');
+	require_once('imobiliaria/listagens/item/add.php');
 }
 require_once('includes/funcoes.php');
 require_once('includes/header.php');
@@ -43,7 +43,7 @@ $UrlPage	 = 'imobiliaria.php';
 			<span class="dropdown">
 
 			<?php if (checkPermission($PERMISSION, $_SERVER['SCRIPT_NAME'], 'categoria')) { ?>
-				<a class="btn btn-sm btn-primary" href="#" data-toggle="dropdown">Categorias</a>
+				<a class="btn btn-sm btn-primary d-none" href="#" data-toggle="dropdown">Categorias</a>
 			<?php } ?>
 
 				<div class="dropdown-menu dropdown-menu-left" x-placement="bottom-end">
@@ -191,7 +191,7 @@ $UrlPage	 = 'imobiliaria.php';
 
 					<h5>Tags do Facebook SEO (Inserir nas Propriedades da Página em Custom meta tags):</h5>
 					<code class="form-control" rows="5" readonly>
-						&lt;meta property=&quot;og:title&quot; content=&quot;[WAC_IMOBILIARIA_IMOV_NOME]&quot; /&gt;<br />&lt;meta property=&quot;og:url&quot; content=&quot;[WAC_imobiliaria_PROD_URL]&quot; /&gt;<br />&lt;meta property=&quot;og:image&quot; content=&quot;[WAC_imobiliaria_PROD_IMAGEM_URL]&quot; /&gt;<br />&lt;meta property=&quot;og:description&quot; content=&quot;[WAC_imobiliaria_PROD_RESUMO]&quot; /&gt;
+						&lt;meta property=&quot;og:title&quot; content=&quot;[WAC_IMOBILIARIA_IMOV_NOME]&quot; /&gt;<br />&lt;meta property=&quot;og:url&quot; content=&quot;[WAC_IMOBILIARIA_IMOV_URL]&quot; /&gt;<br />&lt;meta property=&quot;og:image&quot; content=&quot;[WAC_IMOBILIARIA_IMOV_IMAGEM_URL]&quot; /&gt;<br />&lt;meta property=&quot;og:description&quot; content=&quot;[WAC_IMOBILIARIA_IMOV_RESUMO]&quot; /&gt;
 					</code>
 					<!-- <em>Atenção: Incluir no local desejado na página matriz usando o código HTML.</em> -->
 					<hr />
@@ -256,7 +256,7 @@ $UrlPage	 = 'imobiliaria.php';
 					data: data,
 					type: "POST",
 					cache: false,
-					url: "mobiliaria.php?AtualizarConfig",
+					url: "imobiliaria.php?AtualizarConfig",
 					beforeSend: function(data) {
 						swal({
 							title: 'Aguarde!',
@@ -421,8 +421,8 @@ $UrlPage	 = 'imobiliaria.php';
 					<?php } ?>
 					<?php if (isset($_GET['EditarImovel'])) { ?>
 						$('.imovel-categorias').val([<?php echo $string_ids_categorias; ?>]).change();
-						$('.imovel-prod_relacionados').val([<?php echo $string_ids_prod_relacionado; ?>]).change();
-					<?php } ?> produto
+						$('.imovel-imov_relacionados').val([<?php echo $string_ids_imov_relacionado; ?>]).change();
+					<?php } ?> 
 				});
 			</script>
 		<?php } ?>

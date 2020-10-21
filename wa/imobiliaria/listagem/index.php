@@ -96,6 +96,10 @@
 		}
 	}
 ?>
+<?php $tipo =  DBRead('imobiliaria_imov_categorias','*',"WHERE id_imovel = '{$id}'")[0]; 
+$tipos =  DBRead('imobiliaria_categorias','*',"WHERE id = '{$tipo['id_categoria']}'")[0];
+
+?>
 
 <?php if($lista['mostrar_paginacao'] == 'S'){ ?>
 	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:10px">

@@ -1,8 +1,8 @@
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
-INSERT INTO `modulos` (`nome`, `url`, `icone`, `status`, `ordem`, `tabela`, `cod_head`, `data_atualizacao`, `chave`)
-SELECT 'Imobiliária', 'imobiliaria.php', 'icon-home', 1, 0, '', 'imobiliaria/imobiliaria.js', '2019-05-07', '72b4b1d7ce2b514a981a49b1db5790a7';
+INSERT INTO `modulos` (`nome`, `url`, `icone`, `status`, `ordem`, `tabela`, `cod_head`, `data_atualizacao`, `chave`, `acao`)
+SELECT 'Imobiliária', 'imobiliaria.php', 'icon-home', 1, 0, '', 'imobiliaria/imobiliaria.js', '2019-05-07', '72b4b1d7ce2b514a981a49b1db5790a7','{\"listagem\":[\"adicionar\",\"editar\",\"deletar\"],\"categoria\":[\"adicionar\",\"editar\",\"deletar\"],\"imovel\":[\"adicionar\",\"editar\",\"deletar\"],\"codigo\":[\"acessar\"],\"configuracao\":[\"acessar\"]}';
 
 -- CATEGORIA
 CREATE TABLE IF NOT EXISTS `imobiliaria_categorias` (
@@ -40,7 +40,13 @@ CREATE TABLE IF NOT EXISTS `imobiliaria` (
   `sol` text DEFAULT NULL,
   `livre` text DEFAULT NULL,
   `metro` text DEFAULT NULL,
-
+  `ordem_manual` int(11) DEFAULT NULL,
+  `count_add_cart` int(11) DEFAULT 0,
+  `estado` varchar(255) DEFAULT NULL,
+  `cidade` varchar(255) DEFAULT NULL,
+  `bairro` varchar(255) DEFAULT NULL,
+  `rua` varchar(255) DEFAULT NULL,
+  `target_link` enum('_self','_blank') NOT NULL DEFAULT '_self'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- imovel - CATEGORIAS
@@ -74,8 +80,11 @@ CREATE TABLE IF NOT EXISTS `imobiliaria_listas` (
   `mostrar_paginacao` enum('S', 'N') DEFAULT 'N',
   `mostrar_filtro` enum('S', 'N') DEFAULT 'S',
   `paginacao` int(11),
-  `carrocel` enum('S', 'N') DEFAULT 'N'
+  `carrocel` enum('S', 'N') DEFAULT 'N',
+  `efeito` varchar(100) DEFAULT NULL,
+  `tipo` enum('1', '2', '3', '4') DEFAULT '1'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
 
 -- LISTAGEM - CATEGORIAS
 CREATE TABLE IF NOT EXISTS `imobiliaria_lista_categoria` (
@@ -145,23 +154,7 @@ INSERT INTO `imobiliaria_config` (`id`, `valor`) VALUES
 ('carrinho_cor_btns', ''),
 ('carrinho_cor_btn_finalizar', '');
 
-ALTER TABLE `imobiliaria_listas`
-ADD `efeito` varchar(100) DEFAULT NULL;
-
-ALTER TABLE `imobiliaria`
-ADD `target_link` enum('_self','_blank') NOT NULL DEFAULT '_self';
-
-ALTER TABLE `imobiliaria`
-ADD `ordem_manual` int(11);
-
-ALTER TABLE `imobiliaria_listas`
-ADD `tipo` enum('1', '2', '3', '4') DEFAULT '1';
-
-ALTER TABLE `imobiliaria`
-ADD `count_add_cart` int(11) DEFAULT 0;
-
-UPDATE `modulos` SET `acao` = "{\"listagem\":[\"adicionar\",\"editar\",\"deletar\"],\"categoria\":[\"adicionar\",\"editar\",\"deletar\"],\"imovel\":[\"adicionar\",\"editar\",\"deletar\"],\"codigo\":[\"acessar\"],\"configuracao\":[\"acessar\"]}" WHERE `modulos`.`url` = 'imobiliaria.php';
-
+INSERT INTO `imobiliaria_categorias` (`id`, `nome`, `descricao`) VALUES (NULL, 'Apartamento', NULL), (NULL, 'Área / Terreno', NULL), (NULL, 'Casa', NULL), (NULL, 'Chácara / Sítio', NULL), (NULL, 'Edifício', NULL), (NULL, 'Lote', NULL), (NULL, 'Andar', NULL), (NULL, 'Box/ Garagem ', NULL), (NULL, 'Galpão / Armazém', NULL), (NULL, 'Loja', NULL), (NULL, 'Loja Shopping', NULL), (NULL, 'Prédio Comercial', NULL), (NULL, 'Sala / Conjunto', NULL), (NULL, 'Salão', NULL), (NULL, 'Sobreloja', NULL);
 INSERT INTO `imobiliaria_config` (`id`, `valor`) VALUES ('moeda', 'R&#x00024;');
 INSERT INTO `imobiliaria_config` (`id`, `valor`) VALUES ('tipo_orcamento', 'email');
 INSERT INTO `imobiliaria_config` (`id`, `valor`) VALUES ('whatsapp', '5511912345678');

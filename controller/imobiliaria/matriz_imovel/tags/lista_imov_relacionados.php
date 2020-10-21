@@ -1,7 +1,7 @@
 <?php ob_start(); ?>
 
 <div id="ImobiliariaRelacionadosListagem" ></div>
-<script type="text/javascript">ImobiliariaRelacionadosListagem(<?php echo $produto['id']; ?>,1);</script>
+<script type="text/javascript">ImobiliariaRelacionadosListagem(<?php echo $imovel['id']; ?>,1);</script>
               
 <?php
 $html = ob_get_clean();

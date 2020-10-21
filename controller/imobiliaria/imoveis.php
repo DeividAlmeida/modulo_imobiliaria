@@ -27,18 +27,19 @@ if (isset($_GET['AddImovel'])) {
   $data = array(
     'nome'            => post('nome'),
     'descricao'       => post('descricao'),
-    'resumo'          => post('resumo'),
     'codigo'          => post('codigo'),
     'url'             => post('url'),
     'palavras_chave'  => post('palavras_chave'),
     'preco'           => post('preco'),
+    'resumo'           => post('resumo'),
     'etiqueta'        => post('etiqueta'),
     'etiqueta_cor'    => post('etiqueta_cor'),
     'a_consultar'     => post('a_consultar'),
     'tipo'            => post('tipo'),
     'link_venda'      => post('link_venda'),
     'btn_texto'       => post('btn_texto'),
-    #'target_link'     => post('target_link'),
+    'target_link'     => post('target_link'),
+    'ordem_manual'    => post('ordem_manual'),
     'tamanho'         => post('tamanho'),
     'quartos'         => post('quartos'),
     'andar'           => post('andar'),
@@ -47,6 +48,11 @@ if (isset($_GET['AddImovel'])) {
     'pet'             => post('pet'),
     'sol'             => post('sol'),
     'livre'           => post('livre'),
+    'mobiliado'       => post('mobiliado'),
+    'estado'          => post('estado'),
+    'cidade'          => post('cidade'),
+    'bairro'          => post('bairro'),
+    'rua'             => post('rua'),
     'metro'           => post('metro')
   );
 
@@ -131,7 +137,7 @@ if (isset($_GET['AtualizarImovel'])) {
     'tipo'            => post('tipo'),
     'link_venda'      => post('link_venda'),
     'btn_texto'       => post('btn_texto'),
-    #'target_link'     => post('target_link'),
+    'target_link'     => post('target_link'),
     'ordem_manual'    => post('ordem_manual'),
     'tamanho'         => post('tamanho'),
     'quartos'         => post('quartos'),
@@ -141,6 +147,11 @@ if (isset($_GET['AtualizarImovel'])) {
     'pet'             => post('pet'),
     'sol'             => post('sol'),
     'livre'           => post('livre'),
+    'mobiliado'       => post('mobiliado'),
+    'estado'          => post('estado'),
+    'cidade'          => post('cidade'),
+    'bairro'          => post('bairro'),
+    'rua'             => post('rua'),
     'metro'           => post('metro')
 
   );

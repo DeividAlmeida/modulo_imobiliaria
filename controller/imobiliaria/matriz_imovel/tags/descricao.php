@@ -7,7 +7,7 @@ ob_start();
 }
 </style>
 <div class="shop--imovel-page__description">
-  <?php echo $produto['descricao']; ?>
+  <?php echo $imovel['descricao']; ?>
 </div>
 <?php
 $descricao = ob_get_clean();

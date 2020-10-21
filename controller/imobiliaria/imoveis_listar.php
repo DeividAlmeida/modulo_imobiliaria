@@ -35,7 +35,7 @@ $columns      = array(
     'db' => 'id_imagem_capa',
     'dt' => 2,
     'formatter' => function ($id_imagem_capa, $row) {
-      $query_foto = DBRead('imobiliaria_prod_imagens', '*', "WHERE id = '{$id_imagem_capa}'");
+      $query_foto = DBRead('imobiliaria_imov_imagens', '*', "WHERE id = '{$id_imagem_capa}'");
       $id_foto    = $query_foto[0]['uniq'];
       ob_start();
 ?>

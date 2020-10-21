@@ -2,7 +2,7 @@ function CountProductView(id) {
   $.ajax({
     type: "GET",
     cache: false,
-    url: UrlPainel + 'wa/imobiliaria/imovel/count_view.php?id=' + id
+    url: UrlPainel + 'wa/imobiliaria/imoveis/count_view.php?id=' + id
   });
 }
 function ImobiliariaRelacionadosListagem(id) {

@@ -39,19 +39,19 @@ $string_ids_categorias = implode(",", $ids_categorias);
 
 
 // Buscando as categorias do imovel
-$lista_ids_prod_relacionado = DBRead('imobiliaria_imov_relacionados', 'id_imovel_relacionado', "WHERE id_imovel = {$id}");
+$lista_ids_imov_relacionado = DBRead('imobiliaria_imov_relacionados', 'id_imovel_relacionado', "WHERE id_imovel = {$id}");
 
-// Varre todos os ID de prod_relacionado d a lista, cria uma array, e transforma logo em seguida em uma string
-$ids_prod_relacionado = array();
-if(is_array($lista_ids_prod_relacionado)){
-  foreach ($lista_ids_prod_relacionado as $linha) {
-    array_push($ids_prod_relacionado, $linha['id_imovel_relacionado']);
+// Varre todos os ID de imov_relacionado d a lista, cria uma array, e transforma logo em seguida em uma string
+$ids_imov_relacionado = array();
+if(is_array($lista_ids_imov_relacionado)){
+  foreach ($lista_ids_imov_relacionado as $linha) {
+    array_push($ids_imov_relacionado, $linha['id_imovel_relacionado']);
   }
 }
-$string_ids_prod_relacionado  = implode(",", $ids_prod_relacionado);
+$string_ids_imov_relacionado  = implode(",", $ids_imov_relacionado);
 
 if (is_array($query)) { ?>
-  <form method="post" action="?Atualizarimovel=<?php echo $id; ?>" enctype="multipart/form-data">
+  <form method="post" action="?AtualizarImovel=<?php echo $id; ?>" enctype="multipart/form-data">
     <div class="card">
       <div class="card-header  white">
         <strong>Editar Imóvel</strong>
@@ -93,7 +93,7 @@ if (is_array($query)) { ?>
             <!-- `categorias` -->
             <div class="form-group">
               <label>Categorias: </label>
-              <select class="form-control imovel-categorias" name="categorias[]" multiple="multiple" >
+              <select class="form-control imovel-categorias" name="categorias[]" multiple="multiple" required>
                 <?php foreach($categorias as $categoria){ ?>
                   <option value="<?php echo $categoria['id']; ?>"><?php echo $categoria['nome']; ?></option>
                 <?php } ?>
@@ -108,7 +108,7 @@ if (is_array($query)) { ?>
 
             <div class="form-group">
               <label>Imóveis Relacionados: </label>
-              <select class="form-control imovel-prod_relacionados" name="imoveis_relacionados[]" multiple="multiple">
+              <select class="form-control imovel-imov_relacionados" name="imoveis_relacionados[]" multiple="multiple">
                 <?php foreach($imoveis as $imoveis){ ?>
                   <option value="<?php echo $imoveis['id']; ?>"><?php echo $imoveis['nome']; ?></option>
                 <?php } ?>
@@ -138,9 +138,67 @@ if (is_array($query)) { ?>
             <input class="form-control" name="banheiros" type="number" required min="0" step="any" value="<?php echo $dados['banheiros'];?>">
           </div>
         </div>
-      </div><br>
+      </div>      
       <div class="row">
-
+        <div class="col-md-3">
+            <!-- `estado` varchar(255) DEFAULT NULL -->
+          <div class="form-group">
+            <label>Estado: </label>
+            <select name="estado" class="form-control custom-select">
+                <option value="" disabled selected>Estado da sua loja física</option>
+                <option value="AC" <?php Selected($dados['estado'], "AC"); ?>>Acre</option>
+                <option value="AL" <?php Selected($dados['estado'], "AL"); ?>>Alagoas</option>
+                <option value="AP" <?php Selected($dados['estado'], "AP"); ?>>Amapá</option>
+                <option value="AM" <?php Selected($dados['estado'], "AM"); ?>>Amazonas</option>
+                <option value="BA" <?php Selected($dados['estado'], "BA"); ?>>Bahia</option>
+                <option value="CE" <?php Selected($dados['estado'], "CE"); ?>>Ceará</option>
+                <option value="DF" <?php Selected($dados['estado'], "DF"); ?>>Distrito Federal</option>
+                <option value="ES" <?php Selected($dados['estado'], "ES"); ?>>Espírito Santo</option>
+                <option value="GO" <?php Selected($dados['estado'], "GO"); ?>>Goiás</option>
+                <option value="MA" <?php Selected($dados['estado'], "MA"); ?>>Maranhão</option>
+                <option value="MT" <?php Selected($dados['estado'], "MT"); ?>>Mato Grosso</option>
+                <option value="MS" <?php Selected($dados['estado'], "MS"); ?>>Mato Grosso do Sul</option>
+                <option value="MG" <?php Selected($dados['estado'], "MG"); ?>>Minas Gerais</option>
+                <option value="PA" <?php Selected($dados['estado'], "PA"); ?>>Pará</option>
+                <option value="PB" <?php Selected($dados['estado'], "PB"); ?>>Paraíba</option>
+                <option value="PR" <?php Selected($dados['estado'], "PR"); ?>>Paraná</option>
+                <option value="PE" <?php Selected($dados['estado'], "PE"); ?>>Pernambuco</option>
+                <option value="PI" <?php Selected($dados['estado'], "PI"); ?>>Piauí</option>
+                <option value="RJ" <?php Selected($dados['estado'], "RJ"); ?>>Rio de Janeiro</option>
+                <option value="RN" <?php Selected($dados['estado'], "RN"); ?>>Rio Grande do Norte</option>
+                <option value="RS" <?php Selected($dados['estado'], "RS"); ?>>Rio Grande do Sul</option>
+                <option value="RO" <?php Selected($dados['estado'], "RO"); ?>>Rondônia</option>
+                <option value="RR" <?php Selected($dados['estado'], "RR"); ?>>Roraima</option>
+                <option value="SC" <?php Selected($dados['estado'], "SC"); ?>>Santa Catarina</option>
+                <option value="SP" <?php Selected($dados['estado'], "SP"); ?>>São Paulo</option>
+                <option value="SE" <?php Selected($dados['estado'], "SE"); ?>>Sergipe</option>
+                <option value="TO" <?php Selected($dados['estado'], "TO"); ?>>Tocantins</option>
+            </select>
+          </div>        
+        </div>
+            <!-- `cidade` varchar(255) DEFAULT NULL -->
+            <div class="col-md-3">
+              <div class="form-group">
+                <label>Cidade: </label>
+                <input class="form-control" name="cidade" required value="<?php echo $dados['cidade'];?>">
+              </div>        
+            </div>
+            <!-- `bairro` varchar(255) DEFAULT NULL -->
+            <div class="col-md-3">
+              <div class="form-group">
+                <label>Bairro: </label>
+                <input class="form-control" name="bairro" required value="<?php echo $dados['bairro'];?>">
+              </div>        
+            </div>
+            <!-- `rua` varchar(255) DEFAULT NULL -->
+            <div class="col-md-3">
+              <div class="form-group">
+                <label>Rua: </label>
+                <input class="form-control" name="rua" required value="<?php echo $dados['rua'];?>">
+              </div>        
+            </div>
+        </div> <br>
+      <div class="row">
 			<!-- `garagem` text DEFAULT NULL -->
        <div class="col-md-2">
   				<input type="checkbox" <?php echo $dados['garagem'];?> name="garagem" id="garagem" value="checked" >
@@ -263,7 +321,7 @@ if (is_array($query)) { ?>
                   <tr id='foto-<?php echo $foto['id']; ?>'>
           					<td><img src="<?php echo RemoveHttpS(ConfigPainel('base_url'))."wa/imobiliaria/uploads/".$foto['uniq']; ?>" height="100"/></td>
           					<td><input class='form-check-input' name='capa' type='radio' value='old-<?php echo $foto['id']; ?>' required  <?php Checked($dados['id_imagem_capa'], $foto['id']); ?>> Capa do imovel</td>
-          					<td><button type='button' class='imovel-rem-form btn btn-sm btn-danger float-right' onclick="ExcluirFotoimovel(<?php echo $foto['id']; ?>);">Excluir</button></td>
+          					<td><button type='button' class='imovel-rem-form btn btn-sm btn-danger float-right' onclick="ExcluirFotoImovel(<?php echo $foto['id']; ?>);">Excluir</button></td>
           				</tr>
                 <?php } } ?>
               </tbody>

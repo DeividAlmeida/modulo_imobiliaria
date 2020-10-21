@@ -1,3 +1,3 @@
 <?php
 
-$matriz = str_replace('[WAC_IMOBILIARIA_IMOV_RESUMO]', $produto['resumo'], $matriz);
+$matriz = str_replace('[WAC_IMOBILIARIA_IMOV_RESUMO]', $imovel['resumo'], $matriz);

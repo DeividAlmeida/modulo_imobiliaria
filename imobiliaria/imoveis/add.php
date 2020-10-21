@@ -46,7 +46,7 @@
           <!-- `categorias` -->
           <div class="form-group">
             <label>Categorias: </label>
-            <select class="form-control imovel-categorias" name="categorias[]" multiple="multiple" >
+            <select class="form-control imovel-categorias" name="categorias[]" multiple="multiple" required>
               <?php foreach($categorias as $categoria){ ?>
                 <option value="<?php echo $categoria['id']; ?>"><?php echo $categoria['nome']; ?></option>
               <?php } ?>
@@ -92,9 +92,67 @@
             <input class="form-control" name="banheiros" type="number" required min="0" step="any" >
           </div>
         </div>
-      </div><br>
+      </div>
       <div class="row">
-
+        <div class="col-md-3">
+          <!-- `estado` varchar(255) DEFAULT NULL -->
+          <div class="form-group">
+                <label>Estado: </label>
+                <select name="estado" class="form-control custom-select" required>
+                    <option value="" disabled selected>Estado</option>
+                    <option value="AC" >Acre</option>
+                    <option value="AL" >Alagoas</option>
+                    <option value="AP" >Amapá</option>
+                    <option value="AM" >Amazonas</option>
+                    <option value="BA" >Bahia</option>
+                    <option value="CE" >Ceará</option>
+                    <option value="DF" >Distrito Federal</option>
+                    <option value="ES" >Espírito Santo</option>
+                    <option value="GO" >Goiás</option>
+                    <option value="MA" >Maranhão</option>
+                    <option value="MT" >Mato Grosso</option>
+                    <option value="MS" >Mato Grosso do Sul</option>
+                    <option value="MG" >Minas Gerais</option>
+                    <option value="PA" >Pará</option>
+                    <option value="PB" >Paraíba</option>
+                    <option value="PR" >Paraná</option>
+                    <option value="PE" >Pernambuco</option>
+                    <option value="PI" >Piauí</option>
+                    <option value="RJ" >Rio de Janeiro</option>
+                    <option value="RN" >Rio Grande do Norte</option>
+                    <option value="RS" >Rio Grande do Sul</option>
+                    <option value="RO" >Rondônia</option>
+                    <option value="RR" >Roraima</option>
+                    <option value="SC" >Santa Catarina</option>
+                    <option value="SP" >São Paulo</option>
+                    <option value="SE" >Sergipe</option>
+                    <option value="TO" >Tocantins</option>
+                </select>
+              </div>
+            </div>
+            <!-- `cidade` varchar(255) DEFAULT NULL -->
+            <div class="col-md-3">
+              <div class="form-group">
+                <label>Cidade: </label>
+                <input class="form-control" name="cidade" required>
+              </div>        
+            </div>
+            <!-- `bairro` varchar(255) DEFAULT NULL -->
+            <div class="col-md-3">
+              <div class="form-group">
+                <label>Bairro: </label>
+                <input class="form-control" name="bairro" required>
+              </div>        
+            </div>
+            <!-- `rua` varchar(255) DEFAULT NULL -->
+            <div class="col-md-3">
+              <div class="form-group">
+                <label>Rua: </label>
+                <input class="form-control" name="rua" required>
+              </div>        
+            </div>
+        </div> <br>       
+      <div class="row">
 			<!-- `garagem` text DEFAULT NULL -->
        <div class="col-md-2">
   				<input type="checkbox" name="garagem" id="garagem" value="checked" >
@@ -196,7 +254,7 @@
           <!-- `ordem_manual` int(11) -->
           <div class="form-group">
             <label>Ordem Manual: </label>
-            <input class="form-control" name="ordem_manual" type="number">
+            <input class="form-control" name="ordem_manual" type="number" value="0">
           </div>
         </div>
         <div class="col-md-12">
