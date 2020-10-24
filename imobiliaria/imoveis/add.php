@@ -20,7 +20,7 @@
           <!-- `descricao` text DEFAULT NULL -->
           <div class="form-group">
             <label>Descrição: </label>
-            <textarea class="form-control tinymce" name="descricao"></textarea>
+            <textarea class="form-control tinymce" name="descricao_imov"></textarea>
           </div>
         </div>
         <div class="col-md-6">
@@ -58,6 +58,29 @@
             <label>Preço: </label>
             <input class="form-control" name="preco" type="number" required min="0" step="0.01">
           </div>
+          
+            <div id="input_group">
+              <button type="button" class="btn btn-primary btnAdd" style="margin-bottom: 15px;"><i class="icons icon-plus"></i></button>  
+              <div class="groupItens">
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <label for="usuario">Descrição:</label>
+                      <input  type="text" name="descricao[]" min="0" step="0.01" class="form-control" placeholder="Ex.: IPTU"  >
+                    </div>
+                    <div class="col-md-4">
+                      <label for="usuario">Valor:</label>
+                      <input  type="number" name="taxa[]" min="0" step="0.01" class="form-control" placeholder="Ex.: 99.99"  >
+                    </div>
+                    <div class="col-md-2">
+                      <label ></label><br>
+                        <a type="submit"  class="form-control btn btn-danger btnRemove" style="display: inline !important;"><i class="icon-trash"></i></a>
+                    </div> 
+                  </div>    
+                </div>
+              </div> 
+            </div>
+          
 						<!-- `preco` decimal(10,2) NOT NULL -->
           <div class="form-group">
             <label>Imóveis Relacionados: </label>
@@ -232,13 +255,18 @@
 
           <!-- `link_venda` varchar(255) DEFAULT NULL -->
           <div class="form-group">
-            <label>Link venda: </label>
-            <input class="form-control" name="link_venda" disabled>
+            <label>Link contato: </label>
+            <input class="form-control" name="link_venda" >
+          </div>
+
+          <div class="form-group">
+            <label>Link mapa: </label>
+            <input class="form-control" name="link_mapa" >
           </div>
 
           <!-- `target_link` enum('_self','_blank') NOT NULL DEFAULT '_self' -->
           <div class="form-group">
-            <label>Abrir link em: </label>
+            <label>Abrir links em: </label>
             <select name="target_link" required class="form-control custom-select">
               <option value="_blank" selected>Nova Aba</option>
               <option value="_self">Mesma aba</option>
@@ -246,9 +274,9 @@
           </div>
 
           <!-- `btn_texto` varchar(255) DEFAULT NULL -->
-          <div class="form-group">
+          <div class="form-group d-none">
             <label>Texto do Botão: </label>
-            <input class="form-control" name="btn_texto" required>
+            <input class="form-control" name="btn_texto" >
           </div>
 
           <!-- `ordem_manual` int(11) -->

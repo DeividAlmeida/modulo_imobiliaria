@@ -324,6 +324,7 @@ $UrlPage	 = 'imobiliaria.php';
 		<?php if (isset($_GET['AdicionarImovel']) || isset($_GET['EditarImovel'])) { ?>
 			<script type="text/javascript" src="css_js/speakingurl.min.js"></script>
 			<script type="text/javascript" src="css_js/jquery.stringtoslug.min.js"></script>
+			<script src="css_js/jquery.multifield.min.js"></script>
 			<script type="text/javascript">
 				// Função: Gerador de ID único
 				var ID = function() {
@@ -415,6 +416,20 @@ $UrlPage	 = 'imobiliaria.php';
 								required: true
 							});
 						}
+					});
+					$( document ).ready(function() {
+						$('#input_group').multifield({
+							section: '.groupItens',
+							btnAdd:'.btnAdd',
+							btnRemove:'.btnRemove',
+							locale:{
+							"multiField": {
+								"messages": {
+								"removeConfirmation": "Deseja realmente remover este campo?"
+								}
+							}
+							}
+						});
 					});
 					<?php if (isset($_GET['AdicionarImovel'])) { ?>
 						addLinhaFotoImovel();

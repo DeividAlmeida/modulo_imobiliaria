@@ -26,6 +26,7 @@ CREATE TABLE IF NOT EXISTS `imobiliaria` (
   `a_consultar` enum('S', 'N') DEFAULT 'N',
   `tipo` enum('orcamento', 'venda') NOT NULL,
   `link_venda` varchar(255) DEFAULT NULL,
+  `link_mapa` varchar(255) DEFAULT NULL,
   `id_imagem_capa` int(11) DEFAULT NULL,
   `btn_texto` varchar(255) DEFAULT NULL,
   `click` int(11) DEFAULT 0,
@@ -46,6 +47,7 @@ CREATE TABLE IF NOT EXISTS `imobiliaria` (
   `cidade` varchar(255) DEFAULT NULL,
   `bairro` varchar(255) DEFAULT NULL,
   `rua` varchar(255) DEFAULT NULL,
+  `taxas` text DEFAULT NULL,
   `target_link` enum('_self','_blank') NOT NULL DEFAULT '_self'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -154,7 +156,7 @@ INSERT INTO `imobiliaria_config` (`id`, `valor`) VALUES
 ('carrinho_cor_btns', ''),
 ('carrinho_cor_btn_finalizar', '');
 
-INSERT INTO `imobiliaria_categorias` (`id`, `nome`, `descricao`) VALUES (NULL, 'Apartamento', NULL), (NULL, 'Área / Terreno', NULL), (NULL, 'Casa', NULL), (NULL, 'Chácara / Sítio', NULL), (NULL, 'Edifício', NULL), (NULL, 'Lote', NULL), (NULL, 'Andar', NULL), (NULL, 'Box/ Garagem ', NULL), (NULL, 'Galpão / Armazém', NULL), (NULL, 'Loja', NULL), (NULL, 'Loja Shopping', NULL), (NULL, 'Prédio Comercial', NULL), (NULL, 'Sala / Conjunto', NULL), (NULL, 'Salão', NULL), (NULL, 'Sobreloja', NULL);
+INSERT INTO `imobiliaria_categorias` (`id`, `nome`, `descricao`) VALUES (1, 'Apartamento', NULL), (2, 'Área / Terreno', NULL), (3, 'Casa', NULL), (4, 'Chácara / Sítio', NULL), (5, 'Edifício', NULL), (6, 'Lote', NULL), (7, 'Andar', NULL), (8, 'Box/ Garagem ', NULL), (9, 'Galpão / Armazém', NULL), (10, 'Loja', NULL), (11, 'Loja Shopping', NULL), (12, 'Prédio Comercial', NULL), (13, 'Sala / Conjunto', NULL), (14, 'Salão', NULL), (15, 'Sobreloja', NULL);
 INSERT INTO `imobiliaria_config` (`id`, `valor`) VALUES ('moeda', 'R&#x00024;');
 INSERT INTO `imobiliaria_config` (`id`, `valor`) VALUES ('tipo_orcamento', 'email');
 INSERT INTO `imobiliaria_config` (`id`, `valor`) VALUES ('whatsapp', '5511912345678');

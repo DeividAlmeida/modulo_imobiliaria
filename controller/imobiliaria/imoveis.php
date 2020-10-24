@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 //
 // imovel
 //
@@ -24,9 +25,21 @@ function deletarimovel($id){
 
 // Adicionar imovel
 if (isset($_GET['AddImovel'])) {
+  if(isset($_POST['taxa'])){
+    foreach($_POST['taxa'] as $taxas){
+      $taxas += $taxas;
+    }
+    $ttl = $taxas + $_POST['preco'];
+    $_POST['total'] = [$ttl];
+ 
+  $resources = array_combine(array_keys($_POST['descricao']), array_map(function ($descricao, $taxa, $total) {
+    return compact('descricao', 'taxa', 'total');
+    },$_POST['descricao'], $_POST['taxa'], $_POST['total']));
+    $_POST['taxas'] = json_encode($resources, JSON_FORCE_OBJECT);
+ }
   $data = array(
     'nome'            => post('nome'),
-    'descricao'       => post('descricao'),
+    'descricao'       => post('descricao_imov'),
     'codigo'          => post('codigo'),
     'url'             => post('url'),
     'palavras_chave'  => post('palavras_chave'),
@@ -37,6 +50,7 @@ if (isset($_GET['AddImovel'])) {
     'a_consultar'     => post('a_consultar'),
     'tipo'            => post('tipo'),
     'link_venda'      => post('link_venda'),
+    'link_mapa'      => post('link_mapa'),
     'btn_texto'       => post('btn_texto'),
     'target_link'     => post('target_link'),
     'ordem_manual'    => post('ordem_manual'),
@@ -53,6 +67,7 @@ if (isset($_GET['AddImovel'])) {
     'cidade'          => post('cidade'),
     'bairro'          => post('bairro'),
     'rua'             => post('rua'),
+    'taxas'           => $_POST['taxas'],
     'metro'           => post('metro')
   );
 
@@ -122,10 +137,22 @@ if (isset($_GET['AddImovel'])) {
 
 // Atualizar imovel
 if (isset($_GET['AtualizarImovel'])) {
+  if(isset($_POST['taxa'])){
+    foreach($_POST['taxa'] as $taxas){
+      $taxas += $taxas;
+    }
+    $ttl = $taxas + $_POST['preco'];
+    $_POST['total'] = [$ttl];
+ 
+  $resources = array_combine(array_keys($_POST['descricao']), array_map(function ($descricao, $taxa, $total) {
+    return compact('descricao', 'taxa', 'total');
+    },$_POST['descricao'], $_POST['taxa'], $_POST['total']));
+    $_POST['taxas'] = json_encode($resources, JSON_FORCE_OBJECT);
+ }
   $id_imovel   = get('AtualizarImovel');
   $data = array(
     'nome'            => post('nome'),
-    'descricao'       => post('descricao'),
+    'descricao'       => post('descricao_imov'),
     'codigo'          => post('codigo'),
     'url'             => post('url'),
     'palavras_chave'  => post('palavras_chave'),
@@ -136,6 +163,7 @@ if (isset($_GET['AtualizarImovel'])) {
     'a_consultar'     => post('a_consultar'),
     'tipo'            => post('tipo'),
     'link_venda'      => post('link_venda'),
+    'link_mapa'      => post('link_mapa'),
     'btn_texto'       => post('btn_texto'),
     'target_link'     => post('target_link'),
     'ordem_manual'    => post('ordem_manual'),
@@ -152,6 +180,7 @@ if (isset($_GET['AtualizarImovel'])) {
     'cidade'          => post('cidade'),
     'bairro'          => post('bairro'),
     'rua'             => post('rua'),
+    'taxas'           => $_POST['taxas'],
     'metro'           => post('metro')
 
   );

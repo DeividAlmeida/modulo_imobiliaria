@@ -52,15 +52,15 @@
   font-size: 14px;
   font-weight: 550;
   margin: 0;
-  padding: 0  0 15px 0  ;
-  clear: both;
+  padding: 7px 0 15px 0;
   width:100%;
-  height:10px;
+  height:30px;
+overflow:hidden;
 }
 #shop--list<?php echo $uniqid; ?> .shop--imovel__andress{
   color: #bababa;
   font-size: 16px;
-  margin: 50px 0 0 0;
+  margin: 10px 0 0 0;
   padding:  0  0 3px;
   clear: both;
   position:relative;
@@ -70,8 +70,7 @@
   color: #000;
   font-size: 16px;
   margin: 0;
-  padding:  0  0 15px;
-  clear: both;
+
 }
 #shop--list<?php echo $uniqid; ?> .shop--imovel__rooms .fa-bed{
   margin: 0 10px 0;
@@ -132,6 +131,18 @@ padding-right:5px;
     position: relative;
     word-wrap: normal !important;
 
+
+}
+
+#shop--list<?php echo $uniqid; ?> .shop--imovel__info ul {
+    padding:0px;
+    margin:0px;
+
+    display: inline;
+}
+#shop--list<?php echo $uniqid; ?> .shop--imovel__info li {
+display: inline;
+margin-right: 10px;
 
 }
  #shop--list<?php echo $uniqid; ?> .shop--imovel__action{
@@ -197,7 +208,6 @@ $tipos =  DBRead('imobiliaria_categorias','*',"WHERE id = '{$tipo['id_categoria'
           $segunda_foto = false;
         }
       ?>
-      
         <div class="shop--imovel col-lg-12 trimText">
           <div class="shop--imovel__wrapper">
             <div class="shop--imovel__img col-lg-6">
@@ -219,6 +229,11 @@ $tipos =  DBRead('imobiliaria_categorias','*',"WHERE id = '{$tipo['id_categoria'
               <?php } ?>
             </div>                
               <div class="shop--imovel__info">
+                    <ul>
+                      <?php $plus = json_decode($imovel['taxas'], true); if(is_array($plus)): foreach($plus as $key => $taxas):  ?>
+                       <li><?php echo $taxas['descricao'].' '. $config['moeda'].' '.number_format($taxas['taxa'],2,",",".") ?></li>
+                       <?php endforeach; endif; ?>
+                    </ul>
                 <div class="shop--imovel__resume">
                      <?php echo $imovel['resumo'];  ?>
                 </div>

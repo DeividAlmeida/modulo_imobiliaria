@@ -1,6 +1,7 @@
 <?php
 ob_start();
 ?>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
   <link rel="stylesheet" href="<?php echo RemoveHttpS(ConfigPainel('base_url')); ?>wa/imobiliaria/assets/css/slick.css" type="text/css" />
   <link rel="stylesheet" href="<?php echo RemoveHttpS(ConfigPainel('base_url')); ?>wa/imobiliaria/assets/css/slick-theme.css" type="text/css" />
   <link rel="stylesheet" href="<?php echo RemoveHttpS(ConfigPainel('base_url')); ?>wa/imobiliaria/assets/css/imovel.css" type="text/css" />
