@@ -8,6 +8,19 @@
   $id 		= get('id');
   $pag 		= (isset($_GET['pag']))? $_GET['pag'] : 1;
 	$uniqid = uniqid();
+	
+    $acao = "AND imobiliaria.acao = ".$_GET['acao'];
+    $tipo = "AND imobiliaria.tipo = ".$_GET['tipo'];
+    $cidade = "AND imobiliaria.cidade = ".$_GET['cidade'];
+    $bairro = "AND imobiliaria.bairro = ".$_GET['bairro'];
+    $quartos = "AND imobiliaria.quartos = ".$_GET['quartos'];
+    $banheiro = "AND imobiliaria.banheiros = ".$_GET['banheiros'];
+    $garagem = "AND imobiliaria.garagem = ".$_GET['garagem'];
+    $mobiliado = "AND imobiliaria.mobiliado = ".$_GET['mobiliado'];
+    $pet = "AND imobiliaria.pet = ".$_GET['pet'];
+    $sol = "AND imobiliaria.garagem = ".$_GET['garagem'];
+    $livre = "AND imobiliaria.livre = ".$_GET['livre'];
+    $metro = "AND imobiliaria.metro = ".$_GET['metro'];
 
   if (ModoManutencao()) { header("Location: ../manutencao.php"); }
 
@@ -95,10 +108,6 @@
 				break;
 		}
 	}
-?>
-<?php $tipo =  DBRead('imobiliaria_imov_categorias','*',"WHERE id_imovel = '{$id}'")[0]; 
-$tipos =  DBRead('imobiliaria_categorias','*',"WHERE id = '{$tipo['id_categoria']}'")[0];
-
 ?>
 
 <?php if($lista['mostrar_paginacao'] == 'S'){ ?>

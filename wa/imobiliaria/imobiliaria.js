@@ -1,13 +1,27 @@
 function ImobiliariaListagem(id, pag){
+    a="a";
+    let acao = a;
+    let tipo = a;
+    let cidade = a;
+    let bairro = a;
+    let quartos = a;
+    let banheiro = a;
+    let garagem = a;
+    let mobiliado = a;
+    let pet = a;
+    let sol = a;
+    let livre = a;
+    let metro = a;
   $.ajax({
     type: "GET",
     cache: false,
-    url: UrlPainel+'wa/imobiliaria/listagem?id='+id+'&pag='+pag,
+    url: UrlPainel+'wa/imobiliaria/listagem?id='+id+'&pag='+pag+'&acao='+acao+'&tipo='+tipo+'&cidade='+cidade+'&bairro='+bairro+'&quartos='+quartos+'&banheiro='+banheiro+'&garagem='+garagem+'&mobiliado='+mobiliado+'&pet='+pet+'&sol='+sol+'&livre='+livre+'&metro='+metro,
     beforeSend: function (data){
       //$("#SimpleSlideWA"+id).html("<center><br><img src=\""+UrlPainel+"wa/css_js/loading.gif\"><br>Carregando...<br></center>");
     },
     success: function (data) {
       jQuery('#ImobiliariaListagem'+id).html(data);
+
     },
     error: function (data) {
       setTimeout(function(){ ImobiliariaListagem(id, pag); }, 5000);

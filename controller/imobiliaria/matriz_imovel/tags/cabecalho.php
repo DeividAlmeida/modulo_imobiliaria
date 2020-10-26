@@ -220,13 +220,13 @@ ob_start();
                  Aceita pet 
             </i>
             <i class="fa fa-sun-o sol" aria-hidden="true" algo="Sol da manhã"> 
-                 Sol do amanhecer
+                 <span id="sol"></span>
             </i><br>
             <i class="fa fa-picture-o livre" aria-hidden="true"> 
                  Vista livre 
             </i>
             <i class="fa fa-train metro" aria-hidden="true"> 
-                 Transporte coletivo prox.
+                 <span id="metro"></span>
             </i>
         </div>
     </div>
@@ -278,7 +278,18 @@ ob_start();
     </div>
   </div>
 </div>
+<script>
+window.onload = function(){
+    fetch('<?php echo ConfigPainel('base_url')."wa/imobiliaria/imoveis/api.json";?>').then((response)=>{
+        response.json().then(data =>{
+            document.getElementById('sol').innerHTML= data.Sol;
+            document.getElementById('metro').innerHTML= data.metro;
+        });
+    });
+    
+};
 
+</script>
 <?php
 $cabecalho  = ob_get_clean();
 $matriz     = str_replace('[WAC_IMOBILIARIA_IMOV_CABECALHO]', $cabecalho, $matriz);

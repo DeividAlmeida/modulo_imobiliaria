@@ -347,8 +347,17 @@ if (is_array($query)) { ?>
               <input class="form-control" name="btn_texto"  value="<?php echo $dados['btn_texto'];?>">
             </div>
 
+          <!-- `acao` varchar(255) DEFAULT NULL DEFAULT '_self' -->
+          <div class="form-group">
+            <label>Ação: </label>
+            <select name="acao" required class="form-control custom-select">
+              <option value="alugar" <?php Selected($dados['acao'], "alugar"); ?>>Alugar</option>
+              <option value="comprar" <?php Selected($dados['acao'], "comprar"); ?>>Vender</option>
+            </select>
+          </div>
+
             <!-- `ordem_manual` int(11) -->
-            <div class="form-group">
+            <div class="form-group d-none">
               <label>Ordem Manual: </label>
               <input class="form-control" name="ordem_manual" type="number" value="<?php echo $dados['ordem_manual'];?>">
             </div>

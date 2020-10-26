@@ -48,6 +48,7 @@ CREATE TABLE IF NOT EXISTS `imobiliaria` (
   `bairro` varchar(255) DEFAULT NULL,
   `rua` varchar(255) DEFAULT NULL,
   `taxas` text DEFAULT NULL,
+  `acao` varchar(255) DEFAULT NULL,
   `target_link` enum('_self','_blank') NOT NULL DEFAULT '_self'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -156,7 +157,7 @@ INSERT INTO `imobiliaria_config` (`id`, `valor`) VALUES
 ('carrinho_cor_btns', ''),
 ('carrinho_cor_btn_finalizar', '');
 
-INSERT INTO `imobiliaria_categorias` (`id`, `nome`, `descricao`) VALUES (1, 'Apartamento', NULL), (2, 'Área / Terreno', NULL), (3, 'Casa', NULL), (4, 'Chácara / Sítio', NULL), (5, 'Edifício', NULL), (6, 'Lote', NULL), (7, 'Andar', NULL), (8, 'Box/ Garagem ', NULL), (9, 'Galpão / Armazém', NULL), (10, 'Loja', NULL), (11, 'Loja Shopping', NULL), (12, 'Prédio Comercial', NULL), (13, 'Sala / Conjunto', NULL), (14, 'Salão', NULL), (15, 'Sobreloja', NULL);
+INSERT INTO `imobiliaria_categorias` (`id`, `nome`, `descricao`) VALUES (1, 'Apartamento', NULL), (2, 'Área / Terreno', NULL), (3, 'Casa', NULL), (4, 'Chácara / Sítio', NULL), (5, 'Edifício', NULL), (6, 'Lote', NULL), (7, 'Andar', NULL), (8, 'Box / Garagem ', NULL), (9, 'Galpão / Armazém', NULL), (10, 'Loja', NULL), (11, 'Loja Shopping', NULL), (12, 'Prédio Comercial', NULL), (13, 'Sala / Conjunto', NULL), (14, 'Salão', NULL), (15, 'Sobreloja', NULL);
 INSERT INTO `imobiliaria_config` (`id`, `valor`) VALUES ('moeda', 'R&#x00024;');
 INSERT INTO `imobiliaria_config` (`id`, `valor`) VALUES ('tipo_orcamento', 'email');
 INSERT INTO `imobiliaria_config` (`id`, `valor`) VALUES ('whatsapp', '5511912345678');

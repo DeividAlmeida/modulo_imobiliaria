@@ -272,6 +272,15 @@
               <option value="_self">Mesma aba</option>
             </select>
           </div>
+          
+          <!-- `acao` varchar(255) DEFAULT NULL DEFAULT '_self' -->
+          <div class="form-group">
+            <label>Ação: </label>
+            <select name="acao" required class="form-control custom-select">
+              <option value="alugar" selected>Alugar</option>
+              <option value="comprar">Vender</option>
+            </select>
+          </div>
 
           <!-- `btn_texto` varchar(255) DEFAULT NULL -->
           <div class="form-group d-none">
@@ -280,7 +289,7 @@
           </div>
 
           <!-- `ordem_manual` int(11) -->
-          <div class="form-group">
+          <div class="form-group d-none">
             <label>Ordem Manual: </label>
             <input class="form-control" name="ordem_manual" type="number" value="0">
           </div>

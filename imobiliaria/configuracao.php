@@ -82,11 +82,8 @@ $cod_busca_resultado .= '<script type="text/javascript">ImobiliariaBuscaResultad
           <div class="form-group">
             <label for="listagem_estilo">Estilo da Listagem:</label>
             <select name="listagem_estilo" class="form-control custom-select">
-              <option value="1" <?php Selected($config['listagem_estilo'], '1'); ?>>Estilo 1</option>
-              <option value="2" <?php Selected($config['listagem_estilo'], '2'); ?>>Estilo 2</option>
-              <option value="3" <?php Selected($config['listagem_estilo'], '3'); ?>>Estilo 3</option>
-              <option value="4" <?php Selected($config['listagem_estilo'], '4'); ?>>Estilo 4</option>
-              <option value="5" <?php Selected($config['listagem_estilo'], '5'); ?>>Estilo 5</option>
+              <option value="4" <?php Selected($config['listagem_estilo'], '4'); ?>>Estilo 1</option>
+              <option value="5" <?php Selected($config['listagem_estilo'], '5'); ?>>Estilo 2</option>
             </select>
           </div>
         </div>
