@@ -1,21 +1,40 @@
 function ImobiliariaListagem(id, pag){
-    a="a";
-    let acao = a;
-    let tipo = a;
-    let cidade = a;
-    let bairro = a;
-    let quartos = a;
-    let banheiro = a;
-    let garagem = a;
-    let mobiliado = a;
-    let pet = a;
-    let sol = a;
-    let livre = a;
-    let metro = a;
+
   $.ajax({
     type: "GET",
     cache: false,
-    url: UrlPainel+'wa/imobiliaria/listagem?id='+id+'&pag='+pag+'&acao='+acao+'&tipo='+tipo+'&cidade='+cidade+'&bairro='+bairro+'&quartos='+quartos+'&banheiro='+banheiro+'&garagem='+garagem+'&mobiliado='+mobiliado+'&pet='+pet+'&sol='+sol+'&livre='+livre+'&metro='+metro,
+    url: UrlPainel+'wa/imobiliaria/listagem?id='+id+'&pag='+pag,
+    beforeSend: function (data){
+      //$("#SimpleSlideWA"+id).html("<center><br><img src=\""+UrlPainel+"wa/css_js/loading.gif\"><br>Carregando...<br></center>");
+    },
+    success: function (data) {
+      jQuery('#ImobiliariaListagem'+id).html(data);
+
+    },
+    error: function (data) {
+      setTimeout(function(){ ImobiliariaListagem(id, pag); }, 5000);
+    },
+  });
+}
+function ImobiliariaListagemFiltrado(id, pag){
+
+    let acao = document.getElementById('acao').value;
+    let tipo = document.getElementById('tipo').value;
+    let cidade = document.getElementById('cidade').value;
+    let bairro = document.getElementById('bairro').value;
+    let quartos = document.getElementById('quarto').value;
+    let banheiro = document.getElementById('banheiro').value;
+    let valor = document.getElementById('valor').value;
+    let garagem = document.getElementById('garagem').checked;
+    let mobiliado = document.getElementById('mobiliado').checked;
+    let pet = document.getElementById('pet').checked;
+    let livre = document.getElementById('livre').checked;
+    let metros = document.getElementById('metros').checked;
+    
+  jQuery.ajax({
+    type: "GET",
+    cache: false,
+    url: UrlPainel+'wa/imobiliaria/listagem?id='+id+'&pag='+pag+'&acao='+acao+'&tipo='+tipo+'&cidade='+cidade+'&bairro='+bairro+'&quartos='+quartos+'&banheiro='+banheiro+'&garagem='+garagem+'&mobiliado='+mobiliado+'&pet='+pet+'&livre='+livre+'&metros='+metros+'&valor='+valor,
     beforeSend: function (data){
       //$("#SimpleSlideWA"+id).html("<center><br><img src=\""+UrlPainel+"wa/css_js/loading.gif\"><br>Carregando...<br></center>");
     },

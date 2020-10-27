@@ -48,7 +48,7 @@ if (isset($_GET['AddImovel'])) {
     'etiqueta'        => post('etiqueta'),
     'etiqueta_cor'    => post('etiqueta_cor'),
     'a_consultar'     => post('a_consultar'),
-    'tipo'            => post('tipo'),
+    'tipo'            => $_POST['categorias'][0],
     'link_venda'      => post('link_venda'),
     'link_mapa'      => post('link_mapa'),
     'btn_texto'       => post('btn_texto'),
@@ -162,9 +162,9 @@ if (isset($_GET['AtualizarImovel'])) {
     'etiqueta'        => post('etiqueta'),
     'etiqueta_cor'    => post('etiqueta_cor'),
     'a_consultar'     => post('a_consultar'),
-    'tipo'            => post('tipo'),
+    'tipo'            => $_POST['categorias'][0],
     'link_venda'      => post('link_venda'),
-    'link_mapa'      => post('link_mapa'),
+    'link_mapa'       => post('link_mapa'),
     'btn_texto'       => post('btn_texto'),
     'target_link'     => post('target_link'),
     'ordem_manual'    => post('ordem_manual'),
@@ -221,11 +221,11 @@ if (isset($_GET['AtualizarImovel'])) {
         'id_imovel'    => $id_imovel,
         'id_categoria'  => $categoria
       ), true);
-
       if(!$query) { Redireciona('?ListarImovel&erro'); }
     }
+    
   }
-
+    
   if(count($categorias_para_excluir) > 0){
     foreach($categorias_para_excluir as $categoria){
       DBDelete('imobiliaria_imov_categorias',"id_imovel = {$id_imovel} AND id_categoria ={$categoria}");

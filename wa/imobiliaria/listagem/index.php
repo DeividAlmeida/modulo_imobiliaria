@@ -7,20 +7,20 @@
   // Pegar listagem
   $id 		= get('id');
   $pag 		= (isset($_GET['pag']))? $_GET['pag'] : 1;
-	$uniqid = uniqid();
+  $uniqid = uniqid();
 	
-    $acao = "AND imobiliaria.acao = ".$_GET['acao'];
-    $tipo = "AND imobiliaria.tipo = ".$_GET['tipo'];
-    $cidade = "AND imobiliaria.cidade = ".$_GET['cidade'];
-    $bairro = "AND imobiliaria.bairro = ".$_GET['bairro'];
-    $quartos = "AND imobiliaria.quartos = ".$_GET['quartos'];
-    $banheiro = "AND imobiliaria.banheiros = ".$_GET['banheiros'];
-    $garagem = "AND imobiliaria.garagem = ".$_GET['garagem'];
-    $mobiliado = "AND imobiliaria.mobiliado = ".$_GET['mobiliado'];
-    $pet = "AND imobiliaria.pet = ".$_GET['pet'];
-    $sol = "AND imobiliaria.garagem = ".$_GET['garagem'];
-    $livre = "AND imobiliaria.livre = ".$_GET['livre'];
-    $metro = "AND imobiliaria.metro = ".$_GET['metro'];
+    if(!empty($_GET['acao'])){$acao = "AND imobiliaria.acao = '".$_GET['acao']."'";}
+    if(!empty($_GET['tipo']) ){$tipo = "AND imobiliaria.tipo = '".$_GET['tipo']."'";}
+    if(!empty($_GET['cidade']) ){$cidade = "AND imobiliaria.cidade = '".$_GET['cidade']."'";}
+    if(!empty($_GET['bairro']) ){$bairro = "AND imobiliaria.bairro = '".$_GET['bairro']."'";}
+    if(!empty($_GET['quartos']) ){$quartos = "AND imobiliaria.quartos = '".$_GET['quartos']."'";}
+    if(!empty($_GET['banheiros']) ){$banheiro = "AND imobiliaria.banheiros = '".$_GET['banheiros']."'";}
+    if($_GET['garagem'] == 'true'){$garagem = "AND imobiliaria.garagem = 'checked'";}
+    if($_GET['mobiliado'] == 'true' ){$mobiliado = "AND imobiliaria.mobiliado = 'checked'";}
+    if($_GET['pet'] == 'true'){$pet = "AND imobiliaria.pet = 'checked'";}
+    if($_GET['livre'] == 'true'){$livre = "AND imobiliaria.sol = 'checked'";}
+    if($_GET['metros'] == 'true'){$metro = "AND imobiliaria.metro = 'checked'";}
+    if(!empty($_GET['valor'])){$valor = "AND imobiliaria.preco >= ".floatval($_GET['valor']);}
 
   if (ModoManutencao()) { header("Location: ../manutencao.php"); }
 

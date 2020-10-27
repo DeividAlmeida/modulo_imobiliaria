@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS `imobiliaria` (
   `etiqueta` varchar(255) DEFAULT NULL,
   `etiqueta_cor` varchar(255) DEFAULT NULL,
   `a_consultar` enum('S', 'N') DEFAULT 'N',
-  `tipo` enum('orcamento', 'venda') NOT NULL,
+  `tipo` varchar(255) DEFAULT NULL,
   `link_venda` varchar(255) DEFAULT NULL,
   `link_mapa` varchar(255) DEFAULT NULL,
   `id_imagem_capa` int(11) DEFAULT NULL,

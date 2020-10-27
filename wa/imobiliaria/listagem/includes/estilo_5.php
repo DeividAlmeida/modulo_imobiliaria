@@ -162,7 +162,7 @@ $tipos =  DBRead('imobiliaria_categorias','*',"WHERE id = '{$tipo['id_categoria'
 
   <div class="shop--list__content">
     <div class="row" style="display: flex; flex-wrap: wrap;">
-      <?php foreach ($imoveis as $imovel) {
+      <?php if(is_array($imoveis)){ foreach ($imoveis as $imovel) {
         $nome_arquivo    = $imovel['url'].'-'.$imovel['id'].".html";
         $url             = ConfigPainel('site_url').$nome_arquivo;
 
@@ -224,7 +224,7 @@ $tipos =  DBRead('imobiliaria_categorias','*',"WHERE id = '{$tipo['id_categoria'
             
           </div>
         </div>
-      <?php } ?>
+      <?php } } ?>
     </div>
   </div>
 </div>

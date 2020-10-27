@@ -201,7 +201,7 @@ margin-right: 10px;
 #shop--list<?php echo $uniqid; ?> .shop--imovel__wrapper:hover{
   border-color: <?php echo $config['listagem_cor_borda']; ?> !important;
 }
-#shop--list<?php echo $uniqid; ?> .shop--imovel__action a, .shop--imovel__btn a{
+#shop--list<?php echo $uniqid; ?> .shop--imovel__action a, .shop--imovel__btn a, bottom{
   background-color: <?php echo $config['listagem_cor_botao']; ?> !important;
 }
 #shop--list<?php echo $uniqid; ?> .shop--imovel__action a:hover, .shop--imovel__btn a:hover{
@@ -219,25 +219,24 @@ $todos_tipos =  DBRead('imobiliaria_categorias','*');
 ?>
 <div id="shop--list<?php echo $uniqid; ?>" class="wow <?php echo $lista['efeito']; ?> shop--list__wrapper">
 
-
         <div class="row">
             <div class="col-sm-2">
                 <select name="acao" required class="form-control custom-select" id="acao">
-                    <option value="Alugar" <?php Selected($imovel['acao'], "Alugar"); ?>>Alugar</option>
-                    <option value="Comprar" <?php Selected($imovel['acao'], "Comprar"); ?>>Comprar</option>
+                    <option value="alugar" <?php Selected($imovel['acao'], "Alugar"); ?>>Alugar</option>
+                    <option value="comprar" <?php Selected($imovel['acao'], "Comprar"); ?>>Comprar</option>
                 </select>
             </div>
             <div class="col-sm-2">
                 <select name="tipo"  class="form-control custom-select" id="tipo">
-                    <option disabled selected >Tipo</option>
+                    <option disabled selected value="">Tipo</option>
                     <?php foreach($todos_tipos as $categorias): ?>
-                    <option value="<?php echo $categorias['nome'] ?>" <?php Selected($categorias); ?>><?php echo $categorias['nome'] ?></option>
+                    <option value="<?php echo $categorias['id'] ?>" <?php Selected($categorias); ?>><?php echo $categorias['nome'] ?></option>
                     <?php endforeach ?>
                 </select>
             </div>
             <div class="col-sm-2">
                 <select name="cidade"  class="form-control custom-select" id="cidade">
-                    <option disabled selected >Cidade</option>
+                    <option disabled selected value="">Cidade</option>
                     <?php foreach($imoveis as $cidade): ?>
                     <option value="<?php echo $cidade['cidade'] ?>" <?php Selected($cidade); ?>><?php echo $cidade['cidade'] ?></option>
                     <?php endforeach ?>
@@ -245,7 +244,7 @@ $todos_tipos =  DBRead('imobiliaria_categorias','*');
             </div>
             <div class="col-sm-2">
                 <select name="bairro"  class="form-control custom-select" id="bairro">
-                    <option disabled selected >Bairro</option>
+                    <option disabled selected value="">Bairro</option>
                     <?php foreach($imoveis as $bairro): ?>
                     <option value="<?php echo $bairro['bairro'] ?>" <?php Selected($bairro); ?>><?php echo $bairro['bairro'] ?></option>
                     <?php endforeach ?>
@@ -257,47 +256,49 @@ $todos_tipos =  DBRead('imobiliaria_categorias','*');
                         <option disabled selected >Filtros avançados</option>
                     </select>
                     <div class="overSelect"></div>
-                </div> 
+                </div>
 
 
-			<div id="checkBoxes" class="form-group" style="display:none">  
+			<div id="checkBoxes" class="form-group" style="display:none; margin-top:5px;">  
 				<label > 
 					<input type="number" placeholder="Qtd. quartos" style="width: 80%" name="quarto" id="quarto" class="form-control"> 
-				<label >
-				</label>	
+				</label>
+				<label>	
 					<input type="number" placeholder="Qtd. banheiros" style="width: 80%" name="banheiro" id="banheiro"  class="form-control" > 
 				</label>
-				<label for="first"> 
-					<input type="checkbox" id="first" value="checked"> 
+			    <label>	
+					<input type="number" step="0.01" min="0.01" placeholder="Valor até" style="width: 80%" name="valor" id="valor"  class="form-control" > 
+				</label>
+				<label for="garagem"> 
+					<input type="checkbox" id="garagem"> 
 					Vaga garagem  
 				</label> 
 				
-				<label for="second"> 
-					<input type="checkbox" id="second" value="checked"> 
+				<label for="mobiliado"> 
+					<input type="checkbox" id="mobiliado" value=""> 
 					Mobiliado 
 				</label> 
 				
-				<label for="third"> 
-					<input type="checkbox" id="second" value="checked"> 
+				<label for="pet"> 
+					<input type="checkbox" id="pet" value=""> 
 					Aceita pet 
 				</label> 
-				<label for="fifth"> 
-					<input type="checkbox" id="second" value="checked"> 
+				<label for="livre"> 
+					<input type="checkbox" id="livre" value=""> 
 					Vista livre
 				</label> 
-				<label for="sixth"> 
-					<input type="checkbox" id="second" value="checked"> 
+				<label for="metros"> 
+					<input type="checkbox" id="metros" value=""> 
 					Metrô próximo
 				</label> 
-
-				
 			</div>
-            
-        </div
-
+        </div>
+        <div class="col-sm-2 ">
+            <bottom type="submit" onclick="ImobiliariaListagemFiltrado(<?php echo $id.', '.$pag ?>)" class="btn btn-primary btn-lg btn-block">Encontrar</bottom>
+        </div>
   <div class="shop--list__content">
     <div class="row" style="flex-wrap: wrap;">
-      <?php foreach ($imoveis as $imovel) {
+      <?php if(is_array($imoveis)){foreach ($imoveis as $imovel) {
         $nome_arquivo    = $imovel['url'].'-'.$imovel['id'].".html";
         $url             = ConfigPainel('site_url').$nome_arquivo;
 
@@ -362,7 +363,7 @@ $todos_tipos =  DBRead('imobiliaria_categorias','*');
              </div>
           </div>
         </div>
-      <?php } ?>
+      <?php }; }else{ echo "<center>Nenhum imovel encontrado</center>" ;} ?>
     </div>
   </div>
 </div>
@@ -545,7 +546,7 @@ $tipos =  DBRead('imobiliaria_categorias','*',"WHERE id = '{$tipo['id_categoria'
 
   <div class="Ashop--list__content">
     <div class="row" style="display: flex; flex-wrap: wrap;">
-      <?php foreach ($imoveis as $imovel) {
+      <?php if(is_array($imoveis)){ foreach ($imoveis as $imovel) {
         $nome_arquivo    = $imovel['url'].'-'.$imovel['id'].".html";
         $url             = ConfigPainel('site_url').$nome_arquivo;
 
@@ -607,7 +608,7 @@ $tipos =  DBRead('imobiliaria_categorias','*',"WHERE id = '{$tipo['id_categoria'
             
           </div>
         </div>
-      <?php } ?>
+      <?php } } ?>
     </div>
   </div>
 </div>
