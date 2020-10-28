@@ -1,5 +1,5 @@
 function CountProductView(id) {
-  $.ajax({
+  jQuery.ajax({
     type: "GET",
     cache: false,
     url: UrlPainel + 'wa/imobiliaria/imoveis/count_view.php?id=' + id

@@ -5,6 +5,33 @@
 
 <style>
 
+#opcoes{
+    position: absolute;
+    z-index: 1000;
+    background: #fff;
+    max-height: 100px !important;
+    width: 80%;
+    overflow-y: scroll;
+    left: 11%;
+}
+#opcoes div {
+
+    font-weight: bolder;
+}
+
+#opcoes div:hover {
+    background:#bababa;
+    font-weight: bolder;
+    cursor:pointer;
+}
+
+#find {
+   margin-bottom:10px; 
+}
+.find {
+    width:75% !important; 
+    padding: 15px 0% 15px 0% !important;
+}
 .selectBox { 
 	position: relative; 
 } 
@@ -90,7 +117,7 @@ overflow:hidden;
   clear: both;
   position:relative;
   overflow:none;
-}
+} 
 #shop--list<?php echo $uniqid; ?> .shop--imovel__rooms{
   color: #000;
   font-size: 16px;
@@ -142,11 +169,11 @@ overflow:hidden;
   text-align: left;
   position: relative;
   width: 30% !important;
-  padding:  0 !important;
+
 
 }
 #shop--list<?php echo $uniqid; ?> .shop--imovel__img {
-width: 30% !important;
+width: 30% ;
 padding: 0px !important;
 padding-right:5px;
 }
@@ -212,90 +239,96 @@ margin-right: 10px;
     overflow: normal; 
     text-overflow: ellipsis
 }
-</style>
+</style> 
 <?php $tipo =  DBRead('imobiliaria_imov_categorias','*',"WHERE id_imovel = '{$id}'")[0]; 
 $tipos =  DBRead('imobiliaria_categorias','*',"WHERE id = '{$tipo['id_categoria']}'")[0];
 $todos_tipos =  DBRead('imobiliaria_categorias','*');
 ?>
 <div id="shop--list<?php echo $uniqid; ?>" class="wow <?php echo $lista['efeito']; ?> shop--list__wrapper">
-
-        <div class="row">
-            <div class="col-sm-2">
-                <select name="acao" required class="form-control custom-select" id="acao">
-                    <option value="alugar" <?php Selected($imovel['acao'], "Alugar"); ?>>Alugar</option>
-                    <option value="comprar" <?php Selected($imovel['acao'], "Comprar"); ?>>Comprar</option>
-                </select>
-            </div>
-            <div class="col-sm-2">
-                <select name="tipo"  class="form-control custom-select" id="tipo">
-                    <option disabled selected value="">Tipo</option>
-                    <?php foreach($todos_tipos as $categorias): ?>
-                    <option value="<?php echo $categorias['id'] ?>" <?php Selected($categorias); ?>><?php echo $categorias['nome'] ?></option>
-                    <?php endforeach ?>
-                </select>
-            </div>
-            <div class="col-sm-2">
-                <select name="cidade"  class="form-control custom-select" id="cidade">
-                    <option disabled selected value="">Cidade</option>
-                    <?php foreach($imoveis as $cidade): ?>
-                    <option value="<?php echo $cidade['cidade'] ?>" <?php Selected($cidade); ?>><?php echo $cidade['cidade'] ?></option>
-                    <?php endforeach ?>
-                </select>
-            </div>
-            <div class="col-sm-2">
-                <select name="bairro"  class="form-control custom-select" id="bairro">
-                    <option disabled selected value="">Bairro</option>
-                    <?php foreach($imoveis as $bairro): ?>
-                    <option value="<?php echo $bairro['bairro'] ?>" <?php Selected($bairro); ?>><?php echo $bairro['bairro'] ?></option>
-                    <?php endforeach ?>
-                </select>
-            </div>
-            <div class="col-sm-2 " style="position:relative;" >
-                <div class="selectBox"	onclick="showCheckboxes()">
-                    <select name=""  class="form-control custom-select" id="avancado" onclick="showCheckboxes()">
-                        <option disabled selected >Filtros avançados</option>
-                    </select>
-                    <div class="overSelect"></div>
-                </div>
-
-
-			<div id="checkBoxes" class="form-group" style="display:none; margin-top:5px;">  
-				<label > 
-					<input type="number" placeholder="Qtd. quartos" style="width: 80%" name="quarto" id="quarto" class="form-control"> 
-				</label>
-				<label>	
-					<input type="number" placeholder="Qtd. banheiros" style="width: 80%" name="banheiro" id="banheiro"  class="form-control" > 
-				</label>
-			    <label>	
-					<input type="number" step="0.01" min="0.01" placeholder="Valor até" style="width: 80%" name="valor" id="valor"  class="form-control" > 
-				</label>
-				<label for="garagem"> 
-					<input type="checkbox" id="garagem"> 
-					Vaga garagem  
-				</label> 
-				
-				<label for="mobiliado"> 
-					<input type="checkbox" id="mobiliado" value=""> 
-					Mobiliado 
-				</label> 
-				
-				<label for="pet"> 
-					<input type="checkbox" id="pet" value=""> 
-					Aceita pet 
-				</label> 
-				<label for="livre"> 
-					<input type="checkbox" id="livre" value=""> 
-					Vista livre
-				</label> 
-				<label for="metros"> 
-					<input type="checkbox" id="metros" value=""> 
-					Metrô próximo
-				</label> 
-			</div>
+<!-- INÍCIO DO CAMPO DE PESQUISA -->
+    <div class="row">
+        <div class="col-md-2" id="find">
+            <select name="acao" required class="form-control custom-select" id="acao">
+                <option value="alugar" <?php Selected($imovel['acao'], "Alugar"); ?>>Alugar</option>
+                <option value="comprar" <?php Selected($imovel['acao'], "Comprar"); ?>>Comprar</option>
+            </select>
         </div>
-        <div class="col-sm-2 ">
-            <bottom type="submit" onclick="ImobiliariaListagemFiltrado(<?php echo $id.', '.$pag ?>)" class="btn btn-primary btn-lg btn-block">Encontrar</bottom>
+        <div class="col-md-2" id="find">
+            <select name="tipo"  class="form-control custom-select" id="tipo">
+                <option disabled selected value="">Tipo</option>
+                <?php foreach($todos_tipos as $categorias): ?>
+                <option value="<?php echo $categorias['id'] ?>" <?php Selected($categorias); ?>><?php echo $categorias['nome'] ?></option>
+                <?php endforeach ?>
+            </select>
         </div>
+        <div class="col-md-2" id="find">
+            <select name="cidade"  class="form-control custom-select" id="cidade">
+                <option disabled selected value="">Cidade</option>
+                <?php foreach($imoveis as $cidade): ?>
+                <option value="<?php echo $cidade['cidade'] ?>" <?php Selected($cidade); ?>><?php echo $cidade['cidade'] ?></option>
+                <?php endforeach ?>
+            </select>
+        </div>
+        <div class="col-md-2" id="find">
+            <select name="bairro"  class="form-control custom-select" id="bairro">
+                <option disabled selected value="">Bairro</option>
+                <?php foreach($imoveis as $bairro): ?>
+                <option value="<?php echo $bairro['bairro'] ?>" <?php Selected($bairro); ?>><?php echo $bairro['bairro'] ?></option>
+                <?php endforeach ?>
+            </select>
+        </div>
+        <div class="col-md-2 " id="find" style="position:relative;" >
+            <div class="selectBox"	onclick="showCheckboxes()">
+                <select name=""  class="form-control custom-select" id="avancado" onclick="showCheckboxes()">
+                    <option disabled selected >Filtros avançados</option>
+                </select>
+                <div class="overSelect"></div>
+            </div>
+
+    		<div id="checkBoxes" class="form-group" style="display:none; margin-top:5px;">  
+    			<label > 
+    				<input type="number" placeholder="Qtd. quartos" style="width: 80%" name="quarto" id="quarto" class="form-control"> 
+    			</label>
+    			<label>	
+    				<input type="number" placeholder="Qtd. banheiros" style="width: 80%" name="banheiro" id="banheiro"  class="form-control" > 
+    			</label>
+    		    <label>	
+    				<input type="number" step="0.01" min="0.01" placeholder="Valor até" style="width: 80%" name="valor" id="valor"  class="form-control" > 
+    			</label>
+    			<label for="garagem"> 
+    				<input type="checkbox" id="garagem"> 
+    				Vaga garagem  
+    			</label> 
+    			
+    			<label for="mobiliado"> 
+    				<input type="checkbox" id="mobiliado" value=""> 
+    				Mobiliado 
+    			</label> 
+    			
+    			<label for="pet"> 
+    				<input type="checkbox" id="pet" value=""> 
+    				Aceita pet 
+    			</label> 
+    			<label for="livre"> 
+    				<input type="checkbox" id="livre" value=""> 
+    				Vista livre
+    			</label> 
+    			<label for="metros"> 
+    				<input type="checkbox" id="metros" value=""> 
+    				Metrô próximo
+    			</label> 
+    		</div>
+    </div>
+    <center>
+        <div class="col-md-8" id="find">
+            <input oninput="findImov(this.value)" type="text" placeholder="Onde você quer morar?" style="width: 80%" name="procurar" id="procurar" class="form-control">
+            <center><span id="opcoes"></span></center>
+        </div> 
+        <div class="col-md-2" id="find">
+            <bottom type="submit" onclick="ImobiliariaListagemFiltrado(<?php echo $id.', '.$pag ?>)" class="btn btn-primary btn-lg btn-block find"><center>Encontrar</center></bottom>
+        </div> 
+    </center>
+    <!-- FIM DO CAMPO DE PESQUISA -->
   <div class="shop--list__content">
     <div class="row" style="flex-wrap: wrap;">
       <?php if(is_array($imoveis)){foreach ($imoveis as $imovel) {
@@ -385,6 +418,9 @@ $todos_tipos =  DBRead('imobiliaria_categorias','*');
     
     #shop--list<?php echo $uniqid; ?> .shop--imovel__wrapper{
         display:none;
+    }
+        #Ashop--list<?php echo $uniqid; ?> .shop--imovel__wrapper{
+        display:block;
     }
     
 }
@@ -562,7 +598,7 @@ $tipos =  DBRead('imobiliaria_categorias','*',"WHERE id = '{$tipo['id_categoria'
       
         <div class="shop--imovel col-md-<?php echo $tamanho_coluna; ?> trimText">
           <div class="shop--imovel__wrapper">
-            <div class="shop--imovel__img">
+            <div class="Ashop--imovel__img">
               <a href="<?php echo $url;?>">
                  <span class="shop--imovel__tag" style="background-color:<?php echo $imovel['etiqueta_cor'] ?>"><?php echo $imovel['etiqueta'] ?></span> 
                 <img class="shop--imovel__primary-img" src="<?php echo RemoveHttpS(ConfigPainel('base_url')); ?>wa/imobiliaria/uploads/<?php echo $imovel['id_foto_capa']; ?>" alt="Foto Imóvel <?php echo $imovel['nome']; ?> 1">

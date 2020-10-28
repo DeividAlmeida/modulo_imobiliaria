@@ -49,6 +49,7 @@ CREATE TABLE IF NOT EXISTS `imobiliaria` (
   `rua` varchar(255) DEFAULT NULL,
   `taxas` text DEFAULT NULL,
   `acao` varchar(255) DEFAULT NULL,
+  `pesquisa` text DEFAULT NULL,
   `target_link` enum('_self','_blank') NOT NULL DEFAULT '_self'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 

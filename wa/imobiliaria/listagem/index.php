@@ -148,4 +148,19 @@ $(document).ready( function() {
 		shopUpdateListView('<?php echo $uniqid; ?>', false, 'col-md-12');
 	});
 });
+
+function findImov (a){
+    var b =" " ;
+    document.getElementById('opcoes').style.visibility="visible";
+    fetch(UrlPainel+'wa/imobiliaria/listagem/api.php?pesquisa='+a).then( (resposta) =>{
+        resposta.text().then((data)=>{
+
+            document.getElementById('opcoes').innerHTML = data;
+        });
+    }).catch(document.getElementById('opcoes').innerHTML = "Nenhum imóvel encontrado");
+}
+function escolhido (z, y)  {
+    document.getElementById('procurar').value = y;
+    document.getElementById('opcoes').style.visibility="hidden";
+}
 </script>
