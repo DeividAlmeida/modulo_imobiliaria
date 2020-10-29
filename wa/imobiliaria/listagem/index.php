@@ -15,6 +15,7 @@
     if(!empty($_GET['bairro']) ){$bairro = "AND imobiliaria.bairro = '".$_GET['bairro']."'";}
     if(!empty($_GET['quartos']) ){$quartos = "AND imobiliaria.quartos = '".$_GET['quartos']."'";}
     if(!empty($_GET['banheiros']) ){$banheiro = "AND imobiliaria.banheiros = '".$_GET['banheiros']."'";}
+    if(!empty($_GET['procurar'])){$procurar = "AND imobiliaria.pesquisa LIKE '%".$_GET['procurar']."%'";}
     if($_GET['garagem'] == 'true'){$garagem = "AND imobiliaria.garagem = 'checked'";}
     if($_GET['mobiliado'] == 'true' ){$mobiliado = "AND imobiliaria.mobiliado = 'checked'";}
     if($_GET['pet'] == 'true'){$pet = "AND imobiliaria.pet = 'checked'";}
@@ -83,28 +84,16 @@
 	else{
 		// Escolhendo arquivo para o estilo
 		switch ($config['listagem_estilo']) {
-			case '1':
-				require_once('includes/estilo_1.php');
-				break;
-
-			case '2':
-				require_once('includes/estilo_2.php');
-				break;
-
-			case '3':
-				require_once('includes/estilo_3.php');
-				break;
-
 			case '4':
 				require_once('includes/estilo_4.php');
 				break;
 
 			case '5':
-				require_once('includes/estilo_5.php');
+				require_once('includes/estilo_4.php');
 				break;
 
 			default:
-				require_once('includes/estilo_1.php');
+				require_once('includes/estilo_4.php');
 				break;
 		}
 	}
@@ -140,14 +129,6 @@
 <link rel="stylesheet" href="<?php echo RemoveHttpS(ConfigPainel('base_url')); ?>/epack/css/elements/animate.css">
 
 <script>
-$(document).ready( function() {
-	$('#shop--list<?php echo $uniqid; ?> .shop--list--bar__view-grid').click(function(){
-		shopUpdateListView('<?php echo $uniqid; ?>', true, 'col-md-<?php echo $tamanho_coluna; ?>');
-	});
-	$('#shop--list<?php echo $uniqid; ?> .shop--list--bar__view-list').click(function(){
-		shopUpdateListView('<?php echo $uniqid; ?>', false, 'col-md-12');
-	});
-});
 
 function findImov (a){
     var b =" " ;
@@ -163,4 +144,12 @@ function escolhido (z, y)  {
     document.getElementById('procurar').value = y;
     document.getElementById('opcoes').style.visibility="hidden";
 }
+$(document).ready( function() {
+	$('#shop--list<?php echo $uniqid; ?> .shop--list--bar__view-grid').click(function(){
+		shopUpdateListView('<?php echo $uniqid; ?>', true, 'col-md-<?php echo $tamanho_coluna; ?>');
+	});
+	$('#shop--list<?php echo $uniqid; ?> .shop--list--bar__view-list').click(function(){
+		shopUpdateListView('<?php echo $uniqid; ?>', false, 'col-md-12');
+	});
+});
 </script>

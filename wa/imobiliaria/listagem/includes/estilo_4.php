@@ -5,6 +5,7 @@
 
 <style>
 
+
 #opcoes{
     position: absolute;
     z-index: 1000;
@@ -169,8 +170,6 @@ overflow:hidden;
   text-align: left;
   position: relative;
   width: 30% !important;
-
-
 }
 #shop--list<?php echo $uniqid; ?> .shop--imovel__img {
 width: 30% ;
@@ -230,6 +229,7 @@ margin-right: 10px;
 }
 #shop--list<?php echo $uniqid; ?> .shop--imovel__action a, .shop--imovel__btn a, bottom{
   background-color: <?php echo $config['listagem_cor_botao']; ?> !important;
+  border:<?php echo $config['listagem_cor_botao']; ?> !important;
 }
 #shop--list<?php echo $uniqid; ?> .shop--imovel__action a:hover, .shop--imovel__btn a:hover{
   background-color: <?php echo $config['listagem_cor_hover_botao']; ?> !important;
@@ -239,6 +239,181 @@ margin-right: 10px;
     overflow: normal; 
     text-overflow: ellipsis
 }
+
+#Ashop--list<?php echo $uniqid; ?> .shop--imovel__wrapper {
+  background: #ffffff;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  margin: 15px 0;
+  border-color: #c3c3c3 !important;
+}
+#Ashop--list<?php echo $uniqid; ?> .shop--imovel__name {
+  color: #383838;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  padding: 0;
+  float: left;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#Ashop--list<?php echo $uniqid; ?> .shop--imovel__name a {
+  white-space: nowrap;
+}
+#Ashop--list<?php echo $uniqid; ?> .Ashop--imovel__price{
+  color: #383838;
+  font-size: 16px;
+  font-weight: 600;
+
+  clear: both;
+}
+#Ashop--list<?php echo $uniqid; ?> .shop--imovel__street{
+  color: #383838;
+  font-size: 14px;
+  font-weight: 550;
+  margin: 0;
+  padding: 15px 0  0 ;
+  clear: both;
+}
+#Ashop--list<?php echo $uniqid; ?> .shop--imovel__andress{
+  color: #bababa;
+  font-size: 16px;
+  margin: 0;
+  padding:  0  0 15px;
+  clear: both;
+}
+#Ashop--list<?php echo $uniqid; ?> .shop--imovel__rooms{
+  color: #000;
+  font-size: 16px;
+  margin: 0;
+  padding:  0  0 15px;
+  clear: both;
+}
+#Ashop--list<?php echo $uniqid; ?> .shop--imovel__rooms .fa-bed{
+
+  margin: 0 10px 0;
+
+}
+#Ashop--list<?php echo $uniqid; ?> .Ashop--imovel__price a {
+  white-space: nowrap;
+}
+#Ashop--list<?php echo $uniqid; ?> .shop--imovel__tag {
+  border-radius: 3px;
+  color: #fff;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: bold;
+  height: 40px;
+  left: 20px;
+  letter-spacing: 1px;
+  line-height: 40px;
+  position: absolute;
+  text-align: left;
+  text-transform: uppercase;
+  top: 20px;
+  width: auto;
+  padding: 0 10px 0;
+}
+#Ashop--list<?php echo $uniqid; ?> .Ashop--imovel__img img {
+  width: 100%;
+
+}
+#Ashop--list<?php echo $uniqid; ?> .Ashop--imovel__secondary-img{
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: all 500ms ease-in-out 0s;
+}
+#Ashop--list<?php echo $uniqid; ?> .shop--imovel__wrapper:hover .shop--imovel__img{
+  opacity: 0.8;
+}
+#Ashop--list<?php echo $uniqid; ?> .shop--imovel__content{
+  text-align: left;
+  padding: 30px 15px;
+  position: relative;
+}
+#Ashop--list<?php echo $uniqid; ?> .shop--imovel__info{
+    border-radius: 3px;
+    width: 150px !important;
+    position: relative;
+    word-wrap: normal !important;
+    text-align: left !important;
+
+}
+#Ashop--list<?php echo $uniqid; ?> .Ashop--imovel__action{
+    border-radius: 3px;
+    position: relative;
+    word-wrap: normal !important;
+    left:92%;
+
+}
+#Ashop--list<?php echo $uniqid; ?> .Ashop--imovel__action a, #Ashop--list<?php echo $uniqid; ?> .shop--imovel__btn a{
+  color: #fff !important;
+  border: none;
+  border-radius: 30px;
+  padding: 6px 10px;
+  width:150px !important;
+  
+}
+#Ashop--list<?php echo $uniqid; ?> .Ashop--imovel__action{
+  align-content: center !important;
+}
+#Ashop--list<?php echo $uniqid; ?> .shop--imovel__name {
+  color: #fff !important;
+  border-radius: 30px !important;
+  padding: 6px 10px !important;
+}
+#Ashop--list<?php echo $uniqid; ?> .shop--imovel__info p{
+  background-color: <?php echo $config['listagem_cor_titulo']; ?> !important;
+}
+#Ashop--list<?php echo $uniqid; ?> .Ashop--imovel__price{
+  color: <?php echo $config['listagem_cor_preco']; ?> !important;
+}
+#Ashop--list<?php echo $uniqid; ?> .shop--imovel__wrapper:hover{
+  border-color: <?php echo $config['listagem_cor_borda']; ?> !important;
+}
+#Ashop--list<?php echo $uniqid; ?> .Ashop--imovel__action a, .shop--imovel__btn a{
+  background-color: <?php echo $config['listagem_cor_botao']; ?> !important;
+}
+#Ashop--list<?php echo $uniqid; ?> .Ashop--imovel__action a:hover, .shop--imovel__btn a:hover{
+  background-color: <?php echo $config['listagem_cor_hover_botao']; ?> !important;
+}
+
+<?php if($config['listagem_estilo'] == '4'): ?>
+@media (min-width: 1200px) {
+    
+    #Ashop--list<?php echo $uniqid; ?> .shop--imovel__wrapper{
+        display:none;
+    }
+    
+}
+@media (max-width: 1200px) {
+    
+    #shop--list<?php echo $uniqid; ?> .shop--imovel__wrapper{
+        display:none;
+    }
+    #Ashop--list<?php echo $uniqid; ?> .shop--imovel__wrapper{
+        display:block;
+        margin-left: 8% !important;
+
+    }
+    
+}
+<?php else: ?>
+ #shop--list<?php echo $uniqid; ?> .shop--imovel__wrapper{
+        display:none;
+    }
+    #Ashop--list<?php echo $uniqid; ?> .shop--imovel__wrapper{
+        display:block;
+        margin-left: 8% !important;
+
+    }
+<?php endif; ?>
 </style> 
 <?php $tipo =  DBRead('imobiliaria_imov_categorias','*',"WHERE id_imovel = '{$id}'")[0]; 
 $tipos =  DBRead('imobiliaria_categorias','*',"WHERE id = '{$tipo['id_categoria']}'")[0];
@@ -328,9 +503,9 @@ $todos_tipos =  DBRead('imobiliaria_categorias','*');
             <bottom type="submit" onclick="ImobiliariaListagemFiltrado(<?php echo $id.', '.$pag ?>)" class="btn btn-primary btn-lg btn-block find"><center>Encontrar</center></bottom>
         </div> 
     </center>
-    <!-- FIM DO CAMPO DE PESQUISA -->
-  <div class="shop--list__content">
-    <div class="row" style="flex-wrap: wrap;">
+<!-- FIM DO CAMPO DE PESQUISA -->
+  <div class="shop--list__content container">
+    <div class="row justify-content-md-center" style="flex-wrap: wrap;">
       <?php if(is_array($imoveis)){foreach ($imoveis as $imovel) {
         $nome_arquivo    = $imovel['url'].'-'.$imovel['id'].".html";
         $url             = ConfigPainel('site_url').$nome_arquivo;
@@ -392,11 +567,11 @@ $todos_tipos =  DBRead('imobiliaria_categorias','*');
               
             </div>
             <div class="shop--imovel__action" >
-                <a class="btn btn-primary btn-lg btn-block" href="<?php echo $url;?>"><i class="fa fa-eye" aria-hidden="true"></i> Ver o Imóvel</a>
+              <center>  <a class="btn btn-primary btn-lg btn-block" href="<?php echo $url;?>"><i class="fa fa-eye" aria-hidden="true"></i> Ver o Imóvel</a></center>
              </div>
           </div>
         </div>
-      <?php }; }else{ echo "<center>Nenhum imovel encontrado</center>" ;} ?>
+      <?php }; }else{ echo "<center class='col-md-8' >Nenhum imóvel encontrado</center>" ;} ?>
     </div>
   </div>
 </div>
@@ -406,182 +581,13 @@ $todos_tipos =  DBRead('imobiliaria_categorias','*');
 
 
 
-<style>
-@media (min-width: 1200px) {
-    
-    #Ashop--list<?php echo $uniqid; ?> .shop--imovel__wrapper{
-        display:none;
-    }
-    
-}
-@media (max-width: 1200px) {
-    
-    #shop--list<?php echo $uniqid; ?> .shop--imovel__wrapper{
-        display:none;
-    }
-        #Ashop--list<?php echo $uniqid; ?> .shop--imovel__wrapper{
-        display:block;
-    }
-    
-}
-.swal2-popup{
-  font-size: 14px !important;
-}
-.shop--modal-add-imovel__btn{
-  border: 0 !important;
-  margin-top:10px !important;
-  background-color: <?php echo $config['carrinho_cor_btns']; ?> !important;
-}
-#Ashop--list<?php echo $uniqid; ?> .shop--imovel__wrapper {
-  background: #ffffff;
-  border: 1px solid transparent;
-  border-radius: 8px;
-  overflow: hidden;
-  position: relative;
-  margin: 15px 0;
-  border-color: #c3c3c3 !important;
-}
-#Ashop--list<?php echo $uniqid; ?> .shop--imovel__name {
-  color: #383838;
-  font-size: 12px;
-  font-weight: 700;
-  margin-bottom: 6px;
-  padding: 0;
-  float: left;
-  width: 100%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-#Ashop--list<?php echo $uniqid; ?> .shop--imovel__name a {
-  white-space: nowrap;
-}
-#Ashop--list<?php echo $uniqid; ?> .shop--imovel__price{
-  color: #383838;
-  font-size: 16px;
-  font-weight: 600;
-  margin: 0;
-  padding: 0 0 15px;
-  clear: both;
-}
-#Ashop--list<?php echo $uniqid; ?> .shop--imovel__street{
-  color: #383838;
-  font-size: 14px;
-  font-weight: 550;
-  margin: 0;
-  padding: 15px 0  0 ;
-  clear: both;
-}
-#Ashop--list<?php echo $uniqid; ?> .shop--imovel__andress{
-  color: #bababa;
-  font-size: 16px;
-  margin: 0;
-  padding:  0  0 15px;
-  clear: both;
-}
-#Ashop--list<?php echo $uniqid; ?> .shop--imovel__rooms{
-  color: #000;
-  font-size: 16px;
-  margin: 0;
-  padding:  0  0 15px;
-  clear: both;
-}
-#Ashop--list<?php echo $uniqid; ?> .shop--imovel__rooms .fa-bed{
-
-  margin: 0 10px 0;
-
-}
-#Ashop--list<?php echo $uniqid; ?> .shop--imovel__price a {
-  white-space: nowrap;
-}
-#Ashop--list<?php echo $uniqid; ?> .shop--imovel__tag {
-  border-radius: 3px;
-  color: #fff;
-  display: inline-block;
-  font-size: 12px;
-  font-weight: bold;
-  height: 40px;
-  left: 20px;
-  letter-spacing: 1px;
-  line-height: 40px;
-  position: absolute;
-  text-align: left;
-  text-transform: uppercase;
-  top: 20px;
-  width: auto;
-  padding: 0 10px 0;
-}
-#Ashop--list<?php echo $uniqid; ?> .shop--imovel__img img {
-  max-width: 100%;
-  max-height: 100%;
-}
-#Ashop--list<?php echo $uniqid; ?> .shop--imovel__secondary-img{
-  left: 0;
-  opacity: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-  transition: all 500ms ease-in-out 0s;
-}
-#Ashop--list<?php echo $uniqid; ?> .shop--imovel__wrapper:hover .shop--imovel__img{
-  opacity: 0.8;
-}
-#Ashop--list<?php echo $uniqid; ?> .shop--imovel__content{
-  text-align: left;
-  padding: 30px 15px;
-  position: relative;
-}
-#Ashop--list<?php echo $uniqid; ?> .shop--imovel__info, #Ashop--list<?php echo $uniqid; ?> .shop--imovel__action{
-    border-radius: 3px;
-    width: 150px !important;
-    position: relative;
-    word-wrap: normal !important;
-    text-align: left !important;
-
-}
-#Ashop--list<?php echo $uniqid; ?> .shop--imovel__action a, #Ashop--list<?php echo $uniqid; ?> .shop--imovel__btn a{
-  color: #fff !important;
-  border: none;
-  border-radius: 30px;
-  padding: 6px 10px;
-  width:150px !important;
-  
-}
-#Ashop--list<?php echo $uniqid; ?> .shop--imovel__action{
-  align-content: center !important;
-}
-#Ashop--list<?php echo $uniqid; ?> .shop--imovel__name {
-  color: #fff !important;
-  border-radius: 30px !important;
-  padding: 6px 10px !important;
-}
-#Ashop--list<?php echo $uniqid; ?> .shop--imovel__info p{
-  background-color: <?php echo $config['listagem_cor_titulo']; ?> !important;
-}
-#Ashop--list<?php echo $uniqid; ?> .shop--imovel__price{
-  color: <?php echo $config['listagem_cor_preco']; ?> !important;
-}
-#Ashop--list<?php echo $uniqid; ?> .shop--imovel__wrapper:hover{
-  border-color: <?php echo $config['listagem_cor_borda']; ?> !important;
-}
-#Ashop--list<?php echo $uniqid; ?> .shop--imovel__action a, .shop--imovel__btn a{
-  background-color: <?php echo $config['listagem_cor_botao']; ?> !important;
-}
-#Ashop--list<?php echo $uniqid; ?> .shop--imovel__action a:hover, .shop--imovel__btn a:hover{
-  background-color: <?php echo $config['listagem_cor_hover_botao']; ?> !important;
-}
-.trimText{
-    white-space: nowrap;
-    overflow: hidden; 
-    text-overflow: ellipsis
-}
-</style>
 <?php $tipo =  DBRead('imobiliaria_imov_categorias','*',"WHERE id_imovel = '{$id}'")[0]; 
 $tipos =  DBRead('imobiliaria_categorias','*',"WHERE id = '{$tipo['id_categoria']}'")[0];
 ?>
 <div id="Ashop--list<?php echo $uniqid; ?>" class="wow <?php echo $lista['efeito']; ?> Ashop--list__wrapper">
 
-  <div class="Ashop--list__content">
-    <div class="row" style="display: flex; flex-wrap: wrap;">
+  <div class="Ashop--list__content container">
+    <div class="row justify-content-md-center" style="display: flex; flex-wrap: wrap;">
       <?php if(is_array($imoveis)){ foreach ($imoveis as $imovel) {
         $nome_arquivo    = $imovel['url'].'-'.$imovel['id'].".html";
         $url             = ConfigPainel('site_url').$nome_arquivo;
@@ -629,17 +635,17 @@ $tipos =  DBRead('imobiliaria_categorias','*',"WHERE id = '{$tipo['id_categoria'
                     <svg id="Layer_1" enable-background="new 0 0 512.027 512.027" height="12" viewBox="0 0 512.027 512.027" width="12" xmlns="http://www.w3.org/2000/svg"><g><path d="m16 296.013h368c8.837 0 16 7.163 16 16v40c0 8.837-7.163 16-16 16h-368c-8.837 0-16-7.163-16-16v-40c0-8.836 7.163-16 16-16z"/><path d="m512 16.022c0 72.114.155 66.992-.28 66.992-1.4 7.4-7.9 13-15.72 13h-200c-20.86 0-38.64 13.38-45.25 32h4.51c66.683 0 120.74 54.057 120.74 120.74v10.26c0 2.761-2.239 5-5 5h-342c-2.761 0-5-2.239-5-5v-10.26c0-66.683 54.057-120.74 120.74-120.74h8.15c7.99-71.9 69.12-128 143.11-128h199.996c8.839 0 16.004 7.169 16.004 16.008z"/><path d="m200 384.013c-8.836 0-16 7.164-16 16v23c0 8.836 7.164 16 16 16s16-7.164 16-16v-23c0-8.836-7.164-16-16-16z"/><path d="m296 384.013c-8.836 0-16 7.164-16 16v23c0 8.836 7.164 16 16 16s16-7.164 16-16v-23c0-8.836-7.164-16-16-16z"/><path d="m248 457.013c-8.836 0-16 7.164-16 16v23c0 8.836 7.164 16 16 16s16-7.164 16-16v-23c0-8.836-7.164-16-16-16z"/><path d="m352 457.013c-8.836 0-16 7.164-16 16v23c0 8.836 7.164 16 16 16s16-7.164 16-16v-23c0-8.836-7.164-16-16-16z"/><path d="m104 384.013c-8.836 0-16 7.164-16 16v23c0 8.836 7.164 16 16 16s16-7.164 16-16v-23c0-8.836-7.164-16-16-16z"/><path d="m152 457.013c-8.836 0-16 7.164-16 16v23c0 8.836 7.164 16 16 16s16-7.164 16-16v-23c0-8.836-7.164-16-16-16z"/><path d="m56 457.013c-8.836 0-16 7.164-16 16v23c0 8.836 7.164 16 16 16s16-7.164 16-16v-23c0-8.836-7.164-16-16-16z"/></g>
                     </svg> <i class="fa" aria-hidden="true"> <?php echo intval($imovel['quartos']);  ?></i>
                 </div>
-                <div class="shop--imovel__price">
+                <div class="Ashop--imovel__price">
                   <?php if($imovel['a_consultar'] == 'S') {?>
                     A consultar
                   <?php } else { ?>
                     <?php echo $config['moeda'].' '.number_format($imovel['preco'],2,",","."); ?>
                   <?php } ?>
                 </div>
-              </div>
-              <center><div class="shop--imovel__action">
+              </div><br>
+              <div class="Ashop--imovel__action">
                 <a class="btn btn-primary btn-lg btn-block" href="<?php echo $url;?>"><i class="fa fa-eye" aria-hidden="true"></i> Ver o Imóvel</a>
-              </div></center>
+              </div>
             </div>
             
           </div>
@@ -650,18 +656,17 @@ $tipos =  DBRead('imobiliaria_categorias','*',"WHERE id = '{$tipo['id_categoria'
 </div>
 
 <script>
-    		var show = true; 
+var show = true; 
+function showCheckboxes() { 
+	var checkboxes = 
+		document.getElementById("checkBoxes"); 
 
-		function showCheckboxes() { 
-			var checkboxes = 
-				document.getElementById("checkBoxes"); 
-
-			if (show) { 
-				checkboxes.style.display = "block"; 
-				show = false; 
-			} else { 
-				checkboxes.style.display = "none"; 
-				show = true; 
-			} 
-		} 
+	if (show) { 
+		checkboxes.style.display = "block"; 
+		show = false; 
+	} else { 
+		checkboxes.style.display = "none"; 
+		show = true; 
+	} 
+} 
 </script>

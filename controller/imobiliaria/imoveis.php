@@ -37,6 +37,7 @@ if (isset($_GET['AddImovel'])) {
     },$_POST['descricao'], $_POST['taxa'], $_POST['total']));
     $_POST['taxas'] = json_encode($resources, JSON_FORCE_OBJECT);
  }
+    $pesquisa = "Rua ".post('rua')." - ".post('bairro')." - ".post('cidade')." - ".post('estado');
   $data = array(
     'nome'            => post('nome'),
     'descricao'       => post('descricao_imov'),
@@ -69,6 +70,7 @@ if (isset($_GET['AddImovel'])) {
     'rua'             => post('rua'),
     'taxas'           => $_POST['taxas'],
     'acao'            => post('acao'),
+    'pesquisa'        => $pesquisa,
     'metro'           => post('metro')
   );
 
@@ -151,6 +153,7 @@ if (isset($_GET['AtualizarImovel'])) {
     $_POST['taxas'] = json_encode($resources, JSON_FORCE_OBJECT);
  }
   $id_imovel   = get('AtualizarImovel');
+  $pesquisa = "Rua ".post('rua')." - ".post('bairro')." - ".post('cidade')." - ".post('estado');
   $data = array(
     'nome'            => post('nome'),
     'descricao'       => post('descricao_imov'),
@@ -183,6 +186,7 @@ if (isset($_GET['AtualizarImovel'])) {
     'rua'             => post('rua'),
     'taxas'           => $_POST['taxas'],
     'acao'            => post('acao'),
+    'pesquisa'        => $pesquisa,
     'metro'           => post('metro')
 
   );

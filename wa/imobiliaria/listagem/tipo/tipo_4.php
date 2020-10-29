@@ -9,7 +9,7 @@ if($lista['mostrar_paginacao'] == 'S'){
   $imoveis   = DBRead(
     'imobiliaria',
     'imobiliaria.*, imobiliaria_imov_imagens.uniq as id_foto_capa',
-    "INNER JOIN imobiliaria_imov_imagens ON imobiliaria.id_imagem_capa = imobiliaria_imov_imagens.id
+    "INNER JOIN imobiliaria_imov_imagens ON imobiliaria.id_imagem_capa = imobiliaria_imov_imagens.id $acao $tipo $cidade $bairro $quartos $banheiro $garagem $mobiliado $pet $sol $livre $metro $valor $procurar
     ORDER BY imobiliaria.id DESC
     LIMIT {$inicio}, {$limite}"
   );
@@ -20,7 +20,7 @@ else{
   $imoveis   = DBRead(
     'imobiliaria',
     'imobiliaria.*, imobiliaria_imov_imagens.uniq as id_foto_capa',
-    "INNER JOIN imobiliaria_imov_imagens ON imobiliaria.id_imagem_capa = imobiliaria_imov_imagens.id
+    "INNER JOIN imobiliaria_imov_imagens ON imobiliaria.id_imagem_capa = imobiliaria_imov_imagens.id $acao $tipo $cidade $bairro $quartos $banheiro $garagem $mobiliado $pet $sol $livre $metro $valor $procurar
     ORDER BY imobiliaria.id DESC
     LIMIT $limite"
   );

@@ -59,7 +59,7 @@ else{
       'imobiliaria',
       'imobiliaria.*, imobiliaria_imov_imagens.uniq as id_foto_capa',
       "INNER JOIN imobiliaria_imov_imagens ON imobiliaria.id_imagem_capa = imobiliaria_imov_imagens.id
-      WHERE imobiliaria.id IN ($ids_imoveis) $acao $tipo $cidade $bairro $quartos $banheiro $garagem $mobiliado $pet $sol $livre $metro $valor
+      WHERE imobiliaria.id IN ($ids_imoveis) $acao $tipo $cidade $bairro $quartos $banheiro $garagem $mobiliado $pet $sol $livre $metro $valor $procurar
       ORDER BY imobiliaria.{$lista['ordenar_por']} {$lista['asc_desc']}
       LIMIT $limite"
     );

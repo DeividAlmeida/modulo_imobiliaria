@@ -25,6 +25,7 @@ function ImobiliariaListagemFiltrado(id, pag){
     let quartos = document.getElementById('quarto').value;
     let banheiro = document.getElementById('banheiro').value;
     let valor = document.getElementById('valor').value;
+    let procurar = document.getElementById('procurar').value;
     let garagem = document.getElementById('garagem').checked;
     let mobiliado = document.getElementById('mobiliado').checked;
     let pet = document.getElementById('pet').checked;
@@ -34,7 +35,7 @@ function ImobiliariaListagemFiltrado(id, pag){
   jQuery.ajax({
     type: "GET",
     cache: false,
-    url: UrlPainel+'wa/imobiliaria/listagem?id='+id+'&pag='+pag+'&acao='+acao+'&tipo='+tipo+'&cidade='+cidade+'&bairro='+bairro+'&quartos='+quartos+'&banheiro='+banheiro+'&garagem='+garagem+'&mobiliado='+mobiliado+'&pet='+pet+'&livre='+livre+'&metros='+metros+'&valor='+valor,
+    url: UrlPainel+'wa/imobiliaria/listagem?id='+id+'&pag='+pag+'&acao='+acao+'&tipo='+tipo+'&cidade='+cidade+'&bairro='+bairro+'&quartos='+quartos+'&banheiro='+banheiro+'&garagem='+garagem+'&mobiliado='+mobiliado+'&pet='+pet+'&livre='+livre+'&metros='+metros+'&valor='+valor+'&procurar='+procurar,
     beforeSend: function (data){
       //$("#SimpleSlideWA"+id).html("<center><br><img src=\""+UrlPainel+"wa/css_js/loading.gif\"><br>Carregando...<br></center>");
     },
