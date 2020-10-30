@@ -2,6 +2,7 @@
   if(!checkPermission($PERMISSION, $_SERVER['SCRIPT_NAME'], 'imovel', 'editar')){ Redireciona('./index.php'); }
 ?>
 <?php
+$cidades = DBRead('imobiliaria_cidades','*');
 function Checked($query, $value = null){
   if ($query == $value) { echo "checked"; }
 }
@@ -99,6 +100,10 @@ if (is_array($query)) { ?>
                 <?php } ?>
               </select>
             </div>
+          <!-- ADD Cidade -->
+          <div class="form-group">
+            <bottom class="btn btn-primary btnAdd" data-toggle="modal" data-target="#exampleModal"> Adicionar Cidade</bottom>
+          </div>
 
             <!-- `preco` decimal(10,2) NOT NULL -->
             <div class="form-group">
@@ -159,90 +164,33 @@ if (is_array($query)) { ?>
                 <?php } ?>
               </select>
             </div>
-          <!-- `tamanho` decimal(10,2) NULL -->
-          <div class="form-group">
-            <label>Tamanho: <i class="icon icon-question-circle tooltips" data-tooltip="Unidade de media (m²)"><span class="inner">Unidade de media (Kg)</span></i> </label>
-            <input class="form-control" name="tamanho" type="number" required min="1" step="0.01" value="<?php echo $dados['tamanho'];?>">
-          </div>
-
-          <!-- `quartos` decimal(10,2) NULL -->
-          <div class="form-group">
-            <label>Quantidade de quartos: </label>
-            <input class="form-control" name="quartos" type="number" required min="0" step="any" value="<?php echo $dados['quartos'];?>">
-          </div>
-
-          <!-- `andar` decimal(10,2) NULL -->
-          <div class="form-group">
-            <label>Andar: </label>
-            <input class="form-control" name="andar" type="number" min="0" step="any" value="<?php echo $dados['andar'];?>">
-          </div>
-
-          <!-- `banheiros` decimal(10,2) NULL -->
-          <div class="form-group">
-            <label>Quantidade de banheiros: </label>
-            <input class="form-control" name="banheiros" type="number" required min="0" step="any" value="<?php echo $dados['banheiros'];?>">
+            <div class="row">
+              <!-- `tamanho` decimal(10,2) NULL -->
+              <div class="col-md-3">
+                <label>Tamanho: <i class="icon icon-question-circle tooltips" data-tooltip="Unidade de media (m²)"><span class="inner">Unidade de media (Kg)</span></i> </label>
+                <input class="form-control" name="tamanho" type="number" required min="1" step="0.01" value="<?php echo $dados['tamanho'];?>">
+              </div>
+    
+              <!-- `quartos` decimal(10,2) NULL -->
+              <div class="col-md-3">
+                <label>Quartos: </label>
+                <input class="form-control" name="quartos" type="number" required min="0" step="any" value="<?php echo $dados['quartos'];?>">
+              </div>
+    
+              <!-- `andar` decimal(10,2) NULL -->
+              <div class="col-md-3">
+                <label>Andar: </label>
+                <input class="form-control" name="andar" type="number" min="0" step="any" value="<?php echo $dados['andar'];?>">
+              </div>
+    
+              <!-- `banheiros` decimal(10,2) NULL -->
+            <div class="col-md-3">
+                <label>Banheiros: </label>
+                <input class="form-control" name="banheiros" type="number" required min="0" step="any" value="<?php echo $dados['banheiros'];?>">
+              </div>
           </div>
         </div>
-      </div>      
-      <div class="row">
-        <div class="col-md-3">
-            <!-- `estado` varchar(255) DEFAULT NULL -->
-          <div class="form-group">
-            <label>Estado: </label>
-            <select name="estado" class="form-control custom-select">
-                <option value="" disabled selected>Estado da sua loja física</option>
-                <option value="AC" <?php Selected($dados['estado'], "AC"); ?>>Acre</option>
-                <option value="AL" <?php Selected($dados['estado'], "AL"); ?>>Alagoas</option>
-                <option value="AP" <?php Selected($dados['estado'], "AP"); ?>>Amapá</option>
-                <option value="AM" <?php Selected($dados['estado'], "AM"); ?>>Amazonas</option>
-                <option value="BA" <?php Selected($dados['estado'], "BA"); ?>>Bahia</option>
-                <option value="CE" <?php Selected($dados['estado'], "CE"); ?>>Ceará</option>
-                <option value="DF" <?php Selected($dados['estado'], "DF"); ?>>Distrito Federal</option>
-                <option value="ES" <?php Selected($dados['estado'], "ES"); ?>>Espírito Santo</option>
-                <option value="GO" <?php Selected($dados['estado'], "GO"); ?>>Goiás</option>
-                <option value="MA" <?php Selected($dados['estado'], "MA"); ?>>Maranhão</option>
-                <option value="MT" <?php Selected($dados['estado'], "MT"); ?>>Mato Grosso</option>
-                <option value="MS" <?php Selected($dados['estado'], "MS"); ?>>Mato Grosso do Sul</option>
-                <option value="MG" <?php Selected($dados['estado'], "MG"); ?>>Minas Gerais</option>
-                <option value="PA" <?php Selected($dados['estado'], "PA"); ?>>Pará</option>
-                <option value="PB" <?php Selected($dados['estado'], "PB"); ?>>Paraíba</option>
-                <option value="PR" <?php Selected($dados['estado'], "PR"); ?>>Paraná</option>
-                <option value="PE" <?php Selected($dados['estado'], "PE"); ?>>Pernambuco</option>
-                <option value="PI" <?php Selected($dados['estado'], "PI"); ?>>Piauí</option>
-                <option value="RJ" <?php Selected($dados['estado'], "RJ"); ?>>Rio de Janeiro</option>
-                <option value="RN" <?php Selected($dados['estado'], "RN"); ?>>Rio Grande do Norte</option>
-                <option value="RS" <?php Selected($dados['estado'], "RS"); ?>>Rio Grande do Sul</option>
-                <option value="RO" <?php Selected($dados['estado'], "RO"); ?>>Rondônia</option>
-                <option value="RR" <?php Selected($dados['estado'], "RR"); ?>>Roraima</option>
-                <option value="SC" <?php Selected($dados['estado'], "SC"); ?>>Santa Catarina</option>
-                <option value="SP" <?php Selected($dados['estado'], "SP"); ?>>São Paulo</option>
-                <option value="SE" <?php Selected($dados['estado'], "SE"); ?>>Sergipe</option>
-                <option value="TO" <?php Selected($dados['estado'], "TO"); ?>>Tocantins</option>
-            </select>
-          </div>        
-        </div>
-            <!-- `cidade` varchar(255) DEFAULT NULL -->
-            <div class="col-md-3">
-              <div class="form-group">
-                <label>Cidade: </label>
-                <input class="form-control" name="cidade" required value="<?php echo $dados['cidade'];?>">
-              </div>        
-            </div>
-            <!-- `bairro` varchar(255) DEFAULT NULL -->
-            <div class="col-md-3">
-              <div class="form-group">
-                <label>Bairro: </label>
-                <input class="form-control" name="bairro" required value="<?php echo $dados['bairro'];?>">
-              </div>        
-            </div>
-            <!-- `rua` varchar(255) DEFAULT NULL -->
-            <div class="col-md-3">
-              <div class="form-group">
-                <label>Rua: </label>
-                <input class="form-control" name="rua" required value="<?php echo $dados['rua'];?>">
-              </div>        
-            </div>
-        </div> <br>
+      </div>  <br>    
       <div class="row">
 			<!-- `garagem` text DEFAULT NULL -->
        <div class="col-md-2">
@@ -378,10 +326,10 @@ if (is_array($query)) { ?>
               <tbody>
                 <?php if(is_array($fotos)){ foreach($fotos as $foto){ ?>
                   <tr id='foto-<?php echo $foto['id']; ?>'>
-          					<td><img src="<?php echo RemoveHttpS(ConfigPainel('base_url'))."wa/imobiliaria/uploads/".$foto['uniq']; ?>" height="100"/></td>
-          					<td><input class='form-check-input' name='capa' type='radio' value='old-<?php echo $foto['id']; ?>' required  <?php Checked($dados['id_imagem_capa'], $foto['id']); ?>> Capa do imovel</td>
-          					<td><button type='button' class='imovel-rem-form btn btn-sm btn-danger float-right' onclick="ExcluirFotoImovel(<?php echo $foto['id']; ?>);">Excluir</button></td>
-          				</tr>
+  					<td><img src="<?php echo RemoveHttpS(ConfigPainel('base_url'))."wa/imobiliaria/uploads/".$foto['uniq']; ?>" height="100"/></td>
+  					<td><input class='form-check-input' name='capa' type='radio' value='old-<?php echo $foto['id']; ?>' required  <?php Checked($dados['id_imagem_capa'], $foto['id']); ?>> Capa do imovel</td>
+  					<td><button type='button' class='imovel-rem-form btn btn-sm btn-danger float-right' onclick="ExcluirFotoImovel(<?php echo $foto['id']; ?>);">Excluir</button></td>
+  				</tr>
                 <?php } } ?>
               </tbody>
             </table>
@@ -403,6 +351,86 @@ if (is_array($query)) { ?>
             </table>
 
             <button class="btnSubmit btn btn-primary float-right" type="submit">Editar Imóvel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header r-0 bg-primary">
+            <h5 class="modal-title text-white" id="exampleModalLabel">Adiciona o endereço</h5>
+            <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+                <label>Cidade:</label>
+                <!-- `cidade` varchar(255) DEFAULT NULL -->
+                <select name="cidade" required class="form-control custom-select">
+                    <?php foreach($cidades as $chave => $cidade){ ?>
+                    <option value="<?php echo $cidade['nome']; ?>" <?php Selected($dados['cidade'], $cidade['nome']); ?>><?php echo $cidade['nome']; ?></option>
+                    <?php } ?>
+                </select>
+            </div>
+                  <div class="row">
+        <div class="col-md-4">
+          <!-- `estado` varchar(255) DEFAULT NULL -->
+          <div class="form-group">
+                <label>Estado: </label>
+                <select name="estado" class="form-control custom-select" required>
+                    <option value="AC" <?php Selected($dados['estado'], "AC"); ?>>Acre</option>
+                    <option value="AL" <?php Selected($dados['estado'], "AL"); ?>>Alagoas</option>
+                    <option value="AP" <?php Selected($dados['estado'], "AP"); ?>>Amapá</option>
+                    <option value="AM" <?php Selected($dados['estado'], "AM"); ?>>Amazonas</option>
+                    <option value="BA" <?php Selected($dados['estado'], "BA"); ?>>Bahia</option>
+                    <option value="CE" <?php Selected($dados['estado'], "CE"); ?>>Ceará</option>
+                    <option value="DF" <?php Selected($dados['estado'], "DF"); ?>>Distrito Federal</option>
+                    <option value="ES" <?php Selected($dados['estado'], "ES"); ?>>Espírito Santo</option>
+                    <option value="GO" <?php Selected($dados['estado'], "GO"); ?>>Goiás</option>
+                    <option value="MA" <?php Selected($dados['estado'], "MA"); ?>>Maranhão</option>
+                    <option value="MT" <?php Selected($dados['estado'], "MT"); ?>>Mato Grosso</option>
+                    <option value="MS" <?php Selected($dados['estado'], "MS"); ?>>Mato Grosso do Sul</option>
+                    <option value="MG" <?php Selected($dados['estado'], "MG"); ?>>Minas Gerais</option>
+                    <option value="PA" <?php Selected($dados['estado'], "PA"); ?>>Pará</option>
+                    <option value="PB" <?php Selected($dados['estado'], "PB"); ?>>Paraíba</option>
+                    <option value="PR" <?php Selected($dados['estado'], "PR"); ?>>Paraná</option>
+                    <option value="PE" <?php Selected($dados['estado'], "PE"); ?>>Pernambuco</option>
+                    <option value="PI" <?php Selected($dados['estado'], "PI"); ?>>Piauí</option>
+                    <option value="RJ" <?php Selected($dados['estado'], "RJ"); ?>>Rio de Janeiro</option>
+                    <option value="RN" <?php Selected($dados['estado'], "RN"); ?>>Rio Grande do Norte</option>
+                    <option value="RS" <?php Selected($dados['estado'], "RS"); ?>>Rio Grande do Sul</option>
+                    <option value="RO" <?php Selected($dados['estado'], "RO"); ?>>Rondônia</option>
+                    <option value="RR" <?php Selected($dados['estado'], "RR"); ?>>Roraima</option>
+                    <option value="SC" <?php Selected($dados['estado'], "SC"); ?>>Santa Catarina</option>
+                    <option value="SP" <?php Selected($dados['estado'], "SP"); ?>>São Paulo</option>
+                    <option value="SE" <?php Selected($dados['estado'], "SE"); ?>>Sergipe</option>
+                    <option value="TO" <?php Selected($dados['estado'], "TO"); ?>>Tocantins</option>
+                </select>
+              </div>
+            </div>
+            
+            <!-- `bairro` varchar(255) DEFAULT NULL -->
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Bairro: </label>
+                <input class="form-control" name="bairro" required value="<?php echo $dados['bairro'];?>">
+              </div>        
+            </div>
+            <!-- `rua` varchar(255) DEFAULT NULL -->
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Rua: </label>
+                <input class="form-control" name="rua" required value="<?php echo $dados['rua'];?>">
+              </div>        
+            </div>
+        </div> 
+            
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Salvar</button>
           </div>
         </div>
       </div>

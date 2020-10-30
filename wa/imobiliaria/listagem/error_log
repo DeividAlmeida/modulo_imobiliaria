@@ -163,3 +163,11 @@
 [29-Oct-2020 14:38:46 America/Sao_Paulo] PHP Warning:  Invalid argument supplied for foreach() in /home2/templatesweb/public_html/imobiliaria-wacontrol/wa/imobiliaria/listagem/includes/estilo_4.php on line 450
 [29-Oct-2020 14:43:01 America/Sao_Paulo] PHP Warning:  Invalid argument supplied for foreach() in /home2/templatesweb/public_html/imobiliaria-wacontrol/wa/imobiliaria/listagem/includes/estilo_4.php on line 442
 [29-Oct-2020 14:43:01 America/Sao_Paulo] PHP Warning:  Invalid argument supplied for foreach() in /home2/templatesweb/public_html/imobiliaria-wacontrol/wa/imobiliaria/listagem/includes/estilo_4.php on line 450
+[29-Oct-2020 18:50:44 America/Sao_Paulo] PHP Warning:  Invalid argument supplied for foreach() in /home2/templatesweb/public_html/imobiliaria-wacontrol/wa/imobiliaria/listagem/includes/estilo_4.php on line 442
+[29-Oct-2020 18:50:44 America/Sao_Paulo] PHP Warning:  Invalid argument supplied for foreach() in /home2/templatesweb/public_html/imobiliaria-wacontrol/wa/imobiliaria/listagem/includes/estilo_4.php on line 450
+[30-Oct-2020 11:28:29 America/Sao_Paulo] PHP Warning:  array_unique() expects parameter 1 to be array, null given in /home2/templatesweb/public_html/imobiliaria-wacontrol/wa/imobiliaria/listagem/includes/estilo_4.php on line 442
+[30-Oct-2020 11:28:29 America/Sao_Paulo] PHP Warning:  Invalid argument supplied for foreach() in /home2/templatesweb/public_html/imobiliaria-wacontrol/wa/imobiliaria/listagem/includes/estilo_4.php on line 443
+[30-Oct-2020 11:28:31 America/Sao_Paulo] PHP Warning:  array_unique() expects parameter 1 to be array, null given in /home2/templatesweb/public_html/imobiliaria-wacontrol/wa/imobiliaria/listagem/includes/estilo_4.php on line 442
+[30-Oct-2020 11:28:31 America/Sao_Paulo] PHP Warning:  Invalid argument supplied for foreach() in /home2/templatesweb/public_html/imobiliaria-wacontrol/wa/imobiliaria/listagem/includes/estilo_4.php on line 443
+[30-Oct-2020 11:28:32 America/Sao_Paulo] PHP Warning:  array_unique() expects parameter 1 to be array, null given in /home2/templatesweb/public_html/imobiliaria-wacontrol/wa/imobiliaria/listagem/includes/estilo_4.php on line 442
+[30-Oct-2020 11:28:32 America/Sao_Paulo] PHP Warning:  Invalid argument supplied for foreach() in /home2/templatesweb/public_html/imobiliaria-wacontrol/wa/imobiliaria/listagem/includes/estilo_4.php on line 443

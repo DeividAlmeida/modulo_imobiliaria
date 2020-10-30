@@ -1,11 +1,11 @@
-<?php $query = DBRead('imobiliaria_categorias','*'); ?>
+<?php $query = DBRead('imobiliaria_cidades','*'); ?>
 
 <div class="card">
   <div class="card-header white">
-    <strong>Categoria</strong>
+    <strong>Cidade</strong>
 
     <?php if (checkPermission($PERMISSION, $_SERVER['SCRIPT_NAME'], 'categoria', 'adicionar')) { ?>
-      <a class="btn btn-sm btn-primary" href="?AdicionarCategoria">Adicionar</a>
+      <a class="btn btn-sm btn-primary" href="?AdicionarCidade">Adicionar</a>
       <?php } ?>
   </div>
 
@@ -35,12 +35,12 @@
 
                       <div class="dropdown-menu dropdown-menu-right" x-placement="bottom-end">
                       <?php if (checkPermission($PERMISSION, $_SERVER['SCRIPT_NAME'], 'categoria', 'editar')) { ?>
-                        <a class="dropdown-item" href="?EditarCategoria=<?php echo $dados['id']; ?>"><i class="text-primary icon icon-pencil"></i> Editar</a>
+                        <a class="dropdown-item" href="?EditarCidade=<?php echo $dados['id']; ?>"><i class="text-primary icon icon-pencil"></i> Editar</a>
                         <?php } ?>
 
                         <?php if ($dados['id'] != 0) { ?>
                           <?php if (checkPermission($PERMISSION, $_SERVER['SCRIPT_NAME'], 'categoria', 'deletar')) { ?>
-                            <a class="dropdown-item" onclick="DeletarItem(<?php echo $dados['id']; ?>, 'DeletarCategoria');" href="#!"><i class="text-danger icon icon-remove"></i> Excluir</a>
+                            <a class="dropdown-item" onclick="DeletarItem(<?php echo $dados['id']; ?>, 'DeletarCidade');" href="#!"><i class="text-danger icon icon-remove"></i> Excluir</a>
                             <?php } ?>
                         <?php } ?>
                       </div>
@@ -56,7 +56,7 @@
   <?php } else { ?>
     <div class="card-body">
     <?php if (checkPermission($PERMISSION, $_SERVER['SCRIPT_NAME'], 'categoria', 'adicionar')) { ?>
-      <div class="alert alert-info">Nenhum categoria adicionada até o momento, <a href="?AdicionarCategoria">clique aqui</a> para adicionar.</div>
+      <div class="alert alert-info">Nenhum cidade adicionada até o momento, <a href="?AdicionarCidade">clique aqui</a> para adicionar.</div>
       <?php } ?>
     </div>
   <?php } ?>

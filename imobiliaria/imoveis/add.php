@@ -1,8 +1,11 @@
 <?php
   if(!checkPermission($PERMISSION, $_SERVER['SCRIPT_NAME'], 'imovel', 'adicionar')){ Redireciona('./index.php'); }
 ?>
-<?php $categorias = DBRead('imobiliaria_categorias','*'); ?>
-<?php $imoveis = DBRead('imobiliaria','*'); ?>
+<?php 
+$categorias = DBRead('imobiliaria_categorias','*'); 
+$cidades = DBRead('imobiliaria_cidades','*');
+$imoveis = DBRead('imobiliaria','*'); 
+?>
 <form method="post" action="?AddImovel" enctype="multipart/form-data">
   <div class="card">
     <div class="card-header  white">
@@ -11,7 +14,7 @@
     <div class="card-body">
       <div class="row">
         <div class="col-md-6">
-          <!-- `nome` varchar(255) NOT NULL -->
+          <!-- `nome` varchar(255) NOT NULL --> 
           <div class="form-group">
             <label>Nome: </label>
             <input class="form-control imovel-nome" name="nome" required>
@@ -52,6 +55,10 @@
               <?php } ?>
             </select>
           </div>
+          <!-- ADD Cidade -->
+          <div class="form-group">
+            <bottom class="btn btn-primary btnAdd" data-toggle="modal" data-target="#exampleModal"> Adicionar Cidade</bottom>
+          </div>
 
           <!-- `preco` decimal(10,2) NOT NULL -->
           <div class="form-group">
@@ -90,91 +97,36 @@
               <?php } ?>
             </select>
           </div>
-
-          <!-- `tamanho` decimal(10,2) NULL -->
-          <div class="form-group">
-            <label>Tamanho: <i class="icon icon-question-circle tooltips" data-tooltip="Unidade de media (m²)"><span class="inner">Unidade de media (Kg)</span></i> </label>
-            <input class="form-control" name="tamanho" type="number" required min="1" step="0.01">
-          </div>
-
-          <!-- `quartos` decimal(10,2) NULL -->
-          <div class="form-group">
-            <label>Quantidade de quartos: </label>
-            <input class="form-control" name="quartos" type="number" required min="0" step="any">
-          </div>
-
-          <!-- `andar` decimal(10,2) NULL -->
-          <div class="form-group">
-            <label>Andar: </label>
-            <input class="form-control" name="andar" type="number" min="0" step="any">
-          </div>
-
-          <!-- `banheiros` decimal(10,2) NULL -->
-          <div class="form-group">
-            <label>Quantidade de banheiros: </label>
-            <input class="form-control" name="banheiros" type="number" required min="0" step="any" >
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-3">
-          <!-- `estado` varchar(255) DEFAULT NULL -->
-          <div class="form-group">
-                <label>Estado: </label>
-                <select name="estado" class="form-control custom-select" required>
-                    <option value="" disabled selected>Estado</option>
-                    <option value="AC" >Acre</option>
-                    <option value="AL" >Alagoas</option>
-                    <option value="AP" >Amapá</option>
-                    <option value="AM" >Amazonas</option>
-                    <option value="BA" >Bahia</option>
-                    <option value="CE" >Ceará</option>
-                    <option value="DF" >Distrito Federal</option>
-                    <option value="ES" >Espírito Santo</option>
-                    <option value="GO" >Goiás</option>
-                    <option value="MA" >Maranhão</option>
-                    <option value="MT" >Mato Grosso</option>
-                    <option value="MS" >Mato Grosso do Sul</option>
-                    <option value="MG" >Minas Gerais</option>
-                    <option value="PA" >Pará</option>
-                    <option value="PB" >Paraíba</option>
-                    <option value="PR" >Paraná</option>
-                    <option value="PE" >Pernambuco</option>
-                    <option value="PI" >Piauí</option>
-                    <option value="RJ" >Rio de Janeiro</option>
-                    <option value="RN" >Rio Grande do Norte</option>
-                    <option value="RS" >Rio Grande do Sul</option>
-                    <option value="RO" >Rondônia</option>
-                    <option value="RR" >Roraima</option>
-                    <option value="SC" >Santa Catarina</option>
-                    <option value="SP" >São Paulo</option>
-                    <option value="SE" >Sergipe</option>
-                    <option value="TO" >Tocantins</option>
-                </select>
+            <div class="row">
+              <!-- `tamanho` decimal(10,2) NULL -->
+              <div class="col-md-3">
+                <label>Tamanho: <i class="icon icon-question-circle tooltips" data-tooltip="Unidade de media (m²)"><span class="inner">Unidade de media (Kg)</span></i> </label>
+                <input class="form-control" name="tamanho" type="number" required min="1" step="0.01">
+              </div>
+    
+              <!-- `quartos` decimal(10,2) NULL -->
+              <div class=" col-md-3">
+                <label>Quartos: </label>
+                <input class="form-control" name="quartos" type="number" required min="0" step="any">
+              </div>
+            
+              <!-- `andar` decimal(10,2) NULL -->
+              <div class="col-md-3">
+                <label>Andar: </label>
+                <input class="form-control" name="andar" type="number" min="0" step="any">
+              </div>
+    
+              <!-- `banheiros` decimal(10,2) NULL -->
+              <div class="col-md-3">
+                <label>Banheiros: </label>
+                <input class="form-control" name="banheiros" type="number" required min="0" step="any" >
               </div>
             </div>
-            <!-- `cidade` varchar(255) DEFAULT NULL -->
-            <div class="col-md-3">
-              <div class="form-group">
-                <label>Cidade: </label>
-                <input class="form-control" name="cidade" required>
-              </div>        
-            </div>
-            <!-- `bairro` varchar(255) DEFAULT NULL -->
-            <div class="col-md-3">
-              <div class="form-group">
-                <label>Bairro: </label>
-                <input class="form-control" name="bairro" required>
-              </div>        
-            </div>
-            <!-- `rua` varchar(255) DEFAULT NULL -->
-            <div class="col-md-3">
-              <div class="form-group">
-                <label>Rua: </label>
-                <input class="form-control" name="rua" required>
-              </div>        
-            </div>
-        </div> <br>       
+        </div>
+        
+        
+        
+      </div>
       <div class="row">
 			<!-- `garagem` text DEFAULT NULL -->
        <div class="col-md-2">
@@ -315,4 +267,87 @@
       </div>
     </div>
   </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header r-0 bg-primary">
+            <h5 class="modal-title text-white" id="exampleModalLabel">Adiciona o endereço</h5>
+            <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+                <label>Cidade:</label>
+                <!-- `cidade` varchar(255) DEFAULT NULL -->
+                <select name="cidade" required class="form-control custom-select">
+                    <option value="" disabled selected>Cidade</option>
+                    <?php foreach($cidades as $chave => $cidade){ ?>
+                    <option value="<?php echo $cidade['nome']; ?>" <?php Selected($cidade['nome']); ?>><?php echo $cidade['nome']; ?></option>
+                    <?php } ?>
+                </select>
+            </div>
+                  <div class="row">
+        <div class="col-md-4">
+          <!-- `estado` varchar(255) DEFAULT NULL -->
+          <div class="form-group">
+                <label>Estado: </label>
+                <select name="estado" class="form-control custom-select" required>
+                    <option value="" disabled selected>Estado</option>
+                    <option value="AC" >Acre</option>
+                    <option value="AL" >Alagoas</option>
+                    <option value="AP" >Amapá</option>
+                    <option value="AM" >Amazonas</option>
+                    <option value="BA" >Bahia</option>
+                    <option value="CE" >Ceará</option>
+                    <option value="DF" >Distrito Federal</option>
+                    <option value="ES" >Espírito Santo</option>
+                    <option value="GO" >Goiás</option>
+                    <option value="MA" >Maranhão</option>
+                    <option value="MT" >Mato Grosso</option>
+                    <option value="MS" >Mato Grosso do Sul</option>
+                    <option value="MG" >Minas Gerais</option>
+                    <option value="PA" >Pará</option>
+                    <option value="PB" >Paraíba</option>
+                    <option value="PR" >Paraná</option>
+                    <option value="PE" >Pernambuco</option>
+                    <option value="PI" >Piauí</option>
+                    <option value="RJ" >Rio de Janeiro</option>
+                    <option value="RN" >Rio Grande do Norte</option>
+                    <option value="RS" >Rio Grande do Sul</option>
+                    <option value="RO" >Rondônia</option>
+                    <option value="RR" >Roraima</option>
+                    <option value="SC" >Santa Catarina</option>
+                    <option value="SP" >São Paulo</option>
+                    <option value="SE" >Sergipe</option>
+                    <option value="TO" >Tocantins</option>
+                </select>
+              </div>
+            </div>
+            
+            <!-- `bairro` varchar(255) DEFAULT NULL -->
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Bairro: </label>
+                <input class="form-control" name="bairro" required>
+              </div>        
+            </div>
+            <!-- `rua` varchar(255) DEFAULT NULL -->
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Rua: </label>
+                <input class="form-control" name="rua" required>
+              </div>        
+            </div>
+        </div> 
+            
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Salvar</button>
+          </div>
+        </div>
+      </div>
+    </div>
 </form>
+

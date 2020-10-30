@@ -4,7 +4,9 @@
 
 
 <style>
-
+select {
+    cursor:pointer;
+}
 
 #opcoes{
     position: absolute;
@@ -43,6 +45,7 @@
 	right: 0; 
 	top: 0; 
 	bottom: 0; 
+	cursor:pointer;
 } 
 
 #checkBoxes { 
@@ -153,7 +156,8 @@ overflow:hidden;
 }
 #shop--list<?php echo $uniqid; ?> .shop--imovel__img img {
   max-width: auto;
-  max-height: auto;
+  max-height: 200px;
+  margin-right:5px;
 }
 #shop--list<?php echo $uniqid; ?> .shop--imovel__secondary-img{
   left: 0;
@@ -170,11 +174,14 @@ overflow:hidden;
   text-align: left;
   position: relative;
   width: 30% !important;
+ /* margin-left:5% !important;
+  padding-left:0px !important*/
 }
 #shop--list<?php echo $uniqid; ?> .shop--imovel__img {
 width: 30% ;
 padding: 0px !important;
 padding-right:5px;
+overflow:hidden;
 }
 #shop--list<?php echo $uniqid; ?> .shop--imovel__info{
     border-radius: 3px;
@@ -321,6 +328,10 @@ margin-right: 10px;
   width: 100%;
 
 }
+#Ashop--list<?php echo $uniqid; ?> .Ashop--imovel__img {
+  max-width: 310px;
+
+}
 #Ashop--list<?php echo $uniqid; ?> .Ashop--imovel__secondary-img{
   left: 0;
   opacity: 0;
@@ -437,20 +448,20 @@ $todos_tipos =  DBRead('imobiliaria_categorias','*');
             </select>
         </div>
         <div class="col-md-2" id="find">
-            <select name="cidade"  class="form-control custom-select" id="cidade">
+            <select name="cidade" onchange="bairros(this.value)" class="form-control custom-select" id="cidade">
                 <option disabled selected value="">Cidade</option>
-                <?php foreach($imoveis as $cidade): ?>
+                <?php $cidades = DBRead('imobiliaria','*','GROUP BY cidade');
+                foreach($cidades as $cidade): ?>
                 <option value="<?php echo $cidade['cidade'] ?>" <?php Selected($cidade); ?>><?php echo $cidade['cidade'] ?></option>
                 <?php endforeach ?>
             </select>
         </div>
-        <div class="col-md-2" id="find">
-            <select name="bairro"  class="form-control custom-select" id="bairro">
-                <option disabled selected value="">Bairro</option>
-                <?php foreach($imoveis as $bairro): ?>
-                <option value="<?php echo $bairro['bairro'] ?>" <?php Selected($bairro); ?>><?php echo $bairro['bairro'] ?></option>
-                <?php endforeach ?>
-            </select>
+        <div class="col-md-2" id="find option">
+            <span id="bairros_filtrados">
+                <select name="bairro"  class="form-control custom-select" id="bairro">
+                    <option value="" disabled selected>Bairro</option>
+                </select>
+            </span>
         </div>
         <div class="col-md-2 " id="find" style="position:relative;" >
             <div class="selectBox"	onclick="showCheckboxes()">
@@ -460,7 +471,7 @@ $todos_tipos =  DBRead('imobiliaria_categorias','*');
                 <div class="overSelect"></div>
             </div>
 
-    		<div id="checkBoxes" class="form-group" style="display:none; margin-top:5px;">  
+    		<div id="checkBoxes" class="form-group" style="display:none; margin-top:5px; padding-left: 15px;">  
     			<label > 
     				<input type="number" placeholder="Qtd. quartos" style="width: 80%" name="quarto" id="quarto" class="form-control"> 
     			</label>
@@ -669,4 +680,5 @@ function showCheckboxes() {
 		show = true; 
 	} 
 } 
+
 </script>

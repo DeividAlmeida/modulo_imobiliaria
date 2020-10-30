@@ -14,7 +14,7 @@ if (is_array($queryAction) && empty($queryAction[0]['action'])) {
 
 require_once('database/upload.class.php');
 require_once('imobiliaria/matriz_imovel/index.php');
-require_once('imobiliaria/categorias.php');
+require_once('imobiliaria/cidades.php');
 require_once('controller/imobiliaria/configuracao.php');
 require_once('imobiliaria/listagens.php');
 require_once('imobiliaria/imoveis.php');

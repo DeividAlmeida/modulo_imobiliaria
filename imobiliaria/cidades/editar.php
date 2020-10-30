@@ -1,13 +1,13 @@
 <?php
 if(!checkPermission($PERMISSION, $_SERVER['SCRIPT_NAME'], 'categoria', 'editar')){ Redireciona('./index.php'); }
-$id     = get('EditarCategoria');
-$query  = DBRead('imobiliaria_categorias','*',"WHERE id = '{$id}'");
+$id     = get('EditarCidade');
+$query  = DBRead('imobiliaria_cidades','*',"WHERE id = '{$id}'");
 if (is_array($query)) {
   foreach ($query as $dados) { ?>
-    <form method="post" action="?AtualizarCategoria=<?php echo $id; ?>">
+    <form method="post" action="?AtualizarCidade=<?php echo $id; ?>">
       <div class="card">
         <div class="card-header  white">
-          <strong>Editar Categoria</strong>
+          <strong>Editar Cidade</strong>
         </div>
         <div class="card-body">
           <div class="row">

@@ -33,7 +33,7 @@ $UrlPage	 = 'imobiliaria.php';
 				<?php } ?>
 
 				<div class="dropdown-menu dropdown-menu-left" x-placement="bottom-start">
-					<a class="dropdown-item" href="?">Listagens cadastradas</a>
+					<a class="dropdown-item" href="?">Listagens Cadastradas</a>
 					<?php if (checkPermission($PERMISSION, $_SERVER['SCRIPT_NAME'], 'listagem', 'adicionar')) { ?>
 						<a class="dropdown-item" href="?AdicionarLista">Cadastrar Listagem</a>
 					<?php } ?>
@@ -43,13 +43,13 @@ $UrlPage	 = 'imobiliaria.php';
 			<span class="dropdown">
 
 			<?php if (checkPermission($PERMISSION, $_SERVER['SCRIPT_NAME'], 'categoria')) { ?>
-				<a class="btn btn-sm btn-primary d-none" href="#" data-toggle="dropdown">Categorias</a>
+				<a class="btn btn-sm btn-primary" href="#" data-toggle="dropdown">Cidade</a>
 			<?php } ?>
 
 				<div class="dropdown-menu dropdown-menu-left" x-placement="bottom-end">
-					<a class="dropdown-item" href="?ListarCategoria">Categorias cadastradas</a>
+					<a class="dropdown-item" href="?ListarCidade">Cidades Cadastradas</a>
 					<?php if (checkPermission($PERMISSION, $_SERVER['SCRIPT_NAME'], 'categoria', 'adicionar')) { ?>
-						<a class="dropdown-item" href="?AdicionarCategoria">Cadastrar categoria</a>
+						<a class="dropdown-item" href="?AdicionarCidade">Cadastrar Cidade</a>
 					<?php } ?>
 				</div>
 			</span>
@@ -60,7 +60,7 @@ $UrlPage	 = 'imobiliaria.php';
 				<?php } ?>
 
 				<div class="dropdown-menu dropdown-menu-left" x-placement="bottom">
-					<a class="dropdown-item" href="?ListarImovel">Imóveis cadastrados</a>
+					<a class="dropdown-item" href="?ListarImovel">Imóveis Cadastrados</a>
 
 					<?php if (checkPermission($PERMISSION, $_SERVER['SCRIPT_NAME'], 'imovel', 'adicionar')) { ?>
 					<a class="dropdown-item" href="?AdicionarImovel">Cadastrar Imóvel</a>
@@ -79,12 +79,12 @@ $UrlPage	 = 'imobiliaria.php';
 		<?php
 		if (isset($_GET['Config'])) :
 			require_once('imobiliaria/configuracao.php');
-		elseif (isset($_GET['AdicionarCategoria'])) :
-			require_once('imobiliaria/categorias/add.php');
-		elseif (isset($_GET['EditarCategoria'])) :
-			require_once('imobiliaria/categorias/editar.php');
-		elseif (isset($_GET['ListarCategoria'])) :
-			require_once('imobiliaria/categorias/listar.php');
+		elseif (isset($_GET['AdicionarCidade'])) :
+			require_once('imobiliaria/cidades/add.php');
+		elseif (isset($_GET['EditarCidade'])) :
+			require_once('imobiliaria/cidades/editar.php');
+		elseif (isset($_GET['ListarCidade'])) :
+			require_once('imobiliaria/cidades/listar.php');
 		elseif (isset($_GET['AdicionarImovel'])) :
 			require_once('imobiliaria/imoveis/add.php');
 		elseif (isset($_GET['EditarImovel'])) :

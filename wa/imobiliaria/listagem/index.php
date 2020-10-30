@@ -144,6 +144,16 @@ function escolhido (z, y)  {
     document.getElementById('procurar').value = y;
     document.getElementById('opcoes').style.visibility="hidden";
 }
+
+function bairros(f){
+    
+    fetch(UrlPainel+'wa/imobiliaria/listagem/bairro_api.php?cidade='+f).then((prom)=>{
+        prom.text().then((dados)=>{
+            let as = document.getElementById('bairros_filtrados').innerHTML = dados ;
+   
+        })
+    });
+}
 $(document).ready( function() {
 	$('#shop--list<?php echo $uniqid; ?> .shop--list--bar__view-grid').click(function(){
 		shopUpdateListView('<?php echo $uniqid; ?>', true, 'col-md-<?php echo $tamanho_coluna; ?>');

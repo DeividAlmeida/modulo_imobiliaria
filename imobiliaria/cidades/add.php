@@ -2,10 +2,10 @@
   if(!checkPermission($PERMISSION, $_SERVER['SCRIPT_NAME'], 'categoria', 'adicionar')){ Redireciona('./index.php'); }
 ?>
 
-<form method="post" action="?AddCategoria">
+<form method="post" action="?AddCidade">
   <div class="card">
     <div class="card-header white">
-      <strong>Cadastrar Categoria</strong>
+      <strong>Cadastrar Cidade</strong>
     </div>
     <div class="card-body">
       <div class="row">
