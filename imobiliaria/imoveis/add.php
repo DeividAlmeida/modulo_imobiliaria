@@ -281,7 +281,7 @@ $imoveis = DBRead('imobiliaria','*');
             <div class="form-group">
                 <label>Cidade:</label>
                 <!-- `cidade` varchar(255) DEFAULT NULL -->
-                <select name="cidade" required class="form-control custom-select">
+                <select name="cidade" onchange="bairros(this.value)" required class="form-control custom-select">
                     <option value="" disabled selected>Cidade</option>
                     <?php foreach($cidades as $chave => $cidade){ ?>
                     <option value="<?php echo $cidade['nome']; ?>" <?php Selected($cidade['nome']); ?>><?php echo $cidade['nome']; ?></option>
@@ -330,9 +330,14 @@ $imoveis = DBRead('imobiliaria','*');
             <div class="col-md-4">
               <div class="form-group">
                 <label>Bairro: </label>
-                <input class="form-control" name="bairro" required>
+                <span id="bairros_filtrados">
+                    <select required class="form-control custom-select">
+                        <option value="" disabled >Escolha a Cidade</option>
+                </select>
+                </span>
               </div>        
             </div>
+            
             <!-- `rua` varchar(255) DEFAULT NULL -->
             <div class="col-md-4">
               <div class="form-group">
@@ -348,6 +353,22 @@ $imoveis = DBRead('imobiliaria','*');
           </div>
         </div>
       </div>
+      <script>
+    function bairros(f){
+        fetch('./wa/imobiliaria/listagem/bairro_api.php?cidade='+f).then((prom)=>{
+            prom.text().then((dados)=>{
+                
+                if(dados == ""){
+                    document.getElementById('bairros_filtrados').innerHTML = "<br>Nenhum bairro cadastrado nessa cidade." ;
+                }else{
+                    document.getElementById('bairros_filtrados').innerHTML = dados ;
+                }
+       
+            })
+        });
+    }
+</script>
     </div>
 </form>
+
 

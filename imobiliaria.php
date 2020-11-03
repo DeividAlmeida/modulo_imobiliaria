@@ -97,6 +97,12 @@ $UrlPage	 = 'imobiliaria.php';
 			require_once('imobiliaria/listagens/editar.php');
 		elseif (isset($_GET['VisualizarLista'])) :
 			require_once('imobiliaria/listagens/item/listar.php');
+		elseif (isset($_GET['AdicionarBairro'])) :
+			require_once('imobiliaria/bairros/add.php');
+		elseif (isset($_GET['ListarBairro'])) :
+			require_once('imobiliaria/bairros/listar.php');
+		elseif (isset($_GET['EditarBairro'])) :
+			require_once('imobiliaria/bairros/editar.php');
 		else :
 			require_once('imobiliaria/listagens/listar.php');
 		endif;

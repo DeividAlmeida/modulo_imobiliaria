@@ -3,6 +3,7 @@
 ?>
 <?php
 $cidades = DBRead('imobiliaria_cidades','*');
+
 function Checked($query, $value = null){
   if ($query == $value) { echo "checked"; }
 }
@@ -16,7 +17,7 @@ $imoveis   = DBRead('imobiliaria','*');
 
 $query   = DBRead('imobiliaria','*',"WHERE id = '{$id}'");
 $dados   = $query[0];
-
+$bairros = DBRead('imobiliaria_bairros','*', "WHERE cidade = '{$dados['cidade']}'");
 $fotos   = DBRead('imobiliaria_imov_imagens','*', "WHERE id_imovel = {$id}");
 
 // Busca pela foto de capa e salva em variavel
@@ -369,7 +370,7 @@ if (is_array($query)) { ?>
             <div class="form-group">
                 <label>Cidade:</label>
                 <!-- `cidade` varchar(255) DEFAULT NULL -->
-                <select name="cidade" required class="form-control custom-select">
+                <select name="cidade" onchange="bairros(this.value)" required class="form-control custom-select">
                     <?php foreach($cidades as $chave => $cidade){ ?>
                     <option value="<?php echo $cidade['nome']; ?>" <?php Selected($dados['cidade'], $cidade['nome']); ?>><?php echo $cidade['nome']; ?></option>
                     <?php } ?>
@@ -414,9 +415,16 @@ if (is_array($query)) { ?>
             
             <!-- `bairro` varchar(255) DEFAULT NULL -->
             <div class="col-md-4">
+                
               <div class="form-group">
                 <label>Bairro: </label>
-                <input class="form-control" name="bairro" required value="<?php echo $dados['bairro'];?>">
+                <span id="bairros_filtrados">
+                    <select name="cidade" required class="form-control custom-select">
+                        <?php foreach($bairros as $chave => $bairro){ ?>
+                        <option value="<?php echo $bairro['bairro']; ?>" <?php Selected($dados['bairro'], $bairro['bairro']); ?>><?php echo $bairro['bairro']; ?></option>
+                        <?php } ?>
+                    </select>
+                </span>
               </div>        
             </div>
             <!-- `rua` varchar(255) DEFAULT NULL -->
@@ -434,6 +442,21 @@ if (is_array($query)) { ?>
           </div>
         </div>
       </div>
+      <script>
+    function bairros(f){
+        fetch('./wa/imobiliaria/listagem/bairro_api.php?cidade='+f).then((prom)=>{
+            prom.text().then((dados)=>{
+                
+                if(dados == ""){
+                    document.getElementById('bairros_filtrados').innerHTML = "<br>Nenhum bairro cadastrado nessa cidade." ;
+                }else{
+                    document.getElementById('bairros_filtrados').innerHTML = dados ;
+                }
+       
+            })
+        });
+    }
+</script>
     </div>
   </form>
 <?php } ?>

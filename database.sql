@@ -18,6 +18,14 @@ CREATE TABLE IF NOT EXISTS `imobiliaria_cidades` (
   `descricao` text DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
+
+-- BAIRRO
+CREATE TABLE IF NOT EXISTS `imobiliaria_bairros` (
+  `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `cidade` varchar(255) DEFAULT NULL,
+  `bairro` varchar(255) DEFAULT NULL,
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
 -- imovel
 CREATE TABLE IF NOT EXISTS `imobiliaria` (
   `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
