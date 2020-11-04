@@ -44,7 +44,10 @@ ob_start();
        
    }
 }
-
+.fa {
+    font-family: FontAwesome, Arial !important;
+    
+}
   .garagem{
         opacity:<?php echo str_replace('checked','1',$imovel['garagem']) ?> !important;
         opacity:0.2;

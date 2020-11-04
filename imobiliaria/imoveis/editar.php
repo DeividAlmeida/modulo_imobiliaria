@@ -419,7 +419,7 @@ if (is_array($query)) { ?>
               <div class="form-group">
                 <label>Bairro: </label>
                 <span id="bairros_filtrados">
-                    <select name="cidade" required class="form-control custom-select">
+                    <select name="bairro" required class="form-control custom-select">
                         <?php foreach($bairros as $chave => $bairro){ ?>
                         <option value="<?php echo $bairro['bairro']; ?>" <?php Selected($dados['bairro'], $bairro['bairro']); ?>><?php echo $bairro['bairro']; ?></option>
                         <?php } ?>
@@ -443,20 +443,20 @@ if (is_array($query)) { ?>
         </div>
       </div>
       <script>
-    function bairros(f){
-        fetch('./wa/imobiliaria/listagem/bairro_api.php?cidade='+f).then((prom)=>{
-            prom.text().then((dados)=>{
-                
-                if(dados == ""){
-                    document.getElementById('bairros_filtrados').innerHTML = "<br>Nenhum bairro cadastrado nessa cidade." ;
-                }else{
-                    document.getElementById('bairros_filtrados').innerHTML = dados ;
-                }
-       
-            })
-        });
-    }
-</script>
+        function bairros(f){
+            fetch('./wa/imobiliaria/listagem/bairro_api.php?cidade='+f).then((prom)=>{
+                prom.text().then((dados)=>{
+                    
+                    if(dados == ""){
+                        document.getElementById('bairros_filtrados').innerHTML = "<br>Nenhum bairro cadastrado nessa cidade." ;
+                    }else{
+                        document.getElementById('bairros_filtrados').innerHTML = dados ;
+                    }
+           
+                })
+            });
+        }
+    </script>
     </div>
   </form>
 <?php } ?>

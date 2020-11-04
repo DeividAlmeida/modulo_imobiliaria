@@ -20,49 +20,34 @@ if(isset($_GET['b'])){
   $contagem_registro 	= DBCount('imobiliaria','*',"
   WHERE imobiliaria.nome LIKE '%$busca%'
   OR imobiliaria.palavras_chave LIKE '%$busca%'
-  OR imobiliaria.resumo LIKE '%$busca%'");
+  OR imobiliaria.resumo LIKE '%$busca%'
+  OR imobiliaria.cidade LIKE '%$busca%'
+  OR imobiliaria.bairro LIKE '%$busca%'
+  OR imobiliaria.estado LIKE '%$busca%'
+  OR imobiliaria.rua LIKE '%$busca%'
+  ");
 
   $limite 		= $config['busca_limite_pagina'];
   $numPaginas = ceil($contagem_registro/$limite);
   $inicio 		= ($limite*$pag)-$limite;
 
-  $produtos   = DBRead(
+  $imoveis   = DBRead(
     'imobiliaria',
-    'imobiliaria.*, imobiliaria_prod_imagens.uniq as id_foto_capa',
-    "INNER JOIN imobiliaria_prod_imagens ON imobiliaria.id_imagem_capa = imobiliaria_prod_imagens.id
+    'imobiliaria.*, imobiliaria_imov_imagens.uniq as id_foto_capa',
+    "INNER JOIN imobiliaria_imov_imagens ON imobiliaria.id_imagem_capa = imobiliaria_imov_imagens.id
     WHERE imobiliaria.nome LIKE '%$busca%'
     OR imobiliaria.palavras_chave LIKE '%$busca%'
     OR imobiliaria.resumo LIKE '%$busca%'
+    OR imobiliaria.cidade LIKE '%$busca%'
+    OR imobiliaria.bairro LIKE '%$busca%'
+    OR imobiliaria.estado LIKE '%$busca%'
+    OR imobiliaria.rua LIKE '%$busca%'
     LIMIT $inicio, $limite"
   );
 
-  if(!empty($produtos)){
+  if(!empty($imoveis)){
     // Escolhendo arquivo para o estilo
-    switch ($config['listagem_estilo']) {
-      case 1:
-        require_once('../listagem/includes/estilo_1.php');
-        break;
-
-      case 2:
-        require_once('../listagem/includes/estilo_2.php');
-        break;
-
-      case 3:
-        require_once('../listagem/includes/estilo_3.php');
-        break;
-
-      case 4:
-        require_once('../listagem/includes/estilo_4.php');
-        break;
-
-      case 5:
-        require_once('../listagem/includes/estilo_5.php');
-        break;
-
-      default:
-        require_once('../listagem/includes/estilo_1.php');
-        break;
-    }
+  require_once('../listagem/includes/estilo_4.php');
     ?>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:10px">
     	<center>
@@ -90,6 +75,30 @@ if(isset($_GET['b'])){
     </div>
     <link rel="stylesheet" href="<?php echo RemoveHttpS(ConfigPainel('base_url')); ?>/epack/css/elements/animate.css">
     <script>
+    function findImov (a){
+        var b =" " ;
+        document.getElementById('opcoes').style.visibility="visible";
+        fetch(UrlPainel+'wa/imobiliaria/listagem/api.php?pesquisa='+a).then( (resposta) =>{
+            resposta.text().then((data)=>{
+    
+                document.getElementById('opcoes').innerHTML = data;
+            });
+        }).catch(document.getElementById('opcoes').innerHTML = "Nenhum im¨®vel encontrado");
+    }
+    function escolhido (z, y)  {
+        document.getElementById('procurar').value = y;
+        document.getElementById('opcoes').style.visibility="hidden";
+    }
+    
+    function bairros(f){
+        
+        fetch(UrlPainel+'wa/imobiliaria/listagem/bairro_api.php?cidade='+f).then((prom)=>{
+            prom.text().then((dados)=>{
+                let as = document.getElementById('bairros_filtrados').innerHTML = dados ;
+       
+            })
+        });
+    }
     $(document).ready( function() {
     	$('#shop--list<?php echo $uniqid; ?> .shop--list--bar__view-grid').click(function(){
     		shopUpdateListView('<?php echo $uniqid; ?>', true, 'col-md-<?php echo $tamanho_coluna; ?>');

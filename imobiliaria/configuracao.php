@@ -5,11 +5,7 @@ $config = [];
 foreach ($query as $key => $row) {
   $config[$row['id']] = $row['valor'];
 }
-$cod_carrinho  = '<div id="ImobiliariaCarrinho" ></div>' . "\n";
-$cod_carrinho .= '<script type="text/javascript">ImobiliariaCarrinho();</script>';
 
-$cod_btn_carrinho  = '<div id="ImobiliariaBtnCarrinho" ></div>' . "\n";
-$cod_btn_carrinho .= '<script type="text/javascript">ImobiliariaBtnCarrinho();</script>';
 
 $cod_busca_buscador  = '<div id="ImobiliariaBuscador" ></div>' . "\n";
 $cod_busca_buscador .= '<script type="text/javascript">ImobiliariaBuscador();</script>';
@@ -24,13 +20,7 @@ $cod_busca_resultado .= '<script type="text/javascript">ImobiliariaBuscaResultad
     </div>
 
     <div class="card-body">
-      <button id="btnCopiarCodSite1" class="btn btn-primary btn-xs" onclick="CopiadoCodSite(1)" data-clipboard-text='<?php echo $cod_carrinho; ?>' type="button">
-        <i class="icon icon-code"></i> Copiar Código Página Carrinho
-      </button>
-
-      <button id="btnCopiarCodSite2" class="btn btn-primary btn-xs" onclick="CopiadoCodSite(2)" data-clipboard-text='<?php echo $cod_btn_carrinho; ?>' type="button">
-        <i class="icon icon-code"></i> Copiar Código Botão Carrinho
-      </button>
+      
 
       <button id="btnCopiarCodSite3" class="btn btn-primary btn-xs" onclick="CopiadoCodSite(3)" data-clipboard-text='<?php echo $cod_busca_buscador; ?>' type="button">
         <i class="icon icon-code"></i> Copiar Código Campo de Busca
@@ -46,14 +36,6 @@ $cod_busca_resultado .= '<script type="text/javascript">ImobiliariaBuscaResultad
 
       <hr />
 
-      <div class="row">
-        <div class="col-md-12">
-          <div class="form-group">
-            <label for="pagina_carrinho">Página do Carrinho:</label>
-            <input type="text" name="pagina_carrinho" class="form-control" value="<?php echo $config['pagina_carrinho']; ?>">
-          </div>
-        </div>
-      </div>
 
       <div class="row">
         <div class="col-md-12">

@@ -126,7 +126,7 @@ $imoveis = DBRead('imobiliaria','*');
         
         
         
-      </div>
+      </div><br>
       <div class="row">
 			<!-- `garagem` text DEFAULT NULL -->
        <div class="col-md-2">

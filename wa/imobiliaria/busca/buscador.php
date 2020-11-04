@@ -59,7 +59,7 @@ switch ($config['busca_btn_tamanho']) {
 </style>
 <form class="shop--search-bar" action="<?php echo $config['pagina_resultado_busca']; ?>" method="get" role="form">
   <div class="input-group <?php echo $tamanho_barra; ?> add-on">
-    <input type="text" name="b" class="form-control" placeholder="Pesquisar Produtos">
+    <input type="text" name="b" class="form-control" placeholder="Pesquisar Imóveis">
     <div class="input-group-btn">
       <button class="btn btn-default" type="submit">
         <?php if($config['busca_btn_tipo'] == 'ambos') { ?>
