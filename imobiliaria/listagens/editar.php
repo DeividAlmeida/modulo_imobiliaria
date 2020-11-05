@@ -52,9 +52,9 @@ if (is_array($query)) {
               <div class="form-group">
                 <label>Colunas:</label>
                 <select class="form-control" name="colunas">
-                  <option value="2" <?php Selected($dados['colunas'], "2"); ?>>Colunas 2</option>
-                  <option value="3" <?php Selected($dados['colunas'], "3"); ?>>Colunas 3</option>
-                  <option value="4" <?php Selected($dados['colunas'], "4"); ?>>Colunas 4</option>
+                  <option value="6" <?php Selected($dados['colunas'], "6"); ?>>Colunas 2</option>
+                  <option value="4" <?php Selected($dados['colunas'], "4"); ?>>Colunas 3</option>
+
                 </select>
               </div>
 

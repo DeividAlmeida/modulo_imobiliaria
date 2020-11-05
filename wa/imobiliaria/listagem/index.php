@@ -58,25 +58,6 @@
 			require_once('tipo/tipo_1.php');
 	}
 
-  
-	// Definindo tamanho das colunas
-	switch ($lista['colunas']) {
-		case 2:
-			$tamanho_coluna = 6;
-			break;
-
-		case 3:
-			$tamanho_coluna = 4;
-			break;
-
-		case 4:
-			$tamanho_coluna = 3;
-			break;
-
-		default:
-			$tamanho_coluna = 6;
-			break;
-	}
 
 	if($lista['carrocel'] == 'S'){
 		require_once('includes/carousel.php');
