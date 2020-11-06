@@ -11,4 +11,4 @@ if(is_array($elementos) && !empty($pesquisa)){
 $all .="<div onclick='escolhido(".$value['id'].", this.innerHTML)'>".$value['pesquisa']."</div>";
 ;}
 echo $all;
-}else{echo  "Nenhum imóvel encontrado"; }
+}

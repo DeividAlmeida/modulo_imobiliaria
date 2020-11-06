@@ -5,7 +5,7 @@
 	require_once('../../../database/config.php');
 	$pesquisa = $_GET['cidade'];
 	
-	$elementos = DBRead('imobiliaria','*',"WHERE cidade = '{$pesquisa}'");
+	$elementos = DBRead('imobiliaria','*',"WHERE cidade = '{$pesquisa}' GROUP BY '{bairro}'");
 if(is_array($elementos) && !empty($pesquisa)){
 	foreach($elementos as $key => $value){
 $all .="<option value='".$value['bairro']."'>".$value['bairro']."</option>";

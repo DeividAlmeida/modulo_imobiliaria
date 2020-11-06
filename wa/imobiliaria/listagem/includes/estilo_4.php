@@ -15,62 +15,7 @@
     
 }
 
-select {
-    cursor:pointer;
-}
 
-#opcoes{
-    position: absolute;
-    z-index: 1000;
-    background: #fff;
-    max-height: 100px !important;
-    width: 80%;
-    overflow-y: scroll;
-    left: 11%;
-}
-#opcoes div {
-
-    font-weight: bolder;
-}
-
-#opcoes div:hover {
-    background:#bababa;
-    font-weight: bolder;
-    cursor:pointer;
-}
-
-#find {
-   margin-bottom:10px; 
-}
-.find {
-    width:75% !important; 
-    padding: 15px 0% 15px 0% !important;
-}
-.selectBox { 
-	position: relative; 
-} 
-
-.overSelect { 
-	position: absolute; 
-	left: 0; 
-	right: 0; 
-	top: 0; 
-	bottom: 0; 
-	cursor:pointer;
-} 
-
-#checkBoxes { 
-	display: none; 
-    position: absolute;
-    z-index: 1000; 
-    background:#fff;
-} 
-
-#checkBoxes label { 
-	display: block; 
-	cursor:pointer;
-	
-} 
 .swal2-popup{
   font-size: 14px !important;
 }
@@ -501,90 +446,6 @@ overflow:hidden;
 $todos_tipos =  DBRead('imobiliaria_categorias','*');
 ?>
 <div id="shop--list<?php echo $uniqid; ?>" class="wow <?php echo $lista['efeito']; ?> shop--list__wrapper">
-<!-- INÍCIO DO CAMPO DE PESQUISA -->
-    <div class="row">
-        <div class="col-md-2" id="find">
-            <select name="acao" required class="form-control custom-select" id="acao">
-                <option value="alugar" <?php Selected($imovel['acao'], "Alugar"); ?>>Alugar</option>
-                <option value="comprar" <?php Selected($imovel['acao'], "Comprar"); ?>>Comprar</option>
-            </select>
-        </div>
-        <div class="col-md-2" id="find">
-            <select name="tipo"  class="form-control custom-select" id="tipo">
-                <option disabled selected value="">Tipo</option>
-                <?php foreach($todos_tipos as $categorias): ?>
-                <option value="<?php echo $categorias['id'] ?>" <?php Selected($categorias); ?>><?php echo $categorias['nome'] ?></option>
-                <?php endforeach ?>
-            </select>
-        </div>
-        <div class="col-md-2" id="find">
-            <select name="cidade" onchange="bairros(this.value)" class="form-control custom-select" id="cidade">
-                <option disabled selected value="">Cidade</option>
-                <?php $cidades = DBRead('imobiliaria','*','GROUP BY cidade');
-                foreach($cidades as $cidade): ?>
-                <option value="<?php echo $cidade['cidade'] ?>" <?php Selected($cidade); ?>><?php echo $cidade['cidade'] ?></option>
-                <?php endforeach ?>
-            </select>
-        </div>
-        <div class="col-md-2" id="find option">
-            <span id="bairros_filtrados">
-                <select name="bairro"  class="form-control custom-select" id="bairro">
-                    <option value="" disabled selected>Bairro</option>
-                </select>
-            </span>
-        </div>
-        <div class="col-md-2 " id="find" style="position:relative;" >
-            <div class="selectBox"	onclick="showCheckboxes()">
-                <select name=""  class="form-control custom-select" id="avancado" onclick="showCheckboxes()">
-                    <option disabled selected >Filtros avançados</option>
-                </select>
-                <div class="overSelect"></div>
-            </div>
-
-    		<div id="checkBoxes" class="form-group" style="display:none; margin-top:5px; padding-left: 15px;">  
-    			<label > 
-    				<input type="number" placeholder="Qtd. quartos" style="width: 80%" name="quarto" id="quarto" class="form-control"> 
-    			</label>
-    			<label>	
-    				<input type="number" placeholder="Qtd. banheiros" style="width: 80%" name="banheiro" id="banheiro"  class="form-control" > 
-    			</label>
-    		    <label>	
-    				<input type="number" step="0.01" min="0.01" placeholder="Valor até" style="width: 80%" name="valor" id="valor"  class="form-control" > 
-    			</label>
-    			<label for="garagem"> 
-    				<input type="checkbox" id="garagem"> 
-    				Vaga garagem  
-    			</label> 
-    			
-    			<label for="mobiliado"> 
-    				<input type="checkbox" id="mobiliado" value=""> 
-    				Mobiliado 
-    			</label> 
-    			
-    			<label for="pet"> 
-    				<input type="checkbox" id="pet" value=""> 
-    				Aceita pet 
-    			</label> 
-    			<label for="livre"> 
-    				<input type="checkbox" id="livre" value=""> 
-    				Vista livre
-    			</label> 
-    			<label for="metros"> 
-    				<input type="checkbox" id="metros" value=""> 
-    				Metrô próximo
-    			</label> 
-    		</div>
-    </div>
-    <center>
-        <div class="col-md-8" id="find">
-            <input oninput="findImov(this.value)" type="text" placeholder="Onde você quer morar?" style="width: 80%" name="procurar" id="procurar" class="form-control">
-            <center><span id="opcoes"></span></center>
-        </div> 
-        <div class="col-md-2" id="find">
-            <bottom type="submit" onclick="ImobiliariaListagemFiltrado(<?php echo $id.', '.$pag ?>)" class="btn btn-primary btn-lg btn-block find"><center>Encontrar</center></bottom>
-        </div> 
-    </center>
-<!-- FIM DO CAMPO DE PESQUISA -->
   <div class="shop--list__content container">
     <div class="row justify-content-md-center" style="flex-wrap: wrap;">
       <?php if(is_array($imoveis)){foreach ($imoveis as $imovel) {
@@ -695,7 +556,11 @@ $todos_tipos =  DBRead('imobiliaria_categorias','*');
                        <?php echo $tipos['nome']; ?>
                     </p>
                 <div class="Ashop--imovel__price">
-                    <?php echo $config['moeda'].' '.number_format($imovel['preco'],2,",","."); ?>
+                     <?php if($imovel['a_consultar'] == 'S') {?>
+                        A consultar
+                      <?php } else { ?>
+                        <?php echo $config['moeda'].' '.number_format($imovel['preco'],2,",","."); ?>
+                      <?php } ?>
                 </div>
                 </center> <br>
               <div class="shop--imovel__info">
@@ -736,19 +601,3 @@ $todos_tipos =  DBRead('imobiliaria_categorias','*');
   </div>
 </div>
 
-<script>
-var show = true; 
-function showCheckboxes() { 
-	var checkboxes = 
-		document.getElementById("checkBoxes"); 
-
-	if (show) { 
-		checkboxes.style.display = "block"; 
-		show = false; 
-	} else { 
-		checkboxes.style.display = "none"; 
-		show = true; 
-	} 
-} 
-
-</script>

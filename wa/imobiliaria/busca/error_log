@@ -1,0 +1,37 @@
+[06-Nov-2020 14:04:48 America/Sao_Paulo] PHP Warning:  Invalid argument supplied for foreach() in /home2/templatesweb/public_html/imobiliaria-wacontrol/wa/imobiliaria/busca/buscador.php on line 75
+[06-Nov-2020 14:10:33 America/Sao_Paulo] PHP Warning:  Invalid argument supplied for foreach() in /home2/templatesweb/public_html/imobiliaria-wacontrol/wa/imobiliaria/busca/buscador.php on line 106
+[06-Nov-2020 14:13:12 America/Sao_Paulo] PHP Warning:  Invalid argument supplied for foreach() in /home2/templatesweb/public_html/imobiliaria-wacontrol/wa/imobiliaria/busca/buscador.php on line 106
+[06-Nov-2020 14:22:05 America/Sao_Paulo] PHP Warning:  Invalid argument supplied for foreach() in /home2/templatesweb/public_html/imobiliaria-wacontrol/wa/imobiliaria/busca/buscador.php on line 103
+[06-Nov-2020 14:22:57 America/Sao_Paulo] PHP Warning:  Invalid argument supplied for foreach() in /home2/templatesweb/public_html/imobiliaria-wacontrol/wa/imobiliaria/busca/buscador.php on line 104
+[06-Nov-2020 14:24:01 America/Sao_Paulo] PHP Warning:  Invalid argument supplied for foreach() in /home2/templatesweb/public_html/imobiliaria-wacontrol/wa/imobiliaria/busca/buscador.php on line 104
+[06-Nov-2020 14:27:47 America/Sao_Paulo] PHP Warning:  Invalid argument supplied for foreach() in /home2/templatesweb/public_html/imobiliaria-wacontrol/wa/imobiliaria/busca/buscador.php on line 105
+[06-Nov-2020 14:29:33 America/Sao_Paulo] PHP Warning:  Invalid argument supplied for foreach() in /home2/templatesweb/public_html/imobiliaria-wacontrol/wa/imobiliaria/busca/buscador.php on line 105
+[06-Nov-2020 14:30:04 America/Sao_Paulo] PHP Warning:  Invalid argument supplied for foreach() in /home2/templatesweb/public_html/imobiliaria-wacontrol/wa/imobiliaria/busca/buscador.php on line 105
+[06-Nov-2020 14:31:25 America/Sao_Paulo] PHP Warning:  Invalid argument supplied for foreach() in /home2/templatesweb/public_html/imobiliaria-wacontrol/wa/imobiliaria/busca/buscador.php on line 106
+[06-Nov-2020 14:31:40 America/Sao_Paulo] PHP Warning:  Invalid argument supplied for foreach() in /home2/templatesweb/public_html/imobiliaria-wacontrol/wa/imobiliaria/busca/buscador.php on line 106
+[06-Nov-2020 14:32:42 America/Sao_Paulo] PHP Warning:  Invalid argument supplied for foreach() in /home2/templatesweb/public_html/imobiliaria-wacontrol/wa/imobiliaria/busca/buscador.php on line 106
+[06-Nov-2020 14:33:05 America/Sao_Paulo] PHP Warning:  Invalid argument supplied for foreach() in /home2/templatesweb/public_html/imobiliaria-wacontrol/wa/imobiliaria/busca/buscador.php on line 106
+[06-Nov-2020 14:34:20 America/Sao_Paulo] PHP Warning:  Invalid argument supplied for foreach() in /home2/templatesweb/public_html/imobiliaria-wacontrol/wa/imobiliaria/busca/buscador.php on line 106
+[06-Nov-2020 14:35:45 America/Sao_Paulo] PHP Warning:  Invalid argument supplied for foreach() in /home2/templatesweb/public_html/imobiliaria-wacontrol/wa/imobiliaria/busca/buscador.php on line 106
+[06-Nov-2020 14:39:30 America/Sao_Paulo] PHP Warning:  Invalid argument supplied for foreach() in /home2/templatesweb/public_html/imobiliaria-wacontrol/wa/imobiliaria/busca/buscador.php on line 106
+[06-Nov-2020 14:41:37 America/Sao_Paulo] PHP Warning:  Invalid argument supplied for foreach() in /home2/templatesweb/public_html/imobiliaria-wacontrol/wa/imobiliaria/busca/buscador.php on line 106
+[06-Nov-2020 14:45:30 America/Sao_Paulo] PHP Warning:  Invalid argument supplied for foreach() in /home2/templatesweb/public_html/imobiliaria-wacontrol/wa/imobiliaria/busca/buscador.php on line 106
+[06-Nov-2020 14:46:34 America/Sao_Paulo] PHP Warning:  Invalid argument supplied for foreach() in /home2/templatesweb/public_html/imobiliaria-wacontrol/wa/imobiliaria/busca/buscador.php on line 106
+[06-Nov-2020 14:46:59 America/Sao_Paulo] PHP Warning:  Invalid argument supplied for foreach() in /home2/templatesweb/public_html/imobiliaria-wacontrol/wa/imobiliaria/busca/buscador.php on line 106
+[06-Nov-2020 14:47:14 America/Sao_Paulo] PHP Warning:  Invalid argument supplied for foreach() in /home2/templatesweb/public_html/imobiliaria-wacontrol/wa/imobiliaria/busca/buscador.php on line 106
+[06-Nov-2020 14:52:32 America/Sao_Paulo] PHP Warning:  Invalid argument supplied for foreach() in /home2/templatesweb/public_html/imobiliaria-wacontrol/wa/imobiliaria/busca/buscador.php on line 134
+[06-Nov-2020 14:53:02 America/Sao_Paulo] PHP Warning:  Invalid argument supplied for foreach() in /home2/templatesweb/public_html/imobiliaria-wacontrol/wa/imobiliaria/busca/buscador.php on line 134
+[06-Nov-2020 14:58:52 America/Sao_Paulo] PHP Warning:  Invalid argument supplied for foreach() in /home2/templatesweb/public_html/imobiliaria-wacontrol/wa/imobiliaria/busca/buscador.php on line 134
+[06-Nov-2020 14:59:50 America/Sao_Paulo] PHP Warning:  Invalid argument supplied for foreach() in /home2/templatesweb/public_html/imobiliaria-wacontrol/wa/imobiliaria/busca/buscador.php on line 134
+[06-Nov-2020 18:04:26 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function Selected() in /home2/templatesweb/public_html/imobiliaria-wacontrol/wa/imobiliaria/busca/buscador.php:66
+Stack trace:
+#0 {main}
+  thrown in /home2/templatesweb/public_html/imobiliaria-wacontrol/wa/imobiliaria/busca/buscador.php on line 66
+[06-Nov-2020 18:04:52 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function Selected() in /home2/templatesweb/public_html/imobiliaria-wacontrol/wa/imobiliaria/busca/buscador.php:66
+Stack trace:
+#0 {main}
+  thrown in /home2/templatesweb/public_html/imobiliaria-wacontrol/wa/imobiliaria/busca/buscador.php on line 66
+[06-Nov-2020 18:05:00 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function Selected() in /home2/templatesweb/public_html/imobiliaria-wacontrol/wa/imobiliaria/busca/buscador.php:66
+Stack trace:
+#0 {main}
+  thrown in /home2/templatesweb/public_html/imobiliaria-wacontrol/wa/imobiliaria/busca/buscador.php on line 66

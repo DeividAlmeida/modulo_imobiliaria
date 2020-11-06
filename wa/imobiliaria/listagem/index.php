@@ -8,20 +8,7 @@
   $id 		= get('id');
   $pag 		= (isset($_GET['pag']))? $_GET['pag'] : 1;
   $uniqid = uniqid();
-	
-    if(!empty($_GET['acao'])){$acao = "AND imobiliaria.acao = '".$_GET['acao']."'";}
-    if(!empty($_GET['tipo']) ){$tipo = "AND imobiliaria.tipo = '".$_GET['tipo']."'";}
-    if(!empty($_GET['cidade']) ){$cidade = "AND imobiliaria.cidade = '".$_GET['cidade']."'";}
-    if(!empty($_GET['bairro']) ){$bairro = "AND imobiliaria.bairro = '".$_GET['bairro']."'";}
-    if(!empty($_GET['quartos']) ){$quartos = "AND imobiliaria.quartos = '".$_GET['quartos']."'";}
-    if(!empty($_GET['banheiros']) ){$banheiro = "AND imobiliaria.banheiros = '".$_GET['banheiros']."'";}
-    if(!empty($_GET['procurar'])){$procurar = "AND imobiliaria.pesquisa LIKE '%".$_GET['procurar']."%'";}
-    if($_GET['garagem'] == 'true'){$garagem = "AND imobiliaria.garagem = 'checked'";}
-    if($_GET['mobiliado'] == 'true' ){$mobiliado = "AND imobiliaria.mobiliado = 'checked'";}
-    if($_GET['pet'] == 'true'){$pet = "AND imobiliaria.pet = 'checked'";}
-    if($_GET['livre'] == 'true'){$livre = "AND imobiliaria.sol = 'checked'";}
-    if($_GET['metros'] == 'true'){$metro = "AND imobiliaria.metro = 'checked'";}
-    if(!empty($_GET['valor'])){$valor = "AND imobiliaria.preco >= ".floatval($_GET['valor']);}
+
 
   if (ModoManutencao()) { header("Location: ../manutencao.php"); }
 
@@ -111,30 +98,6 @@
 
 <script>
 
-function findImov (a){
-    var b =" " ;
-    document.getElementById('opcoes').style.visibility="visible";
-    fetch(UrlPainel+'wa/imobiliaria/listagem/api.php?pesquisa='+a).then( (resposta) =>{
-        resposta.text().then((data)=>{
-
-            document.getElementById('opcoes').innerHTML = data;
-        });
-    }).catch(document.getElementById('opcoes').innerHTML = "Nenhum imóvel encontrado");
-}
-function escolhido (z, y)  {
-    document.getElementById('procurar').value = y;
-    document.getElementById('opcoes').style.visibility="hidden";
-}
-
-function bairros(f){
-    
-    fetch(UrlPainel+'wa/imobiliaria/listagem/bairro_api.php?cidade='+f).then((prom)=>{
-        prom.text().then((dados)=>{
-            let as = document.getElementById('bairros_filtrados').innerHTML = dados ;
-   
-        })
-    });
-}
 $(document).ready( function() {
 	$('#shop--list<?php echo $uniqid; ?> .shop--list--bar__view-grid').click(function(){
 		shopUpdateListView('<?php echo $uniqid; ?>', true, 'col-md-<?php echo $tamanho_coluna; ?>');

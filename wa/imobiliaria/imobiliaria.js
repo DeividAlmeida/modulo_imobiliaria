@@ -16,38 +16,7 @@ function ImobiliariaListagem(id, pag){
     },
   });
 }
-function ImobiliariaListagemFiltrado(id, pag){
 
-    let acao = document.getElementById('acao').value;
-    let tipo = document.getElementById('tipo').value;
-    let cidade = document.getElementById('cidade').value;
-    let bairro = document.getElementById('bairro').value;
-    let quartos = document.getElementById('quarto').value;
-    let banheiro = document.getElementById('banheiro').value;
-    let valor = document.getElementById('valor').value;
-    let procurar = document.getElementById('procurar').value;
-    let garagem = document.getElementById('garagem').checked;
-    let mobiliado = document.getElementById('mobiliado').checked;
-    let pet = document.getElementById('pet').checked;
-    let livre = document.getElementById('livre').checked;
-    let metros = document.getElementById('metros').checked;
-    
-  jQuery.ajax({
-    type: "GET",
-    cache: false,
-    url: UrlPainel+'wa/imobiliaria/listagem?id='+id+'&pag='+pag+'&acao='+acao+'&tipo='+tipo+'&cidade='+cidade+'&bairro='+bairro+'&quartos='+quartos+'&banheiro='+banheiro+'&garagem='+garagem+'&mobiliado='+mobiliado+'&pet='+pet+'&livre='+livre+'&metros='+metros+'&valor='+valor+'&procurar='+procurar,
-    beforeSend: function (data){
-      //$("#SimpleSlideWA"+id).html("<center><br><img src=\""+UrlPainel+"wa/css_js/loading.gif\"><br>Carregando...<br></center>");
-    },
-    success: function (data) {
-      jQuery('#ImobiliariaListagem'+id).html(data);
-
-    },
-    error: function (data) {
-      setTimeout(function(){ ImobiliariaListagem(id, pag); }, 5000);
-    },
-  });
-}
 function ImobiliariaCarrinho(){
   $.ajax({
     type:    "GET",
@@ -74,14 +43,12 @@ function ImobiliariaBtnCarrinho(){
     },
   });
 }
-function ImobiliariaBuscaResultado(pag){
-  const urlParams = new URLSearchParams(window.location.search);
-  const busca     = urlParams.get('b');
+function ImobiliariaBuscaResultado(){
 
   $.ajax({
     type:    "GET",
     cache:   false,
-    url:     UrlPainel+'wa/imobiliaria/busca/resultado.php?b='+busca+'&pag='+pag,
+    url:     UrlPainel+'wa/imobiliaria/buscador/resultado.php',
     success: function (data) {
       jQuery('#ImobiliariaBuscaResultado').html(data);
     },
@@ -94,7 +61,7 @@ function ImobiliariaBuscador(){
   $.ajax({
     type:    "GET",
     cache:   false,
-    url:     UrlPainel+'wa/imobiliaria/busca/buscador.php',
+    url:     UrlPainel+'wa/imobiliaria/buscador',
     success: function (data) {
       jQuery('#ImobiliariaBuscador').html(data);
     },
