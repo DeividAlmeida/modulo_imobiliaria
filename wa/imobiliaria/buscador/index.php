@@ -20,9 +20,9 @@ select {
     z-index: 1000;
     background: #fff;
     max-height: 100px !important;
-    width: 80%;
+    width: 76%;
     overflow-y: scroll;
-    left: 11%;
+    left: 12%;
 }
 #opcoes div {
 
@@ -41,7 +41,16 @@ select {
 .find {
     width:75% !important; 
     padding: 15px 0% 15px 0% !important;
+    background:<?php echo $config['busca_btn_cor']?> !important;
+    border: 0 !important;
+    color: <?php echo $config['busca_btn_cor_texto']?> !important;;
 }
+.find:hover{
+
+    background:<?php echo $config['busca_btn_cor_hover']?> !important;
+    border: 0 !important;
+
+} 
 .selectBox { 
 	position: relative; 
 
@@ -70,7 +79,7 @@ select {
 } 
 
 </style>
-<form class="shop--search-bar" method="GET" action="<?php echo $config['pagina_resultado_busca']."?pag=".$config['busca_limite_pagina']; ?>">
+<form class="shop--search-bar" method="GET" action="<?php echo $config['pagina_resultado_busca']."?pag=".$config['busca_limite_pagina']; ?> " onsubmit="store()">
 <!-- INÍCIO DO CAMPO DE PESQUISA -->
     <div class="row">
         <div class="col-md-2" id="find">
@@ -80,7 +89,7 @@ select {
             </select>
         </div>
         <div class="col-md-2" id="find">
-            <select name="tipo"  class="form-control custom-select" id="tipo">
+            <select name="tipo"  class="form-control custom-select" id="tipo" >
                 <option disabled selected value="">Tipo</option>
                 <?php foreach($todos_tipos as $categorias): ?>
                 <option value="<?php echo $categorias['id'] ?>" <?php Selected($categorias); ?>><?php echo $categorias['nome'] ?></option>
@@ -149,9 +158,9 @@ select {
         <div class="col-md-9" id="find">
             <input oninput="findImov(this.value)" type="text" placeholder="Onde você quer morar?" style="width: 80%" name="procurar" id="procurar" class="form-control">
             <center><span id="opcoes"></span></center>
-        </div> 
+        </div>  
         <div class="col-md-2" id="find">
-            <button type="submit"  class="btn btn-primary btn-lg btn-block find"><center>Encontrar</center></button>
+            <button type="submit"  class="btn btn-primary btn-lg btn-block find">Encontrar</button>
         </div> 
     </center>
 <!-- FIM DO CAMPO DE PESQUISA -->
@@ -160,6 +169,30 @@ select {
 
 <script>
 var show = true; 
+
+
+function store(){
+let arr = [
+    document.getElementById('acao').value,
+    document.getElementById('tipo').value,
+    document.getElementById('cidade').value,
+    document.getElementById('bairro').value,
+    document.getElementById('quarto').value,
+    document.getElementById('banheiro').value,
+    document.getElementById('valor').value,
+    document.getElementById('garagem').checked,
+    document.getElementById('mobiliado').checked,
+    document.getElementById('pet').checked,
+    document.getElementById('livre').checked,
+    document.getElementById('metros').checked,
+    document.getElementById('procurar').value
+]; 
+    for(let i =0; i< arr.length; i++){
+        sessionStorage[i] = arr[i];
+    }
+}
+
+
 function showCheckboxes() { 
 	var checkboxes = 
 		document.getElementById("checkBoxes"); 
@@ -171,11 +204,13 @@ function showCheckboxes() {
 		checkboxes.style.display = "none"; 
 		show = true; 
 	} 
+	
+	
 } 
-function findImov (a){
+function findImov (w){
     var b =" " ;
     document.getElementById('opcoes').style.visibility="visible";
-    fetch(UrlPainel+'wa/imobiliaria/listagem/api.php?pesquisa='+a).then( (resposta) =>{
+    fetch(UrlPainel+'wa/imobiliaria/listagem/api.php?pesquisa='+w).then( (resposta) =>{
         resposta.text().then((data)=>{
 
             document.getElementById('opcoes').innerHTML = data;
@@ -187,9 +222,9 @@ function escolhido (z, y)  {
     document.getElementById('opcoes').style.visibility="hidden";
 }
 
-function bairros(f){
+function bairros(x){
     
-    fetch(UrlPainel+'wa/imobiliaria/listagem/bairro_api.php?cidade='+f).then((prom)=>{
+    fetch(UrlPainel+'wa/imobiliaria/listagem/bairro_api.php?cidade='+x).then((prom)=>{
         prom.text().then((dados)=>{
             let as = document.getElementById('bairros_filtrados').innerHTML = dados ;
    

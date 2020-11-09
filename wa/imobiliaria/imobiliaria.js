@@ -17,38 +17,16 @@ function ImobiliariaListagem(id, pag){
   });
 }
 
-function ImobiliariaCarrinho(){
-  $.ajax({
-    type:    "GET",
-    cache:   false,
-    url:     UrlPainel+'wa/imobiliaria/carrinho',
-    success: function (data) {
-      jQuery('#ImobiliariaCarrinho').html(data);
-    },
-    error: function (data) {
-      setTimeout(function(){ ImobiliariaCarrinho(); }, 5000);
-    },
-  });
-}
-function ImobiliariaBtnCarrinho(){
-  $.ajax({
-    type:    "GET",
-    cache:   false,
-    url:     UrlPainel+'wa/imobiliaria/btn_carrinho',
-    success: function (data) {
-      jQuery('#ImobiliariaBtnCarrinho').html(data);
-    },
-    error: function (data) {
-      setTimeout(function(){ ImobiliariaBtnCarrinho(); }, 5000);
-    },
-  });
-}
 function ImobiliariaBuscaResultado(){
+    let ar = [];
+    for(let i = 0; i < 13; i++){
+         ar[i] = sessionStorage.getItem(i);
+    }
 
   $.ajax({
     type:    "GET",
     cache:   false,
-    url:     UrlPainel+'wa/imobiliaria/buscador/resultado.php',
+    url:     UrlPainel+'wa/imobiliaria/buscador/resultado.php?acao='+ar[0]+'&tipo='+ar[1]+'&cidade='+ar[2]+'&bairro='+ar[3]+'&quartos='+ar[4]+'&banheiros='+ar[5]+'&valor='+ar[6]+'&garagem='+ar[7]+'&mobiliado='+ar[8]+'&pet='+ar[9]+'&livre='+ar[10]+'&metros='+ar[11]+'&procurar='+ar[12],
     success: function (data) {
       jQuery('#ImobiliariaBuscaResultado').html(data);
     },

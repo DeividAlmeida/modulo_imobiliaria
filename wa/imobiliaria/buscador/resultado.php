@@ -6,18 +6,18 @@ require_once('../../../database/config.php');
 header ('Content-type: text/html; charset=utf-8');
 
 
-if(!empty($_POST['tipo']) ){$tipo = "AND imobiliaria.tipo = '".$_POST['tipo']."'";}
-if(!empty($_POST['cidade']) ){$cidade = "AND imobiliaria.cidade = '".$_POST['cidade']."'";}
-if(!empty($_POST['bairro']) ){$bairro = "AND imobiliaria.bairro = '".$_POST['bairro']."'";}
-if(!empty($_POST['quartos']) ){$quartos = "AND imobiliaria.quartos = '".$_POST['quartos']."'";}
-if(!empty($_POST['banheiros']) ){$banheiro = "AND imobiliaria.banheiros = '".$_POST['banheiros']."'";}
-if(!empty($_POST['procurar'])){$procurar = "AND imobiliaria.pesquisa LIKE '%".$_POST['procurar']."%'";}
-if($_POST['garagem'] == 'true'){$garagem = "AND imobiliaria.garagem = 'checked'";}
-if($_POST['mobiliado'] == 'true' ){$mobiliado = "AND imobiliaria.mobiliado = 'checked'";}
-if($_POST['pet'] == 'true'){$pet = "AND imobiliaria.pet = 'checked'";}
-if($_POST['livre'] == 'true'){$livre = "AND imobiliaria.sol = 'checked'";}
-if($_POST['metros'] == 'true'){$metro = "AND imobiliaria.metro = 'checked'";}
-if(!empty($_POST['valor'])){$valor = "AND imobiliaria.preco >= ".floatval($_POST['valor']);}
+if(!empty($_GET['tipo']) ){$tipo = "AND imobiliaria.tipo = '".$_GET['tipo']."'";}
+if(!empty($_GET['cidade']) ){$cidade = "AND imobiliaria.cidade = '".$_GET['cidade']."'";}
+if(!empty($_GET['bairro']) ){$bairro = "AND imobiliaria.bairro = '".$_GET['bairro']."'";}
+if(!empty($_GET['quartos']) ){$quartos = "AND imobiliaria.quartos = '".$_GET['quartos']."'";}
+if(!empty($_GET['banheiros']) ){$banheiro = "AND imobiliaria.banheiros = '".$_GET['banheiros']."'";}
+if(!empty($_GET['procurar'])){$procurar = "AND imobiliaria.pesquisa LIKE '%".$_GET['procurar']."%'";}
+if($_GET['garagem'] == 'true'){$garagem = "AND imobiliaria.garagem = 'checked'";}
+if($_GET['mobiliado'] == 'true' ){$mobiliado = "AND imobiliaria.mobiliado = 'checked'";}
+if($_GET['pet'] == 'true'){$pet = "AND imobiliaria.pet = 'checked'";}
+if($_GET['livre'] == 'true'){$livre = "AND imobiliaria.sol = 'checked'";}
+if($_GET['metros'] == 'true'){$metro = "AND imobiliaria.metro = 'checked'";}
+if(!empty($_GET['valor'])){$valor = "AND imobiliaria.preco >= ".floatval($_GET['valor']);}
 
 
   $pag 		= (isset($_GET['pag']) && $_GET['pag'] != 'undefined' )? $_GET['pag'] : 1;
@@ -43,7 +43,7 @@ if(!empty($_POST['valor'])){$valor = "AND imobiliaria.preco >= ".floatval($_POST
     'imobiliaria',
     'imobiliaria.*, imobiliaria_imov_imagens.uniq as id_foto_capa',
     "INNER JOIN imobiliaria_imov_imagens ON imobiliaria.id_imagem_capa = imobiliaria_imov_imagens.id
-    WHERE imobiliaria.acao = '{$_POST['acao']}' $tipo $cidade $bairro $quartos $banheiro $garagem $mobiliado $pet $sol $livre $metro $valor $procurar
+    WHERE imobiliaria.acao = '{$_GET['acao']}' $tipo $cidade $bairro $quartos $banheiro $garagem $mobiliado $pet $sol $livre $metro $valor $procurar
     LIMIT $inicio, $limite"
   );
 
@@ -63,19 +63,20 @@ if(!empty($_POST['valor'])){$valor = "AND imobiliaria.preco >= ".floatval($_POST
     				<?php $i = $pag; ?>
     			<?php if ($numPaginas >= '1' && $numPaginas < '9') { $numPaginas = '0'.$numPaginas; } elseif ($numPaginas > '9') { $numPaginas = $numPaginas; } ?>
     			<?php if ($i >= '1' && $i <= '9') { ?>
-    					<button type="button" class="btn btn-default btn-xs" disabled>P®¢gina 0<?php echo $i; ?> de <?php echo $numPaginas; ?></button>
+    					<button type="button" class="btn btn-default btn-xs" disabled>P√°gina 0<?php echo $i; ?> de <?php echo $numPaginas; ?></button>
     			<?php } elseif ($i > '9') { ?>
-    					<button type="button" class="btn btn-default btn-xs" disabled>P®¢gina <?php echo $i; ?> de <?php echo $numPaginas; ?></button>
+    					<button type="button" class="btn btn-default btn-xs" disabled>P√°gina <?php echo $i; ?> de <?php echo $numPaginas; ?></button>
     			<?php } ?>
     				<?php $i = $pag; ?>
     			<?php if ($i >= 1 && $i < $numPaginas) { $i++; ?>
-    					<button type="button" class="btn btn-default btn-xs" onclick="ImobiliariaBuscaResultado('<?php echo $i; ?>');">Pr®Æximo</button>
+    					<button type="button" class="btn btn-default btn-xs" onclick="ImobiliariaBuscaResultado('<?php echo $i; ?>');">Pr√≥ximo</button>
     			<?php } elseif ($i == $numPaginas) { ?>
-    					<button type="button" class="btn btn-default btn-xs hidden" disabled>Pr®Æximo</button>
+    					<button type="button" class="btn btn-default btn-xs hidden" disabled>Pr√≥ximo</button>
     			<?php } ?>
     		</div>
     </div>
     <link rel="stylesheet" href="<?php echo RemoveHttpS(ConfigPainel('base_url')); ?>/epack/css/elements/animate.css">
+    
     <script>
     function findImov (a){
         var b =" " ;
@@ -85,7 +86,7 @@ if(!empty($_POST['valor'])){$valor = "AND imobiliaria.preco >= ".floatval($_POST
     
                 document.getElementById('opcoes').innerHTML = data;
             });
-        }).catch(document.getElementById('opcoes').innerHTML = "Nenhum im®Ævel encontrado");
+        }).catch(document.getElementById('opcoes').innerHTML = "Nenhum im√≥vel encontrado");
     }
     function escolhido (z, y)  {
         document.getElementById('procurar').value = y;
@@ -112,7 +113,7 @@ if(!empty($_POST['valor'])){$valor = "AND imobiliaria.preco >= ".floatval($_POST
     </script>
     <?php
   }
-  else{  echo $_GET['acao'];
+  else{  
     ?>
     Nenhum resultado para sua pesquisa foi encontrado!
     <?php

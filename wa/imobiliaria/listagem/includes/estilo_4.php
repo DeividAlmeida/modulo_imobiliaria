@@ -12,7 +12,7 @@
 }
 .fa {
     font-family: FontAwesome, Arial !important;
-    
+    font-size: 14px !important;
 }
 
 
@@ -127,6 +127,14 @@
   max-width: auto;
   max-height: 200px;
   margin-right:5px;
+    -moz-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    -webkit-transition: 0.3s all ease;
+    -moz-transition: 0.3s all ease;
+    -o-transition: 0.3s all ease;
+    -ms-transition: 0.3s all ease;
+    transition: 0.3s all ease;
 }
 
 #shop--list<?php echo $uniqid; ?> .shop--imovel__secondary-img{
@@ -193,12 +201,16 @@ margin-right: 10px;
     right: 150px;
 }
 #shop--list<?php echo $uniqid; ?> .shop--imovel__action a, #shop--list<?php echo $uniqid; ?> .shop--imovel__btn a{
-  color: #fff !important;
-  border: none;
-  border-radius: 30px;
-  padding: 6px 10px;
-  width:150px !important;
-  
+    color: #fff !important;
+    border: none;
+    border-radius: 30px;
+    padding: 6px 10px;
+    width:150px !important;
+    -webkit-transition: 0.3s all ease;
+    -moz-transition: 0.3s all ease;
+    -o-transition: 0.3s all ease;
+    -ms-transition: 0.3s all ease;
+    transition: 0.3s all ease;
 }
 
 #shop--list<?php echo $uniqid; ?> .shop--imovel__name {
@@ -218,11 +230,8 @@ color: <?php echo $config['listagem_cor_titulo']; ?> !important;
   border:<?php echo $config['listagem_cor_botao']; ?> !important;
 }
 #shop--list<?php echo $uniqid; ?> .shop--imovel__action a:hover, .shop--imovel__btn a:hover{
-  background-color: <?php echo $config['listagem_cor_hover_botao']; ?> !important;
-  color: <?php echo $config['carrocel_cor_setas']; ?> !important;
-  -moz-transform: scale(1.1);
-    -webkit-transform: scale(1.1);
-    transform: scale(1.1);
+    background-color: <?php echo $config['listagem_cor_hover_botao']; ?> !important;
+    color: <?php echo $config['carrocel_cor_setas']; ?> !important;
     -webkit-transition: 0.3s all ease;
     -moz-transition: 0.3s all ease;
     -o-transition: 0.3s all ease;
@@ -237,14 +246,13 @@ color: <?php echo $config['listagem_cor_titulo']; ?> !important;
 }
 
 #Ashop--list<?php echo $uniqid; ?> .shop--imovel__wrapper {
-  background: #ffffff;
-  border: 1px solid <?php echo $config['listagem_cor_borda']; ?> !important;
-  border-bottom: 3px solid <?php echo $config['listagem_cor_borda']; ?> !important;
-  border-radius: 8px;
-  overflow: hidden;
-  position: relative;
-  margin: 15px 0;
-  width:300px !important;
+    background: #ffffff;
+    border: 1px solid <?php echo $config['listagem_cor_borda']; ?> !important;
+    border-bottom: 3px solid <?php echo $config['listagem_cor_borda']; ?> !important;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+
 }
 #Ashop--list<?php echo $uniqid; ?> .shop--imovel__name {
   color:  <?php echo $config['carrocel_cor_hover_btn']; ?> !important;
@@ -295,7 +303,7 @@ color: <?php echo $config['listagem_cor_titulo']; ?> !important;
 }
 #Ashop--list<?php echo $uniqid; ?> .shop--imovel__rooms .fa-bed{
 
-  margin: 0 5px 0;
+  margin: 0 3px 0;
 
 }
 #Ashop--list<?php echo $uniqid; ?> .Ashop--imovel__price a {
@@ -319,9 +327,14 @@ color: <?php echo $config['listagem_cor_titulo']; ?> !important;
   padding: 0 10px 0;
 }
 #Ashop--list<?php echo $uniqid; ?> .Ashop--imovel__img img {
-  height: 160px; 
-  width: 300px;
-  overflow:hidden;
+    max-width: 100%;
+    max-height: 100%;
+    overflow:hidden;
+    -webkit-transition: 0.3s all ease;
+    -moz-transition: 0.3s all ease;
+    -o-transition: 0.3s all ease;
+    -ms-transition: 0.3s all ease;
+    transition: 0.3s all ease;
 }
 #Ashop--list<?php echo $uniqid; ?> .Ashop--imovel__img {
   
@@ -339,13 +352,13 @@ overflow:hidden;
 
 #Ashop--list<?php echo $uniqid; ?> .shop--imovel__content{
   text-align: left;
-  padding: 30px 15px;
+  padding: 15px;
   position: relative;
   
 }
 #Ashop--list<?php echo $uniqid; ?> .shop--imovel__info{
-    border-left: 5px <?php echo $config['carrocel_cor_btn_texto']; ?>  inset !important;
-    width: 250px !important;
+    border-left: 5px <?php echo $config['carrocel_cor_btn_texto']; ?>  solid !important;
+    max-width: 350px !important;
     position: relative;
     word-wrap: normal !important;
     text-align: left !important;
@@ -353,21 +366,19 @@ overflow:hidden;
     padding-top: 10px;
     border-radius: 0px !important;
 }
-/*#Ashop--list<?php echo $uniqid; ?> .Ashop--imovel__action{
-    
-    position: relative ;
-    word-wrap: normal !important;
-    left:92%;
 
-}*/
 #Ashop--list<?php echo $uniqid; ?> .Ashop--imovel__action a, #Ashop--list<?php echo $uniqid; ?> .shop--imovel__btn a{
-  color: <?php echo $config['carrocel_cor_descricao']; ?> !important;
-  border: none;
-  border-radius: 30px;
-  font-size: 14px;
-  padding:5px 10px 5px;
-  margin-left: 12px;
-
+    color: <?php echo $config['carrocel_cor_descricao']; ?> !important;
+    border: none;
+    border-radius: 30px;
+    font-size: 12px;
+    padding: 7px 10px 7px;
+    margin: 5px 15px 5px;
+    -webkit-transition: 0.3s all ease;
+    -moz-transition: 0.3s all ease;
+    -o-transition: 0.3s all ease;
+    -ms-transition: 0.3s all ease;
+    transition: 0.3s all ease;
 }
 #Ashop--list<?php echo $uniqid; ?> .Ashop--imovel__action{
   align-content: center !important;
@@ -390,18 +401,15 @@ overflow:hidden;
     cursor: pointer;
 }
 #Ashop--list<?php echo $uniqid; ?> .shop--imovel__wrapper:hover{
-    border-bottom: <?php echo $config['carrinho_cor_btns']; ?>  3px inset !important ;
+    border-bottom: <?php echo $config['carrinho_cor_btns']; ?>  3px solid !important ;
 
 }
 #Ashop--list<?php echo $uniqid; ?> .Ashop--imovel__action a, .shop--imovel__btn a{
   background-color: <?php echo $config['listagem_cor_botao']; ?> !important;
 }
 #Ashop--list<?php echo $uniqid; ?> .Ashop--imovel__action a:hover, .shop--imovel__btn a:hover{
-      color: <?php echo $config['carrocel_cor_setas']; ?> !important;
-  background-color: <?php echo $config['listagem_cor_hover_botao']; ?> !important;
-    -moz-transform: scale(1.1);
-    -webkit-transform: scale(1.1);
-    transform: scale(1.1);
+     color: <?php echo $config['carrocel_cor_setas']; ?> !important;
+    background-color: <?php echo $config['listagem_cor_hover_botao']; ?> !important;
     -webkit-transition: 0.3s all ease;
     -moz-transition: 0.3s all ease;
     -o-transition: 0.3s all ease;
@@ -426,7 +434,7 @@ overflow:hidden;
     }
     #Ashop--list<?php echo $uniqid; ?> .shop--imovel__wrapper{
         display:block;
-        margin-left: 8% !important;
+        margin-left: 0 !important;
 
     }
     
@@ -437,7 +445,7 @@ overflow:hidden;
     }
     #Ashop--list<?php echo $uniqid; ?> .shop--imovel__wrapper{
         display:block;
-        margin-left: 8% !important;
+        margin-left: 0 !important;
 
     }
 <?php endif; ?>
@@ -447,7 +455,7 @@ $todos_tipos =  DBRead('imobiliaria_categorias','*');
 ?>
 <div id="shop--list<?php echo $uniqid; ?>" class="wow <?php echo $lista['efeito']; ?> shop--list__wrapper">
   <div class="shop--list__content container">
-    <div class="row justify-content-md-center" style="flex-wrap: wrap;">
+    <div class="row" style="flex-wrap: wrap;">
       <?php if(is_array($imoveis)){foreach ($imoveis as $imovel) {
         $nome_arquivo    = $imovel['url'].'-'.$imovel['id'].".html";
         $url             = ConfigPainel('site_url').$nome_arquivo;
