@@ -124,12 +124,9 @@
   z-index: 1000;
 }
 #shop--list<?php echo $uniqid; ?> .shop--imovel__img img {
-  max-width: auto;
-  max-height: 200px;
-  margin-right:5px;
-    -moz-transform: scale(1.1);
-    -webkit-transform: scale(1.1);
-    transform: scale(1.1);
+    max-width: auto;
+    max-height: 200px;
+    margin-right:5px;
     -webkit-transition: 0.3s all ease;
     -moz-transition: 0.3s all ease;
     -o-transition: 0.3s all ease;
@@ -445,7 +442,7 @@ overflow:hidden;
     }
     #Ashop--list<?php echo $uniqid; ?> .shop--imovel__wrapper{
         display:block;
-        margin-left: 0 !important;
+        margin: 15px 0 15px !important;
 
     }
 <?php endif; ?>

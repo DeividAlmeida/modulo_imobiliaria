@@ -6,7 +6,7 @@ define('ROOT_PATH', dirname(__FILE__));
 function atualizarMatrizesTodosImoveis(){
   $imoveis   = DBRead('imobiliaria', '*');
 
-  foreach (imoveis as $imovel) {
+  foreach ($imoveis as $imovel) {
     atualizarMatrizImovel($imovel['id']);
   }
 }

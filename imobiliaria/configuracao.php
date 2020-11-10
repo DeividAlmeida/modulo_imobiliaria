@@ -16,7 +16,7 @@ $cod_busca_resultado .= '<script type="text/javascript">ImobiliariaBuscaResultad
 <form id="formAtualizarConfig" method="post" action="?AtualizarConfig">
   <div class="card">
     <div class="card-header white">
-      <strong>Configurar Catálogo</strong>
+      <strong>Configurar Imobiliária</strong>
     </div>
 
     <div class="card-body">
@@ -656,14 +656,14 @@ $cod_busca_resultado .= '<script type="text/javascript">ImobiliariaBuscaResultad
 
       <h4>Configuração Busca</h4>
       <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-3">
           <div class="form-group">
             <label>Limite de Resultado por Página:</label>
             <input type="number" name="busca_limite_pagina" class="form-control" value="<?php echo $config['busca_limite_pagina']; ?>">
           </div>
         </div>
 
-        <div class="col-md-4">
+        <!--<div class="col-md-4">
           <div class="form-group">
             <label>Tipo do Botão:</label>
             <select name="busca_btn_tipo" class="form-control custom-select">
@@ -683,9 +683,9 @@ $cod_busca_resultado .= '<script type="text/javascript">ImobiliariaBuscaResultad
               <option value="grande" <?php Selected($config['busca_btn_tamanho'], 'grande'); ?>>Grande</option>
             </select>
           </div>
-        </div>
+        </div>-->
 
-        <div class="col-md-6">
+        <div class="col-md-3">
           <div class="form-group">
             <label>Cor do Botão:</label>
             <div class="color-picker input-group colorpicker-element focused">
@@ -699,7 +699,7 @@ $cod_busca_resultado .= '<script type="text/javascript">ImobiliariaBuscaResultad
           </div>
         </div>
 
-        <div class="col-md-6">
+        <div class="col-md-3">
           <div class="form-group">
             <label>Cor do Hover do Botão:</label>
             <div class="color-picker input-group colorpicker-element focused">
@@ -713,7 +713,7 @@ $cod_busca_resultado .= '<script type="text/javascript">ImobiliariaBuscaResultad
           </div>
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-3">
           <div class="form-group">
             <label>Cor do Texto do Botão:</label>
             <div class="color-picker input-group colorpicker-element focused">
@@ -851,8 +851,8 @@ $cod_busca_resultado .= '<script type="text/javascript">ImobiliariaBuscaResultad
               </span>
             </div>
           </div>
-        </div>-->
-      </div>
+        </div>
+      </div>-->
     </div>
 
     <div class="card-footer white">
@@ -867,7 +867,7 @@ $cod_busca_resultado .= '<script type="text/javascript">ImobiliariaBuscaResultad
     $.ajax({
       type: "GET",
       cache: false,
-      url: "imobiliaria.php?AtualizarMatrizesTodosimoveis",
+      url: "imobiliaria.php?AtualizarMatrizesTodosImoveis",
       beforeSend: function(data) {
         swal({
           title: 'Aguarde!',
