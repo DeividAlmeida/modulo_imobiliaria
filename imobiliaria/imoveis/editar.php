@@ -366,17 +366,17 @@ if (is_array($query)) { ?>
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="modal-body">
-            <div class="form-group">
-                <label>Cidade:</label>
-                <!-- `cidade` varchar(255) DEFAULT NULL -->
-                <select name="cidade" onchange="bairros(this.value)" required class="form-control custom-select">
-                    <?php foreach($cidades as $chave => $cidade){ ?>
-                    <option value="<?php echo $cidade['nome']; ?>" <?php Selected($dados['cidade'], $cidade['nome']); ?>><?php echo $cidade['nome']; ?></option>
-                    <?php } ?>
-                </select>
-            </div>
-                  <div class="row">
+<div class="modal-body">
+    <div class="form-group">
+        <label>Cidade:</label>
+        <!-- `cidade` varchar(255) DEFAULT NULL -->
+        <select name="cidade" onchange="bairros(this.value)" required class="form-control custom-select">
+            <?php foreach($cidades as $chave => $cidade){ ?>
+            <option value="<?php echo $cidade['nome']; ?>" <?php Selected($dados['cidade'], $cidade['nome']); ?>><?php echo $cidade['nome']; ?></option>
+            <?php } ?>
+        </select>
+    </div>
+    <div class="row">
         <div class="col-md-4">
           <!-- `estado` varchar(255) DEFAULT NULL -->
           <div class="form-group">
@@ -410,41 +410,56 @@ if (is_array($query)) { ?>
                     <option value="SE" <?php Selected($dados['estado'], "SE"); ?>>Sergipe</option>
                     <option value="TO" <?php Selected($dados['estado'], "TO"); ?>>Tocantins</option>
                 </select>
-              </div>
             </div>
-            
-            <!-- `bairro` varchar(255) DEFAULT NULL -->
-            <div class="col-md-4">
-                
-              <div class="form-group">
-                <label>Bairro: </label>
-                <span id="bairros_filtrados">
-                    <select name="bairro" required class="form-control custom-select">
-                        <?php foreach($bairros as $chave => $bairro){ ?>
-                        <option value="<?php echo $bairro['bairro']; ?>" <?php Selected($dados['bairro'], $bairro['bairro']); ?>><?php echo $bairro['bairro']; ?></option>
-                        <?php } ?>
-                    </select>
-                </span>
-              </div>        
-            </div>
-            <!-- `rua` varchar(255) DEFAULT NULL -->
-            <div class="col-md-4">
-              <div class="form-group">
-                <label>Rua: </label>
-                <input class="form-control" name="rua" required value="<?php echo $dados['rua'];?>">
-              </div>        
-            </div>
-        </div> 
-            
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-primary" data-dismiss="modal">Salvar</button>
-          </div>
         </div>
-      </div>
+            
+        <!-- `bairro` varchar(255) DEFAULT NULL -->
+        <div class="col-md-4">
+          <div class="form-group">
+            <label>Bairro: </label>
+            <span id="bairros_filtrados">
+                <select name="bairro" required class="form-control custom-select">
+                    <?php foreach($bairros as $chave => $bairro){ ?>
+                    <option value="<?php echo $bairro['bairro']; ?>" <?php Selected($dados['bairro'], $bairro['bairro']); ?>><?php echo $bairro['bairro']; ?></option>
+                    <?php } ?>
+                </select>
+            </span>
+          </div>        
+        </div>
+        <!-- `rua` varchar(255) DEFAULT NULL -->
+        <div class="col-md-4">
+          <div class="form-group">
+            <label>Rua: </label>
+            <input class="form-control" name="rua" required value="<?php echo $dados['rua'];?>">
+          </div>        
+        </div>
+    </div>
+    <div class="row">
+        <!-- `rua` varchar(255) DEFAULT NULL -->
+        <div class="col-md-3">
+          <div class="form-group">
+            <label>Número: </label>
+            <input  class="form-control" name="numero" value="<?php echo $dados['numero'];?>">
+          </div>        
+        </div>
+      
+        <!-- `rua` varchar(255) DEFAULT NULL -->
+        <div class="col-md-9">
+          <div class="form-group">
+            <label>Complemento: </label>
+            <input type="text" class="form-control" name="complemento" value="<?php echo $dados['complemento'];?>">
+          </div>        
+        </div>
+    </div>
+</div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Salvar</button>
+        </div>
+    </div>
+</div>
       <script>
         function bairros(f){
-            fetch('./wa/imobiliaria/listagem/bairro_api.php?cidade='+f).then((prom)=>{
+            fetch('./imobiliaria/imoveis/bairro_api.php?cidade='+f).then((prom)=>{
                 prom.text().then((dados)=>{
                     
                     if(dados == ""){

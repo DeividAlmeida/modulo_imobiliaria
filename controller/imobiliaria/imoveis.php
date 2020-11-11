@@ -68,6 +68,8 @@ if (isset($_GET['AddImovel'])) {
     'cidade'          => post('cidade'),
     'bairro'          => post('bairro'),
     'rua'             => post('rua'),
+    'numero'          => post('numero'),
+    'complemento'     => post('complemento'),
     'taxas'           => $_POST['taxas'],
     'acao'            => post('acao'),
     'pesquisa'        => $pesquisa,
@@ -187,6 +189,8 @@ if (isset($_GET['AtualizarImovel'])) {
     'taxas'           => $_POST['taxas'],
     'acao'            => post('acao'),
     'pesquisa'        => $pesquisa,
+    'numero'          => post('numero'),
+    'complemento'     => post('complemento'),    
     'metro'           => post('metro')
 
   );

@@ -22,7 +22,7 @@ function ImobiliariaMaisVistos() {
   $.ajax({
     type: "GET",
     cache: false,
-    url: UrlPainel + 'wa/imobiliaria/imovel_mais_vistos',
+    url: UrlPainel + 'wa/imobiliaria/imoveis_mais_vistos',
     success: function (data) {
       jQuery('#ImobiliariaMaisVistos').html(data);
     },

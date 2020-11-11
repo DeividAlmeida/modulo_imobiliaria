@@ -277,18 +277,18 @@ $imoveis = DBRead('imobiliaria','*');
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="modal-body">
-            <div class="form-group">
-                <label>Cidade:</label>
-                <!-- `cidade` varchar(255) DEFAULT NULL -->
-                <select name="cidade" onchange="bairros(this.value)" required class="form-control custom-select">
-                    <option value="" disabled selected>Cidade</option>
-                    <?php foreach($cidades as $chave => $cidade){ ?>
-                    <option value="<?php echo $cidade['nome']; ?>" <?php Selected($cidade['nome']); ?>><?php echo $cidade['nome']; ?></option>
-                    <?php } ?>
-                </select>
-            </div>
-                  <div class="row">
+<div class="modal-body">
+    <div class="form-group">
+        <label>Cidade:</label>
+        <!-- `cidade` varchar(255) DEFAULT NULL -->
+        <select name="cidade" onchange="bairros(this.value)" required class="form-control custom-select">
+            <option value="" disabled selected>Cidade</option>
+            <?php foreach($cidades as $chave => $cidade){ ?>
+            <option value="<?php echo $cidade['nome']; ?>" <?php Selected($cidade['nome']); ?>><?php echo $cidade['nome']; ?></option>
+            <?php } ?>
+        </select>
+    </div>
+    <div class="row">
         <div class="col-md-4">
           <!-- `estado` varchar(255) DEFAULT NULL -->
           <div class="form-group">
@@ -323,31 +323,48 @@ $imoveis = DBRead('imobiliaria','*');
                     <option value="SE" >Sergipe</option>
                     <option value="TO" >Tocantins</option>
                 </select>
-              </div>
             </div>
+        </div>
             
-            <!-- `bairro` varchar(255) DEFAULT NULL -->
-            <div class="col-md-4">
-              <div class="form-group">
-                <label>Bairro: </label>
-                <span id="bairros_filtrados">
-                    <select required class="form-control custom-select">
-                        <option value="" disabled >Escolha a Cidade</option>
-                </select>
-                </span>
-              </div>        
-            </div>
-            
-            <!-- `rua` varchar(255) DEFAULT NULL -->
-            <div class="col-md-4">
-              <div class="form-group">
-                <label>Rua: </label>
-                <input class="form-control" name="rua" required>
-              </div>        
-            </div>
-        </div> 
-            
-          </div>
+        <!-- `bairro` varchar(255) DEFAULT NULL -->
+        <div class="col-md-4">
+          <div class="form-group">
+            <label>Bairro: </label>
+            <span id="bairros_filtrados">
+                <select required class="form-control custom-select">
+                    <option value="" selected disabled >Bairro</option>
+            </select>
+            </span>
+          </div>        
+        </div>
+        
+        <!-- `rua` varchar(255) DEFAULT NULL -->
+        <div class="col-md-4">
+          <div class="form-group">
+            <label>Rua: </label>
+            <input class="form-control" name="rua" required>
+          </div>        
+        </div>
+    </div> 
+    <div class="row">
+        <!-- `rua` varchar(255) DEFAULT NULL -->
+        <div class="col-md-3">
+          <div class="form-group">
+            <label>Número: </label>
+            <input  class="form-control" name="numero" >
+          </div>        
+        </div>
+      
+        <!-- `rua` varchar(255) DEFAULT NULL -->
+        <div class="col-md-9">
+          <div class="form-group">
+            <label>Complemento: </label>
+            <input type="text" class="form-control" name="complemento" >
+          </div>        
+        </div>
+    </div>
+    
+</div>
           <div class="modal-footer">
             <button type="button" class="btn btn-primary" data-dismiss="modal">Salvar</button>
           </div>
@@ -355,7 +372,7 @@ $imoveis = DBRead('imobiliaria','*');
       </div>
       <script>
     function bairros(f){
-        fetch('./wa/imobiliaria/listagem/bairro_api.php?cidade='+f).then((prom)=>{
+        fetch('./imobiliaria/imoveis/bairro_api.php?cidade='+f).then((prom)=>{
             prom.text().then((dados)=>{
                 
                 if(dados == ""){

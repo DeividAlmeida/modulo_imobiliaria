@@ -4,46 +4,7 @@ ob_start();
 
 
 <style>
-@media (max-width: 992px){
-   .pix{
-        margin-left: 29%;
-        margin-top: 7%;
-       
-   }
-    .pixtwo{
-        margin-left:20%;
-        
-    }
-}
-@media (max-width: 768px){
-       .pix{
-        margin-left: 26%;
-        margin-top: 7%;
-       
-   }
-}
-@media (max-width: 500px){
-       .pix{
-        margin-left: 20%;
-        margin-top: 7%;
-       
-   }
-}
 
-@media (max-width: 400px){
-       .pix{
-        margin-left: 12%;
-        margin-top: 7%;
-       
-   }
-}
-@media (max-width: 350px){
-       .pix{
-        margin-left: 7%;
-        margin-top: 7%;
-       
-   }
-}
 .fa {
     font-family: FontAwesome, Arial !important;
     
@@ -91,7 +52,6 @@ ob_start();
     border-radius:3px;
     border: 1px solid transparent !important;
     box-shadow: 0 1px 4px 0 rgba(0,0,0,.16);
-    width: 250px;
     height: auto;
     font-size: 14px !important;
     font-weight: 500;
@@ -102,6 +62,7 @@ ob_start();
       height: auto;
     -webkit-justify-content: space-between;
     display: flex;
+    font-size:16px;
   }
     .shop--imovel-page--header__price p {
         color:#bababa;
@@ -135,6 +96,17 @@ ob_start();
     }
   }
 </style>
+<script>
+window.onload = function(){
+    fetch('<?php echo ConfigPainel('base_url')."wa/imobiliaria/imoveis/api.json";?>').then((response)=>{
+        response.json().then(data =>{
+            document.getElementById('sol').innerHTML= data.Sol;
+            document.getElementById('metro').innerHTML= data.metro;
+        });
+    });
+    
+};
+</script>
 <div class="shop--imovel-page--header row">
     <div class="pixtwo">
     <h4 class="shop--imovel-page--header__name" style="margin-left:8% !important;"><?php echo $imovel['nome']; ?></h4>
@@ -169,7 +141,7 @@ ob_start();
                 <?php $pl = json_decode($imovel['taxas'], true); if(is_array($pl)): foreach($pl as $k => $decr):  ?>
                     <p><?php echo $decr['descricao'];?></p>
                <?php endforeach; endif; ?>
-               <b style="width: 230px; position: absolute; border-top: 1px #080808 dashed;">Total</b>
+               <b style="width: 92%; position: absolute; border-top: 1px #080808 dashed;">Total</b>
             </div>
             <div class="fee">
                 <b>
@@ -191,12 +163,13 @@ ob_start();
             <a class="shop--imovel-page--header__button btn btn-lg" <?php echo (!empty($imovel['link_venda'])) ? "href='{$imovel["link_venda"]}' target='{$imovel["target_link"]}'" : 'onclick="CarrinhoAdd('.$imovel["id"].', '."'{$config["pagina_carrinho"]}'".')"'; ?>>
                Falar com o corretor <?php #echo $imovel['btn_texto']; ?>
             </a>
-            <a style="margin-top: 0px !important;" class="shop--imovel-page--header__button btn btn-lg" <?php echo (!empty($imovel['link_mapa'])) ? "href='{$imovel["link_mapa"]}' target='{$imovel["target_link"]}'" : 'onclick="CarrinhoAdd('.$imovel["id"].', '."'{$config["pagina_carrinho"]}'".')"'; ?>>
+            <a  class="shop--imovel-page--header__button btn btn-lg" <?php echo (!empty($imovel['link_mapa'])) ? "href='{$imovel["link_mapa"]}' target='{$imovel["target_link"]}'" : 'onclick="CarrinhoAdd('.$imovel["id"].', '."'{$config["pagina_carrinho"]}'".')"'; ?>>
                Ver no mapa <?php #echo $imovel['btn_texto']; ?>
             </a>
         </center>
       </div>
-      <div class="shop--imovel__rooms_icones"> 
+      
+        <center><div class="shop--imovel__rooms_icones"> 
             <i class="fa fa-clone" aria-hidden="true"> 
                 <?php echo intval($imovel['tamanho']);  ?><span>&#13217;</span>
             </i>
@@ -231,7 +204,7 @@ ob_start();
             <i class="fa fa-train metro" aria-hidden="true"> 
                  <span id="metro"></span>
             </i>
-        </div>
+        </div></center>
     </div>
     <hr class="shop--imovel-page--header__divider"/>
 
@@ -245,11 +218,6 @@ ob_start();
 
     <p class="shop--imovel-page--header__resume "style="display:none"><?php echo $imovel['resumo']; ?></p>
 
-
-
-  
-
- 
     <div class="shop--imovel-page__header--share__wrapper hidden-print" style="display:none">
       <!-- Sharingbutton Facebook -->
       <a class="shop--imovel-page__header--share__link" href="https://facebook.com/sharer/sharer.php?u=<?php echo urlencode($url); ?>" target="_blank" rel="noopener" aria-label="Facebook" onClick="window.open(this.href,'targetWindow','toolbar=no,location=0,status=no,menubar=no,scrollbars=yes,resizable=yes,width=600,height=250'); return false;">
@@ -278,21 +246,7 @@ ob_start();
       <a class="shop--imovel-page__header--share__link"  aria-label="Imprimir" id="printBtn" href="javascript:window.print()">
         <div class="shop--imovel-page__header--share shop--imovel-page__header--share--email shop--imovel-page__header--share--medium">Imprimir</div>
       </a>
-    </div>
-  </div>
-</div>
-<script>
-window.onload = function(){
-    fetch('<?php echo ConfigPainel('base_url')."wa/imobiliaria/imoveis/api.json";?>').then((response)=>{
-        response.json().then(data =>{
-            document.getElementById('sol').innerHTML= data.Sol;
-            document.getElementById('metro').innerHTML= data.metro;
-        });
-    });
-    
-};
 
-</script>
 <?php
 $cabecalho  = ob_get_clean();
 $matriz     = str_replace('[WAC_IMOBILIARIA_IMOV_CABECALHO]', $cabecalho, $matriz);

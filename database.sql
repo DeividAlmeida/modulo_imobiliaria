@@ -63,6 +63,8 @@ CREATE TABLE IF NOT EXISTS `imobiliaria` (
   `bairro` varchar(255) DEFAULT NULL,
   `rua` varchar(255) DEFAULT NULL,
   `taxas` text DEFAULT NULL,
+  `numero` text DEFAULT NULL,
+  `complemento` text DEFAULT NULL,
   `acao` varchar(255) DEFAULT NULL,
   `pesquisa` text DEFAULT NULL,
   `target_link` enum('_self','_blank') NOT NULL DEFAULT '_self'
