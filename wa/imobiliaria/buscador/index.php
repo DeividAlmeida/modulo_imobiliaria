@@ -13,6 +13,7 @@ require_once('../../../database/config.php');
 <style>
 select {
     cursor:pointer;
+   height: 55px !important;
 }
 
 #opcoes{
@@ -20,9 +21,9 @@ select {
     z-index: 1000;
     background: #fff;
     max-height: 100px !important;
-    width: 76%;
+    width: 100%;
     overflow-y: scroll;
-    left: 12%;
+    left: 0;
 }
 #opcoes div {
 
@@ -36,14 +37,15 @@ select {
 }
 
 #find {
-   margin-bottom:10px; 
+   margin:0px; 
+   padding:0px;
 }
 .find {
-    width:75% !important; 
     padding: 15px 0% 15px 0% !important;
     background:<?php echo $config['busca_btn_cor']?> !important;
     border: 0 !important;
-    color: <?php echo $config['busca_btn_cor_texto']?> !important;;
+    color: <?php echo $config['busca_btn_cor_texto']?> !important;
+    border-radius: 0px !important;
 }
 .find:hover{
 
@@ -69,7 +71,7 @@ select {
 	display: none; 
     position: absolute;
     z-index: 1000; 
-	background:transparent;
+	background:#fff;
 } 
 
 #checkBoxes label { 
@@ -77,11 +79,24 @@ select {
 	cursor:pointer;
 	
 } 
-
+@media (max-width: 992px){
+    #respon{
+        margin: 15px;
+    }
+    #checkBoxes{
+        width:80%;
+        left:10%;
+    }
+    .find {
+        width:50% !important;
+        left:25%;
+        position:relative;
+    }
+}
 </style>
 <form class="shop--search-bar" method="GET" action="<?php echo $config['pagina_resultado_busca']."?pag=".$config['busca_limite_pagina']; ?> " onsubmit="store()">
 <!-- INÍCIO DO CAMPO DE PESQUISA -->
-    <div class="row">
+    <div class="row" id="respon">
         <div class="col-md-2" id="find">
             <select name="acao" required class="form-control custom-select" id="acao">
                 <option value="alugar" >Alugar</option>
@@ -105,7 +120,7 @@ select {
                 <?php endforeach ?>
             </select>
         </div>
-        <div class="col-md-2" id="find option">
+        <div class="col-md-3" id="find option" style="padding:0px !important;">
             <span id="bairros_filtrados">
                 <select name="bairro"  class="form-control custom-select" id="bairro">
                     <option value="" disabled selected>Bairro</option>
@@ -120,15 +135,15 @@ select {
                 <div class="overSelect"></div>
             </div>
 
-    		<div id="checkBoxes" class="form-group" style="display:none; margin-top:5px; padding-left: 15px;">  
+    		<div id="checkBoxes" class="form-group" style="display:block;padding:5px;display: none;">  
     			<label > 
-    				<input type="number" placeholder="Qtd. quartos" style="width: 80%" name="quarto" id="quarto" class="form-control"> 
+    				<input type="number" placeholder="Qtd. quartos" style="width: 100%" name="quarto" id="quarto" class="form-control"> 
     			</label>
     			<label>	
-    				<input type="number" placeholder="Qtd. banheiros" style="width: 80%" name="banheiro" id="banheiro"  class="form-control" > 
+    				<input type="number" placeholder="Qtd. banheiros" style="width: 100%" name="banheiro" id="banheiro"  class="form-control" > 
     			</label>
     		    <label>	
-    				<input type="number" step="0.01" min="0.01" placeholder="Valor até" style="width: 80%" name="valor" id="valor"  class="form-control" > 
+    				<input type="number" step="0.01" min="0.01" placeholder="Valor até" style="width:100%" name="valor" id="valor"  class="form-control" > 
     			</label>
     			<label for="garagem"> 
     				<input type="checkbox" id="garagem"> 
@@ -154,15 +169,13 @@ select {
     			</label> 
     		</div>
     </div>
-    <center>
-        <div class="col-md-9" id="find">
-            <input oninput="findImov(this.value)" type="text" placeholder="Onde você quer morar?" style="width: 80%" name="procurar" id="procurar" class="form-control">
-            <center><span id="opcoes"></span></center>
-        </div>  
-        <div class="col-md-2" id="find">
-            <button type="submit"  class="btn btn-primary btn-lg btn-block find">Encontrar</button>
-        </div> 
-    </center>
+    <div class="col-md-11" id="find">
+        <input oninput="findImov(this.value)" type="text" placeholder="Onde você quer morar?" style="width: 100%;height:55px" name="procurar" id="procurar" class="form-control">
+        <center><span id="opcoes"></span></center>
+    </div>  
+    <div class="col-md-1" id="find" >
+        <button type="submit"  class="btn btn-primary btn-lg btn-block find">Encontrar</button>
+    </div> 
 <!-- FIM DO CAMPO DE PESQUISA -->
 
 </form>

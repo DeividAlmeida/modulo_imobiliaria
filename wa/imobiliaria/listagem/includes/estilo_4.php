@@ -174,20 +174,15 @@ overflow:hidden;
     width: 210% !important;
     position: relative;
     word-wrap: normal !important;
-
-
 }
-
 #shop--list<?php echo $uniqid; ?> .shop--imovel__info ul {
     padding:0px;
     margin:0px;
-
     display: inline;
 }
 #shop--list<?php echo $uniqid; ?> .shop--imovel__info li {
 display: inline;
 margin-right: 10px;
-
 }
  #shop--list<?php echo $uniqid; ?> .shop--imovel__action{
     border-radius: 3px;
@@ -225,6 +220,8 @@ color: <?php echo $config['listagem_cor_titulo']; ?> !important;
 #shop--list<?php echo $uniqid; ?> .shop--imovel__action a, .shop--imovel__btn a, bottom{
   background-color: <?php echo $config['listagem_cor_botao']; ?> !important;
   border:<?php echo $config['listagem_cor_botao']; ?> !important;
+  position: relative;
+  left: 80%;
 }
 #shop--list<?php echo $uniqid; ?> .shop--imovel__action a:hover, .shop--imovel__btn a:hover{
     background-color: <?php echo $config['listagem_cor_hover_botao']; ?> !important;
@@ -249,7 +246,7 @@ color: <?php echo $config['listagem_cor_titulo']; ?> !important;
     border-radius: 8px;
     overflow: hidden;
     position: relative;
-
+    <?php echo $config['carrinho_cor_btn_finalizar']; ?>;
 }
 #Ashop--list<?php echo $uniqid; ?> .shop--imovel__name {
   color:  <?php echo $config['carrocel_cor_hover_btn']; ?> !important;
@@ -273,6 +270,8 @@ color: <?php echo $config['listagem_cor_titulo']; ?> !important;
   width:120px;
   clear: both;
   padding-top: 5px;
+  position: relative;
+ left: 30%;
 
 }
 #Ashop--list<?php echo $uniqid; ?> .shop--imovel__street{
@@ -403,7 +402,10 @@ overflow:hidden;
 }
 #Ashop--list<?php echo $uniqid; ?> .Ashop--imovel__action a, .shop--imovel__btn a{
   background-color: <?php echo $config['listagem_cor_botao']; ?> !important;
+  position: relative;
+  left: 45%;
 }
+
 #Ashop--list<?php echo $uniqid; ?> .Ashop--imovel__action a:hover, .shop--imovel__btn a:hover{
      color: <?php echo $config['carrocel_cor_setas']; ?> !important;
     background-color: <?php echo $config['listagem_cor_hover_botao']; ?> !important;
@@ -434,9 +436,12 @@ overflow:hidden;
         margin-left: 0 !important;
 
     }
+
     
 }
+
 <?php else: ?>
+
  #shop--list<?php echo $uniqid; ?> .shop--imovel__wrapper{
         display:none;
     }
@@ -445,7 +450,44 @@ overflow:hidden;
         margin: 15px 0 15px !important;
 
     }
+
 <?php endif; ?>
+@media (max-width: 1200px){
+    #Ashop--list<?php echo $uniqid; ?> .Ashop--imovel__price{
+        position:relative;
+        left:10%;
+    }
+    #Ashop--list<?php echo $uniqid; ?> .Ashop--imovel__action a, .shop--imovel__btn a{
+        position:relative;
+        left:0%;
+    }
+}
+@media (max-width: 992px){
+    #Ashop--list<?php echo $uniqid; ?> .Ashop--imovel__price{
+        position:relative;
+        left:170%;
+    }
+    #Ashop--list<?php echo $uniqid; ?> .Ashop--imovel__action a, .shop--imovel__btn a{
+        position:relative;
+        left:330%;
+    }
+    .Ashop--imovel__resume{
+        width:200%;
+    }
+}
+@media (max-width: 770px){
+    #Ashop--list<?php echo $uniqid; ?> .Ashop--imovel__price{
+        position:relative;
+        left:0%;
+    }
+    #Ashop--list<?php echo $uniqid; ?> .Ashop--imovel__action a, .shop--imovel__btn a{
+        position:relative;
+        left:0%;
+    }
+    .Ashop--imovel__resume{
+        width:65%;
+    }
+}
 </style> 
 <?php 
 $todos_tipos =  DBRead('imobiliaria_categorias','*');
@@ -493,7 +535,7 @@ $todos_tipos =  DBRead('imobiliaria_categorias','*');
                        <?php endforeach; endif; ?>
                     </ul>
                 <p class="shop--imovel__resume">
-                     <?php echo $imovel['resumo'];  ?>
+                     <?php echo $imovel['nome'];  ?>
                 </p>
                 <div class="shop--imovel__andress">
                      <?php echo $imovel['rua']." ".$imovel['cidade'];  ?>
@@ -571,7 +613,7 @@ $todos_tipos =  DBRead('imobiliaria_categorias','*');
               <div class="shop--imovel__info">
                
                 <div class="Ashop--imovel__resume">
-                     <?php echo $imovel['resumo'];  ?>
+                     <?php echo $imovel['nome'];  ?>
                 </div>
                 <div class="shop--imovel__andress">
                      <?php echo $imovel['rua']." - ".$imovel['bairro']." - ".$imovel['cidade'];  ?>

@@ -1,5 +1,5 @@
 <?php
-if(!checkPermission($PERMISSION, $_SERVER['SCRIPT_NAME'], 'categoria', 'editar')){ Redireciona('./index.php'); }
+if(!checkPermission($PERMISSION, $_SERVER['SCRIPT_NAME'], 'bairro', 'editar')){ Redireciona('./index.php'); }
 $id     = get('EditarBairro');
 $query  = DBRead('imobiliaria_bairros','*',"WHERE id = '{$id}'");
 if (is_array($query)) {

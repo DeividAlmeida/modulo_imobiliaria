@@ -110,7 +110,7 @@ window.onload = function(){
 <div class="shop--imovel-page--header row">
     <div class="pixtwo">
     <h4 class="shop--imovel-page--header__name" style="margin-left:8% !important;"><?php echo $imovel['nome']; ?></h4>
-    <h5 class="shop--imovel-page--header__endereco"><?php echo $imovel['rua'].', '.$imovel['bairro'].', '.$imovel['cidade']; ?></h5></div><br>
+    <h5 class="shop--imovel-page--header__endereco"><?php echo $imovel['rua'].', '.$imovel['bairro'].', '.$imovel['cidade'].', '.$imovel['numero']; ?></h5></div><br>
   <div class="col-md-6">
     <div class="shop--imovel-page--header--main-photo__wrapper">
       <img class="shop--imovel-page--header--main-photo__photo" src="<?php echo $url_img_capa; ?>" alt="Foto do imovel <?php echo $imovel['nome']; ?>" data-zoom-image="<?php echo $url_img_capa; ?>" width="100%"/>

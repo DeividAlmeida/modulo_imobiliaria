@@ -2,7 +2,7 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 INSERT INTO `modulos` (`nome`, `url`, `icone`, `status`, `ordem`, `tabela`, `cod_head`, `data_atualizacao`, `chave`, `acao`)
-SELECT 'Imobiliária', 'imobiliaria.php', 'icon-home', 1, 0, '', 'imobiliaria/imobiliaria.js', '2019-05-07', '72b4b1d7ce2b514a981a49b1db5790a7','{\"listagem\":[\"adicionar\",\"editar\",\"deletar\"],\"categoria\":[\"adicionar\",\"editar\",\"deletar\"],\"imovel\":[\"adicionar\",\"editar\",\"deletar\"],\"codigo\":[\"acessar\"],\"configuracao\":[\"acessar\"]}';
+SELECT 'Imobiliária', 'imobiliaria.php', 'icon-home', 1, 0, '', 'imobiliaria/imobiliaria.js', '2019-05-07', '72b4b1d7ce2b514a981a49b1db5790a7','{\"listagem\":[\"adicionar\",\"editar\",\"deletar\"],\"cidade\":[\"adicionar\",\"editar\",\"deletar\"],\"bairro\":[\"adicionar\",\"editar\",\"deletar\"],\"imovel\":[\"adicionar\",\"editar\",\"deletar\"],\"codigo\":[\"acessar\"],\"configuracao\":[\"acessar\"]}';
 
 -- CATEGORIA
 CREATE TABLE IF NOT EXISTS `imobiliaria_categorias` (

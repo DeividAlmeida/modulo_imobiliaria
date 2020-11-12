@@ -42,13 +42,13 @@ $UrlPage	 = 'imobiliaria.php';
 
 			<span class="dropdown">
 
-			<?php if (checkPermission($PERMISSION, $_SERVER['SCRIPT_NAME'], 'categoria')) { ?>
+			<?php if (checkPermission($PERMISSION, $_SERVER['SCRIPT_NAME'], 'cidade')) { ?>
 				<a class="btn btn-sm btn-primary" href="#" data-toggle="dropdown">Cidade</a>
 			<?php } ?>
 
 				<div class="dropdown-menu dropdown-menu-left" x-placement="bottom-end">
 					<a class="dropdown-item" href="?ListarCidade">Cidades Cadastradas</a>
-					<?php if (checkPermission($PERMISSION, $_SERVER['SCRIPT_NAME'], 'categoria', 'adicionar')) { ?>
+					<?php if (checkPermission($PERMISSION, $_SERVER['SCRIPT_NAME'], 'cidade', 'adicionar')) { ?>
 						<a class="dropdown-item" href="?AdicionarCidade">Cadastrar Cidade</a>
 					<?php } ?>
 				</div>

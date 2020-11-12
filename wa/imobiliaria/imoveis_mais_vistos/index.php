@@ -25,31 +25,16 @@ $imoveis   = DBRead(
 $tamanho_coluna = 4;
 
 // Escolhendo arquivo para o estilo
-switch ($config['listagem_estilo']) {
-	case 1:
-		require_once('../listagem/includes/estilo_1.php');
-		break;
 
-	case 2:
-		require_once('../listagem/includes/estilo_2.php');
-		break;
-
-	case 3:
-		require_once('../listagem/includes/estilo_3.php');
-		break;
-
-	case 4:
-		require_once('../listagem/includes/estilo_4.php');
-		break;
-
-	case 5:
-		require_once('../listagem/includes/estilo_5.php');
-		break;
-
-	default:
-		require_once('../listagem/includes/estilo_1.php');
-		break;
-}
+require_once('../listagem/includes/estilo_4.php');
 ?>
-
+<style>
+#shop--list<?php echo $uniqid; ?> .shop--imovel__wrapper{
+        display:none !important;
+}
+#Ashop--list<?php echo $uniqid; ?> .shop--imovel__wrapper{
+        display:block !important;
+        margin: 15px 0 15px !important;
+}
+</style>
 <link rel="stylesheet" href="<?php echo RemoveHttpS(ConfigPainel('base_url')); ?>/epack/css/elements/animate.css">
