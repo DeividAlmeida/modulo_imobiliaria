@@ -17,7 +17,7 @@ if($_GET['mobiliado'] == 'true' ){$mobiliado = "AND imobiliaria.mobiliado = 'che
 if($_GET['pet'] == 'true'){$pet = "AND imobiliaria.pet = 'checked'";}
 if($_GET['livre'] == 'true'){$livre = "AND imobiliaria.sol = 'checked'";}
 if($_GET['metros'] == 'true'){$metro = "AND imobiliaria.metro = 'checked'";}
-if(!empty($_GET['valor'])){$valor = "AND imobiliaria.preco >= ".floatval($_GET['valor']);}
+if(!empty($_GET['valor'])){$valor = "AND imobiliaria.preco < ".floatval($_GET['valor'])." OR imobiliaria.preco = ".floatval($_GET['valor']);}
 
 
   $pag 		= (isset($_GET['pag']) && $_GET['pag'] != 'undefined' )? $_GET['pag'] : 1;

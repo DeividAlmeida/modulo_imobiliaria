@@ -11,6 +11,14 @@ require_once('../../../database/config.php');
   }
 ?>
 <style>
+.fa-times{
+    position: absolute;
+    right: 0.8%;
+    top: 38%;
+    background: #fff;
+    padding: 0 10px 0;
+
+}
 select {
     cursor:pointer;
    height: 55px !important;
@@ -87,11 +95,7 @@ select {
         width:80%;
         left:10%;
     }
-    .find {
-        width:50% !important;
-        left:25%;
-        position:relative;
-    }
+
 }
 </style>
 <form class="shop--search-bar" method="GET" action="<?php echo $config['pagina_resultado_busca']."?pag=".$config['busca_limite_pagina']; ?> " onsubmit="store()">
@@ -129,6 +133,7 @@ select {
         </div>
         <div class="col-md-2 " id="find" style="position:relative;" >
             <div class="selectBox"	onclick="showCheckboxes()">
+                <i class="fa fa-times" aria-hidden="true" id="xis" style="display:none"></i>
                 <select name=""  class="form-control custom-select" id="avancado" onclick="showCheckboxes()">
                     <option disabled selected >Filtros avançados</option>
                 </select>
@@ -169,11 +174,11 @@ select {
     			</label> 
     		</div>
     </div>
-    <div class="col-md-11" id="find">
+    <div class="col-md-10" id="find">
         <input oninput="findImov(this.value)" type="text" placeholder="Onde você quer morar?" style="width: 100%;height:55px" name="procurar" id="procurar" class="form-control">
         <center><span id="opcoes"></span></center>
     </div>  
-    <div class="col-md-1" id="find" >
+    <div class="col-md-2" id="find" >
         <button type="submit"  class="btn btn-primary btn-lg btn-block find">Encontrar</button>
     </div> 
 <!-- FIM DO CAMPO DE PESQUISA -->
@@ -181,8 +186,23 @@ select {
 </form>
 
 <script>
-var show = true; 
+ 
 
+var show = true;
+function showCheckboxes() { 
+	var checkboxes = document.getElementById("checkBoxes"); 
+        let x = document.getElementById('xis');
+	if (show) { 
+		checkboxes.style.display = "block"; 
+		x.style.display = "block"; 
+		show = false; 
+	} else { 
+        x.style.display = "none"; 
+		checkboxes.style.display = "none"; 
+		show = true; 
+	} 
+
+} 
 
 function store(){
 let arr = [
@@ -206,20 +226,7 @@ let arr = [
 }
 
 
-function showCheckboxes() { 
-	var checkboxes = 
-		document.getElementById("checkBoxes"); 
 
-	if (show) { 
-		checkboxes.style.display = "block"; 
-		show = false; 
-	} else { 
-		checkboxes.style.display = "none"; 
-		show = true; 
-	} 
-	
-	
-} 
 function findImov (w){
     var b =" " ;
     document.getElementById('opcoes').style.visibility="visible";
