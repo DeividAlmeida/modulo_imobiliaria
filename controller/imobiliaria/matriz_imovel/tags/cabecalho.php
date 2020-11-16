@@ -73,7 +73,7 @@ ob_start();
     }
    .shop--imovel__rooms_icones i{
     margin-top: 35px;
-    width: 145px;;
+    width: 145px;
     }
     .shop--imovel__rooms_icones{
     height: auto;
@@ -134,8 +134,7 @@ window.onload = function(){
     <div class="shop--imovel-page--header--main-photo__wrapper">
             <h4 class="shop--imovel-page--header__name" ><?php echo $imovel['nome']; ?></h4>
             <h5 class="shop--imovel-page--header__endereco"><?php echo $imovel['rua'].', '.$imovel['bairro'].', '.$imovel['cidade'].', '.$imovel['numero'].' '.$imovel['complemento']; ?></h5>
-        
-        <br>
+
       <?php if(isset($imovel['etiqueta']) && !empty($imovel['etiqueta'])){ ?>
         <span class="shop--imovel-page--header--main-photo__tag"><?php echo $imovel['etiqueta']; ?></span>
       <?php } ?>
