@@ -41,10 +41,6 @@ $query = DBRead('imobiliaria_listas', '*');
           <h5 class="font-weight-normal s-14">Quant. Visualizações dos Imóveis</h5>
           <span class="s-48 font-weight-lighter text-primary"><?php echo $contagem_visualizacoes; ?></span>
         </div>
-        <div class="p-5">
-          <h5 class="font-weight-normal s-14">Quant. Orçamentos Realizados</h5>
-          <span class="s-48 font-weight-lighter light-green-text"><?php echo $contagem_orcamentos; ?></span>
-        </div>
       </div>
     </div>
   </div>

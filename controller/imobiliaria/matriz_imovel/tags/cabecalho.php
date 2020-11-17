@@ -2,7 +2,7 @@
 ob_start();
 ?>
 
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
 <style>
 #icones_column{
     width:90px;
@@ -12,7 +12,10 @@ ob_start();
 }
 .fa {
     font-family: FontAwesome, Arial !important;
-
+    color:<?php echo $config['email_cor_header_texto']; ?> !important;
+}
+.fas {
+    color:<?php echo $config['email_cor_header_texto']; ?> !important;
 }
   .garagem{
         opacity:<?php echo str_replace('checked','1',$imovel['garagem']) ?> !important;
@@ -48,14 +51,14 @@ ob_start();
     
   }
 .shop--imovel-page--header__endereco{
-    color: #bababa !important;
+    color: <?php echo $config['imovel_cor_texto_descricao']; ?> !important;
+    font-size: 20px;
   }
   .shop--imovel-page--header__price{
-    color: <?php echo $config['imovel_cor_preco']; ?> ;
-    background-color:#fff;
+    background-color: <?php echo $config['btn_carrinho_cor_btn_meu_carrinho']; ?> !important;
     border-radius:3px;
     border: 1px solid transparent !important;
-    box-shadow: 0 1px 4px 0 rgba(0,0,0,.16);
+    <?php echo $config['imovel_cor_tag_categoria']; ?>
     height: auto;
     font-size: 14px !important;
     font-weight: 500;
@@ -91,6 +94,22 @@ ob_start();
   }
   .shop--imovel-page--header__button:hover{
     background-color: <?php echo $config['imovel_cor_hover_botao']; ?> !important;
+    color: <?php echo $config['btn_carrinho_cor_texto']; ?> !important;
+    border:solid <?php echo $config['imovel_cor_hover_botao']; ?> !important;
+  }
+    .shop--imovel-page--header__button_2{
+    background-color: <?php echo $config['btn_carrinho_cor_btn_ver_carrinho']; ?> !important;
+    color: <?php echo $config['btn_carrinho_cor_hover_btn_ver_carrinho']; ?> !important;
+    font-size: 14px !important;
+    padding: 5px !important;
+    display: block !important;
+    width: 45%;
+    border:solid <?php echo $config['btn_carrinho_cor_btn_ver_carrinho']; ?> !important;
+  }
+  .shop--imovel-page--header__button_2:hover{
+    background-color: <?php echo $config['btn_carrinho_cor_texto_btn_ver_carrinho']; ?> !important;
+    color: <?php echo $config['imovel_cor_texto_tag_categoria']; ?> !important;
+    border:solid <?php echo $config['btn_carrinho_cor_texto_btn_ver_carrinho']; ?> !important;
   }
   .shop--imovel-page--header__categories li{
     background-color: <?php echo $config['imovel_cor_tag_categoria']; ?> !important;
@@ -157,16 +176,16 @@ window.onload = function(){
     <div class="shop--imovel-page--header__price">
         <div class="shop--imovel-page--header__fees">
             <div class="descricao">
-                <b>
+                <b style="color:<?php echo $config['imovel_cor_preco']; ?>">
                     Valor
                 </b>
                 <?php $pl = json_decode($imovel['taxas'], true); if(is_array($pl)): foreach($pl as $k => $decr):  ?>
-                    <p><?php echo $decr['descricao'];?></p>
+                    <p style="color:<?php echo $config['btn_carrinho_cor_fundo']; ?>"><?php echo $decr['descricao'];?></p>
                <?php endforeach; endif; ?>
-               <b style="width: 90%; position: absolute; border-top: 1px #080808 dashed;">Total</b>
+               <b style="width: 90%; position: absolute; border-top: 1px <?php echo $config['btn_carrinho_cor_fundo']; ?> dashed; color: <?php echo $config['imovel_cor_preco']; ?>;">Total</b>
             </div>
             <div class="fee">
-                <b>
+                <b style="color:<?php echo $config['imovel_cor_preco']; ?>">
                   <?php if($imovel['a_consultar'] == 'S') {?>
                     A consultar
                   <?php } else { ?>
@@ -174,9 +193,9 @@ window.onload = function(){
                   <?php } ?>
                 </b>
                 <?php $plu = json_decode($imovel['taxas'], true);  foreach($plu as $ky => $taxa):  ?>
-               <p><?php if(!empty($taxa['taxa'])): echo $config['moeda'].' '.number_format($taxa['taxa'],2,",","."); $taxatota += $taxa['taxa']; endif; ?></p>
+               <p style="color:<?php echo $config['btn_carrinho_cor_fundo']; ?>"><?php if(!empty($taxa['taxa'])): echo $config['moeda'].' '.number_format($taxa['taxa'],2,",","."); $taxatota += $taxa['taxa']; endif; ?></p>
                 <?php  endforeach; ?>
-               <b ><?php if($imovel['a_consultar'] == 'S') {echo "A consultar"; }else{ echo $config['moeda'].' '.number_format($taxatota + $imovel['preco'],2,",",".");} ?></b>
+               <b style="color: <?php echo $config['imovel_cor_preco']; ?> "><?php if($imovel['a_consultar'] == 'S') {echo "A consultar"; }else{ echo $config['moeda'].' '.number_format($taxatota + $imovel['preco'],2,",",".");} ?></b>
 
             </div>
         </div>
@@ -185,7 +204,7 @@ window.onload = function(){
             <a class="shop--imovel-page--header__button btn btn-lg" <?php echo (!empty($imovel['link_venda'])) ? "href='{$imovel["link_venda"]}' target='{$imovel["target_link"]}'" : 'onclick="CarrinhoAdd('.$imovel["id"].', '."'{$config["pagina_carrinho"]}'".')"'; ?>>
                Falar com corretor <?php #echo $imovel['btn_texto']; ?>
             </a>
-            <a style="background-color:#fff !important; "  class="shop--imovel-page--header__button btn btn-lg" <?php echo (!empty($imovel['link_mapa'])) ? "href='{$imovel["link_mapa"]}' target='{$imovel["target_link"]}'" : 'onclick="CarrinhoAdd('.$imovel["id"].', '."'{$config["pagina_carrinho"]}'".')"'; ?>>
+            <a class="shop--imovel-page--header__button_2 btn btn-lg" <?php echo (!empty($imovel['link_mapa'])) ? "href='{$imovel["link_mapa"]}' target='{$imovel["target_link"]}'" : 'onclick="CarrinhoAdd('.$imovel["id"].', '."'{$config["pagina_carrinho"]}'".')"'; ?>>
                Ver no mapa <?php #echo $imovel['btn_texto']; ?>
             </a>
         </center>
@@ -216,16 +235,19 @@ window.onload = function(){
                      Vista livre 
                 </i>
             </div>
-            <div id="icones_column"> 
-                <i class="fa" aria-hidden="true"> <svg id="Layer_1" enable-background="new 0 0 512.027 512.027" height="12" viewBox="0 0 512.027 512.027" width="12" xmlns="http://www.w3.org/2000/svg"><g><path d="m16 296.013h368c8.837 0 16 7.163 16 16v40c0 8.837-7.163 16-16 16h-368c-8.837 0-16-7.163-16-16v-40c0-8.836 7.163-16 16-16z"/><path d="m512 16.022c0 72.114.155 66.992-.28 66.992-1.4 7.4-7.9 13-15.72 13h-200c-20.86 0-38.64 13.38-45.25 32h4.51c66.683 0 120.74 54.057 120.74 120.74v10.26c0 2.761-2.239 5-5 5h-342c-2.761 0-5-2.239-5-5v-10.26c0-66.683 54.057-120.74 120.74-120.74h8.15c7.99-71.9 69.12-128 143.11-128h199.996c8.839 0 16.004 7.169 16.004 16.008z"/><path d="m200 384.013c-8.836 0-16 7.164-16 16v23c0 8.836 7.164 16 16 16s16-7.164 16-16v-23c0-8.836-7.164-16-16-16z"/><path d="m296 384.013c-8.836 0-16 7.164-16 16v23c0 8.836 7.164 16 16 16s16-7.164 16-16v-23c0-8.836-7.164-16-16-16z"/><path d="m248 457.013c-8.836 0-16 7.164-16 16v23c0 8.836 7.164 16 16 16s16-7.164 16-16v-23c0-8.836-7.164-16-16-16z"/><path d="m352 457.013c-8.836 0-16 7.164-16 16v23c0 8.836 7.164 16 16 16s16-7.164 16-16v-23c0-8.836-7.164-16-16-16z"/><path d="m104 384.013c-8.836 0-16 7.164-16 16v23c0 8.836 7.164 16 16 16s16-7.164 16-16v-23c0-8.836-7.164-16-16-16z"/><path d="m152 457.013c-8.836 0-16 7.164-16 16v23c0 8.836 7.164 16 16 16s16-7.164 16-16v-23c0-8.836-7.164-16-16-16z"/><path d="m56 457.013c-8.836 0-16 7.164-16 16v23c0 8.836 7.164 16 16 16s16-7.164 16-16v-23c0-8.836-7.164-16-16-16z"/></g>
-                </svg>  <?php echo intval($imovel['banheiros']);  ?> Banheiros</i>
-                <i class="fa mobiliado" aria-hidden="true"> 
-                    <svg enable-background="new 0 0 512 512" version="1.1" viewBox="0 0 512 400"  width="20" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
-                		<path d="M468,190v-54.92C468,109.12,450.904,94,424.944,94H95.22C69.264,94,44,109.12,44,135.08V190h7.16    C73.792,190,88,202.416,88,225.048V282h336v-56.952C424,202.416,446.372,190,469.004,190H468z"/>
-                		<path d="m88 298v15.968c0 7.74 10.5 20.032 18.236 20.032h307.69c7.736 0 10.072-12.292 10.072-20.032v-15.968h-336z"/>
-                		<path d="m491.04 206h-22.032c-13.812 0-29.004 5.236-29.004 19.048v88.92c0 16.56-9.512 36.032-26.072 36.032h-307.69c-16.56 0-34.236-19.472-34.236-36.032v-88.92c0-13.812-7.028-19.048-20.84-19.048h-22.032c-13.808 0-29.128 5.236-29.128 19.048v99.872c0 25.96 25.204 53.08 51.16 53.08h-3.16v30c0 2.208 5.852 10 8.064 10h27.936c2.208 0 0-7.792 0-10v-30h344v30c0 2.208 5.552 10 7.76 10h27.936c2.208 0 0.304-7.792 0.304-10v-30h5.004c25.96 0 42.996-27.12 42.996-53.08v-99.872c0-13.812-7.152-19.048-20.964-19.048z"/>
-                    </svg>  Mobiliado 
+            <div id="icones_column">
+                 
+            
+                <i class="fas fa-shower">  
+                    <span class="fa"><?php echo intval($imovel['banheiros']);  ?> 
+                        Banheiros
+                    </span>
                 </i>
+                <i class="fas fa-couch">
+                    <span class="fa">
+                        Mobiliado
+                    </span>
+                </i>    
                 <i class="fa fa-train metro" aria-hidden="true"> 
                     <span id="metro"></span>
                 </i>
@@ -276,7 +298,6 @@ window.onload = function(){
       <a class="shop--imovel-page__header--share__link"  aria-label="Imprimir" id="printBtn" href="javascript:window.print()">
         <div class="shop--imovel-page__header--share shop--imovel-page__header--share--email shop--imovel-page__header--share--medium">Imprimir</div>
       </a>
-
 <?php
 $cabecalho  = ob_get_clean();
 $matriz     = str_replace('[WAC_IMOBILIARIA_IMOV_CABECALHO]', $cabecalho, $matriz);

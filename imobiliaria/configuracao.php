@@ -283,122 +283,6 @@ $cod_busca_resultado .= '<script type="text/javascript">ImobiliariaBuscaResultad
 
       </div>
 
-      <!-- <hr />
-
-      <h4>Configuração Carrocel</h4>
-      <div class="row">
-        <div class="col-md-4">
-          <div class="form-group">
-            <label>Cor do Botão:</label>
-            <div class="color-picker input-group colorpicker-element focused">
-              <input type="text" class="form-control" name="carrocel_cor_btn" value="<?php echo $config['carrocel_cor_btn']; ?>">
-              <span class="input-group-append">
-                <span class="input-group-text add-on white">
-                  <i class="circle"></i>
-                </span>
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <div class="form-group">
-            <label>Cor do Hover do Botão:</label>
-            <div class="color-picker input-group colorpicker-element focused">
-              <input type="text" class="form-control" name="carrocel_cor_hover_btn" value="<?php echo $config['carrocel_cor_hover_btn']; ?>">
-              <span class="input-group-append">
-                <span class="input-group-text add-on white">
-                  <i class="circle"></i>
-                </span>
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <div class="form-group">
-            <label>Cor do Texto do Botão:</label>
-            <div class="color-picker input-group colorpicker-element focused">
-              <input type="text" class="form-control" name="carrocel_cor_btn_texto" value="<?php echo $config['carrocel_cor_btn_texto']; ?>">
-              <span class="input-group-append">
-                <span class="input-group-text add-on white">
-                  <i class="circle"></i>
-                </span>
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <div class="form-group">
-            <label>Cor do Título:</label>
-            <div class="color-picker input-group colorpicker-element focused">
-              <input type="text" class="form-control" name="carrocel_cor_titulo" value="<?php echo $config['carrocel_cor_titulo']; ?>">
-              <span class="input-group-append">
-                <span class="input-group-text add-on white">
-                  <i class="circle"></i>
-                </span>
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <div class="form-group">
-            <label>Cor do Hover Titulo:</label>
-            <div class="color-picker input-group colorpicker-element focused">
-              <input type="text" class="form-control" name="carrocel_cor_hover_titulo" value="<?php echo $config['carrocel_cor_hover_titulo']; ?>">
-              <span class="input-group-append">
-                <span class="input-group-text add-on white">
-                  <i class="circle"></i>
-                </span>
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <div class="form-group">
-            <label>Cor da Descrição:</label>
-            <div class="color-picker input-group colorpicker-element focused">
-              <input type="text" class="form-control" name="carrocel_cor_descricao" value="<?php echo $config['carrocel_cor_descricao']; ?>">
-              <span class="input-group-append">
-                <span class="input-group-text add-on white">
-                  <i class="circle"></i>
-                </span>
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <div class="form-group">
-            <label>Cor das Setas:</label>
-            <div class="color-picker input-group colorpicker-element focused">
-              <input type="text" class="form-control" name="carrocel_cor_setas" value="<?php echo $config['carrocel_cor_setas']; ?>">
-              <span class="input-group-append">
-                <span class="input-group-text add-on white">
-                  <i class="circle"></i>
-                </span>
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <div class="form-group">
-            <label>Cor do Hover das Setas:</label>
-            <div class="color-picker input-group colorpicker-element focused">
-              <input type="text" class="form-control" name="carrocel_cor_hover_setas" value="<?php echo $config['carrocel_cor_hover_setas']; ?>">
-              <span class="input-group-append">
-                <span class="input-group-text add-on white">
-                  <i class="circle"></i>
-                </span>
-              </span>
-            </div>
-          </div>
-        </div>
-      </div> -->
 
       <hr />
 
@@ -420,63 +304,7 @@ $cod_busca_resultado .= '<script type="text/javascript">ImobiliariaBuscaResultad
 
         <div class="col-md-4">
           <div class="form-group">
-            <label>Cor do Preço:</label>
-            <div class="color-picker input-group colorpicker-element focused">
-              <input type="text" class="form-control" name="imovel_cor_preco" value="<?php echo $config['imovel_cor_preco']; ?>">
-              <span class="input-group-append">
-                <span class="input-group-text add-on white">
-                  <i class="circle"></i>
-                </span>
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <div class="form-group">
-            <label>Cor do Texto do Botão:</label>
-            <div class="color-picker input-group colorpicker-element focused">
-              <input type="text" class="form-control" name="imovel_cor_texto_botao" value="<?php echo $config['imovel_cor_texto_botao']; ?>">
-              <span class="input-group-append">
-                <span class="input-group-text add-on white">
-                  <i class="circle"></i>
-                </span>
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <div class="form-group">
-            <label>Cor do Botão:</label>
-            <div class="color-picker input-group colorpicker-element focused">
-              <input type="text" class="form-control" name="imovel_cor_botao" value="<?php echo $config['imovel_cor_botao']; ?>">
-              <span class="input-group-append">
-                <span class="input-group-text add-on white">
-                  <i class="circle"></i>
-                </span>
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <div class="form-group">
-            <label>Cor do Hover do Botão:</label>
-            <div class="color-picker input-group colorpicker-element focused">
-              <input type="text" class="form-control" name="imovel_cor_hover_botao" value="<?php echo $config['imovel_cor_hover_botao']; ?>">
-              <span class="input-group-append">
-                <span class="input-group-text add-on white">
-                  <i class="circle"></i>
-                </span>
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <div class="form-group">
-            <label>Cor do Texto da Descrição:</label>
+            <label>Cor do Endereço:</label>
             <div class="color-picker input-group colorpicker-element focused">
               <input type="text" class="form-control" name="imovel_cor_texto_descricao" value="<?php echo $config['imovel_cor_texto_descricao']; ?>">
               <span class="input-group-append">
@@ -490,86 +318,19 @@ $cod_busca_resultado .= '<script type="text/javascript">ImobiliariaBuscaResultad
 
         <div class="col-md-4">
           <div class="form-group">
-            <label>Cor da Tag Categoria:</label>
-            <div class="color-picker input-group colorpicker-element focused">
-              <input type="text" class="form-control" name="imovel_cor_tag_categoria" value="<?php echo $config['imovel_cor_tag_categoria']; ?>">
-              <span class="input-group-append">
-                <span class="input-group-text add-on white">
-                  <i class="circle"></i>
-                </span>
-              </span>
+            <label>Sombra:</label>
+            <div class="input-group ">
+                <select name="imovel_cor_tag_categoria" class="form-control custom-select">
+                  <option value="-webkit-box-shadow: 0 2px 8px 0 rgba(0,0,0,.16);box-shadow: 0 2px 8px 0 rgba(0,0,0,.16);" <?php Selected($config['imovel_cor_tag_categoria'], '-webkit-box-shadow: 0 2px 8px 0 rgba(0,0,0,.16);box-shadow: 0 2px 8px 0 rgba(0,0,0,.16);'); ?>>Sim</option>
+                  <option value="/*i*/" <?php Selected($config['imovel_cor_tag_categoria'], '/*i*/'); ?>>Não</option>
+                </select>
             </div>
           </div>
         </div>
 
         <div class="col-md-4">
           <div class="form-group">
-            <label>Cor do Texto da Tag Categoria:</label>
-            <div class="color-picker input-group colorpicker-element focused">
-              <input type="text" class="form-control" name="imovel_cor_texto_tag_categoria" value="<?php echo $config['imovel_cor_texto_tag_categoria']; ?>">
-              <span class="input-group-append">
-                <span class="input-group-text add-on white">
-                  <i class="circle"></i>
-                </span>
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <div class="form-group">
-            <label>Moeda:</label>
-            <div class="input-group focused">
-              <select class="form-control" name="moeda" data-selected="<?= $config['moeda']; ?>">
-                <option value="R&#x00024;">R&#x00024; Reais</option>
-                <option value="&#x00024;">&#x00024; Dólar</option>
-                <option value="&#8364;">&#8364; Euro</option>
-              </select>
-
-            </div>
-          </div>
-        </div>
-      </div>
-      <!--<hr />
-
-      <h4>Configuração Carrinho</h4>
-      <div class="row">
-        <div class="col-md-4">
-          <div class="form-group">
-            <label>Cor Botões:</label>
-            <div class="color-picker input-group colorpicker-element focused">
-              <input type="text" class="form-control" name="carrinho_cor_btns" value="<?php echo $config['carrinho_cor_btns']; ?>">
-              <span class="input-group-append">
-                <span class="input-group-text add-on white">
-                  <i class="circle"></i>
-                </span>
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <div class="form-group">
-            <label>Cor Botão Finalizar:</label>
-            <div class="color-picker input-group colorpicker-element focused">
-              <input type="text" class="form-control" name="carrinho_cor_btn_finalizar" value="<?php echo $config['carrinho_cor_btn_finalizar']; ?>">
-              <span class="input-group-append">
-                <span class="input-group-text add-on white">
-                  <i class="circle"></i>
-                </span>
-              </span>
-            </div>
-          </div>
-        </div>
-      </div> 
-
-      <hr />
-
-      <h4>Configuração Botão Carrinho</h4>
-      <div class="row">
-        <div class="col-md-4">
-          <div class="form-group">
-            <label>Cor Botão 'Meu Carrinho':</label>
+            <label>Cor do Fundo do Texto:</label>
             <div class="color-picker input-group colorpicker-element focused">
               <input type="text" class="form-control" name="btn_carrinho_cor_btn_meu_carrinho" value="<?php echo $config['btn_carrinho_cor_btn_meu_carrinho']; ?>">
               <span class="input-group-append">
@@ -581,9 +342,24 @@ $cod_busca_resultado .= '<script type="text/javascript">ImobiliariaBuscaResultad
           </div>
         </div>
 
+
         <div class="col-md-4">
           <div class="form-group">
-            <label>Cor Fundo:</label>
+            <label>Cor do Texto Valor:</label>
+            <div class="color-picker input-group colorpicker-element focused">
+              <input type="text" class="form-control" name="imovel_cor_preco" value="<?php echo $config['imovel_cor_preco']; ?>">
+              <span class="input-group-append">
+                <span class="input-group-text add-on white">
+                  <i class="circle"></i>
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="form-group">
+            <label>Cor Texto Adicional:</label>
             <div class="color-picker input-group colorpicker-element focused">
               <input type="text" class="form-control" name="btn_carrinho_cor_fundo" value="<?php echo $config['btn_carrinho_cor_fundo']; ?>">
               <span class="input-group-append">
@@ -597,7 +373,49 @@ $cod_busca_resultado .= '<script type="text/javascript">ImobiliariaBuscaResultad
 
         <div class="col-md-4">
           <div class="form-group">
-            <label>Cor do Texto:</label>
+            <label>Cor do Botão 1:</label>
+            <div class="color-picker input-group colorpicker-element focused">
+              <input type="text" class="form-control" name="imovel_cor_botao" value="<?php echo $config['imovel_cor_botao']; ?>">
+              <span class="input-group-append">
+                <span class="input-group-text add-on white">
+                  <i class="circle"></i>
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-4">
+          <div class="form-group">
+            <label>Cor do Texto do Botão 1:</label>
+            <div class="color-picker input-group colorpicker-element focused">
+              <input type="text" class="form-control" name="imovel_cor_texto_botao" value="<?php echo $config['imovel_cor_texto_botao']; ?>">
+              <span class="input-group-append">
+                <span class="input-group-text add-on white">
+                  <i class="circle"></i>
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="form-group">
+            <label>Cor do Hover do Botão 1:</label>
+            <div class="color-picker input-group colorpicker-element focused">
+              <input type="text" class="form-control" name="imovel_cor_hover_botao" value="<?php echo $config['imovel_cor_hover_botao']; ?>">
+              <span class="input-group-append">
+                <span class="input-group-text add-on white">
+                  <i class="circle"></i>
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="form-group">
+            <label>Cor Hover Texto Botão 1:</label>
             <div class="color-picker input-group colorpicker-element focused">
               <input type="text" class="form-control" name="btn_carrinho_cor_texto" value="<?php echo $config['btn_carrinho_cor_texto']; ?>">
               <span class="input-group-append">
@@ -608,10 +426,10 @@ $cod_busca_resultado .= '<script type="text/javascript">ImobiliariaBuscaResultad
             </div>
           </div>
         </div>
-
+        
         <div class="col-md-4">
           <div class="form-group">
-            <label>Cor do Botão 'Ver Carrinho':</label>
+            <label>Cor do Botão 2:</label>
             <div class="color-picker input-group colorpicker-element focused">
               <input type="text" class="form-control" name="btn_carrinho_cor_btn_ver_carrinho" value="<?php echo $config['btn_carrinho_cor_btn_ver_carrinho']; ?>">
               <span class="input-group-append">
@@ -622,10 +440,10 @@ $cod_busca_resultado .= '<script type="text/javascript">ImobiliariaBuscaResultad
             </div>
           </div>
         </div>
-
+        
         <div class="col-md-4">
           <div class="form-group">
-            <label>Cor Hover do Botão 'Ver Carrinho':</label>
+            <label>Cor do Texto do Botão 2:</label>
             <div class="color-picker input-group colorpicker-element focused">
               <input type="text" class="form-control" name="btn_carrinho_cor_hover_btn_ver_carrinho" value="<?php echo $config['btn_carrinho_cor_hover_btn_ver_carrinho']; ?>">
               <span class="input-group-append">
@@ -639,7 +457,7 @@ $cod_busca_resultado .= '<script type="text/javascript">ImobiliariaBuscaResultad
 
         <div class="col-md-4">
           <div class="form-group">
-            <label>Cor do Texto do Botão 'Ver Carrinho':</label>
+            <label>Cor do Hover do Botão 2:</label>
             <div class="color-picker input-group colorpicker-element focused">
               <input type="text" class="form-control" name="btn_carrinho_cor_texto_btn_ver_carrinho" value="<?php echo $config['btn_carrinho_cor_texto_btn_ver_carrinho']; ?>">
               <span class="input-group-append">
@@ -650,11 +468,50 @@ $cod_busca_resultado .= '<script type="text/javascript">ImobiliariaBuscaResultad
             </div>
           </div>
         </div>
+
+        <div class="col-md-4">
+          <div class="form-group">
+            <label>Cor Hover Texto Botão 2:</label>
+            <div class="color-picker input-group colorpicker-element focused">
+              <input type="text" class="form-control" name="imovel_cor_texto_tag_categoria" value="<?php echo $config['imovel_cor_texto_tag_categoria']; ?>">
+              <span class="input-group-append">
+                <span class="input-group-text add-on white">
+                  <i class="circle"></i>
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-4">
+          <div class="form-group">
+            <label>Cor dos Ícones:</label>
+            <div class="color-picker input-group colorpicker-element focused">
+              <input type="text" class="form-control" name="email_cor_header_texto" value="<?php echo $config['email_cor_header_texto']; ?>">
+              <span class="input-group-append">
+                <span class="input-group-text add-on white">
+                  <i class="circle"></i>
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+        
+
+        <div class="col-md-4">
+          <div class="form-group">
+            <label>Moeda:</label>
+            <div class="input-group focused">
+              <select class="form-control" name="moeda" data-selected="<?= $config['moeda']; ?>">
+                <option value="R&#x00024;">R&#x00024; Reais</option>
+                <option value="&#x00024;">&#x00024; Dólar</option>
+                <option value="&#8364;">&#8364; Euro</option>
+              </select>
+            </div>
+          </div>
+        </div>
       </div>
-
-      <hr />-->
-
-      <h4>Configuração Busca</h4>
+   <h4>Configuração Busca</h4>
       <div class="row">
         <div class="col-md-3">
           <div class="form-group">
@@ -663,27 +520,6 @@ $cod_busca_resultado .= '<script type="text/javascript">ImobiliariaBuscaResultad
           </div>
         </div>
 
-        <!--<div class="col-md-4">
-          <div class="form-group">
-            <label>Tipo do Botão:</label>
-            <select name="busca_btn_tipo" class="form-control custom-select">
-              <option value="texto" <?php Selected($config['busca_btn_tipo'], 'texto'); ?>>Texto</option>
-              <option value="icone" <?php Selected($config['busca_btn_tipo'], 'icone'); ?>>Ícone</option>
-              <option value="ambos" <?php Selected($config['busca_btn_tipo'], 'ambos'); ?>>Ambos</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <div class="form-group">
-            <label>Tamanho do Botão:</label>
-            <select name="busca_btn_tamanho" class="form-control custom-select">
-              <option value="pequeno" <?php Selected($config['busca_btn_tamanho'], 'pequeno'); ?>>Pequeno</option>
-              <option value="normal" <?php Selected($config['busca_btn_tamanho'], 'normal'); ?>>Normal</option>
-              <option value="grande" <?php Selected($config['busca_btn_tamanho'], 'grande'); ?>>Grande</option>
-            </select>
-          </div>
-        </div>-->
 
         <div class="col-md-3">
           <div class="form-group">
@@ -728,131 +564,7 @@ $cod_busca_resultado .= '<script type="text/javascript">ImobiliariaBuscaResultad
         </div>
       </div>
 
-      <!-- <hr />
 
-      <h4>Configuração Formulário Orçamento</h4>
-
-      <div class="row">
-        <div class="col-md-6">
-          <div class="form-group">
-            <label>Tipo de Orçamento:</label>
-            <select class="form-control" name="tipo_orcamento">
-              <option value="email"> por E-mail</option>
-              <option value="whatsapp"> por Whatsapp</option>
-            </select>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="form-group">
-            <label>Número do Whatsapp:</label>
-            <input type="number" name="whatsapp" class="form-control" placeholder="Informe seu número de whatsapp" value="<?php echo $config['whatsapp']; ?>">
-            <small>Lembre-se de inserir seu número completo com Código do País, DDD e Número de Telefone completo Ex. 5511912345678</small>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-12">
-          <div class="form-group">
-            <label>E-mail de Recebimento:</label>
-            <input type="text" name="email_recebimento" class="form-control" placeholder="Informe o E-mail de Recebimento" value="<?php echo $config['email_recebimento']; ?>">
-            <small>Para adicionar mais de um e-mail separe os e-mails com ; (ponto e virgula)</small>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-12">
-          <div class="form-group">
-            <label>Servidor SMTP:</label>
-            <input type="text" name="email_servidor" class="form-control" placeholder="Informe o Servidor SMTP" value="<?php echo $config['email_servidor']; ?>">
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-4">
-          <div class="form-group">
-            <label>Usuário SMTP:</label>
-            <input type="text" name="email_usuario" class="form-control" placeholder="Informe o Usuário SMTP" value="<?php echo $config['email_usuario']; ?>">
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <div class="form-group">
-            <label>Senha SMTP:</label>
-            <input type="text" name="email_senha" class="form-control" placeholder="Informe o Senha SMTP" value="<?php echo $config['email_senha']; ?>">
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <div class="form-group">
-            <label>Porta SMTP:</label>
-            <input type="text" name="email_porta" class="form-control" placeholder="Informe a Porta SMTP" value="<?php echo $config['email_porta']; ?>">
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <div class="form-group">
-            <label>E-mail de Disparo:</label>
-            <input type="text" name="email_disparo" class="form-control" placeholder="Informe o E-mail de Disparo" value="<?php echo $config['email_disparo']; ?>">
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="form-group">
-            <label>Protocolo de Segurança:</label>
-            <select name="email_protocolo_seguranca" class="form-control custom-select">
-              <option value="ssl" <?php Selected($config['email_protocolo_seguranca'], 'ssl'); ?>>SSL</option>
-              <option value="tls" <?php Selected($config['email_protocolo_seguranca'], 'tls'); ?>>TLS</option>
-            </select>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-4">
-          <div class="form-group">
-            <label>Cor do Background:</label>
-            <div class="color-picker input-group colorpicker-element focused">
-              <input type="text" class="form-control" name="email_cor_bg" value="<?php echo $config['email_cor_bg']; ?>">
-              <span class="input-group-append">
-                <span class="input-group-text add-on white">
-                  <i class="circle"></i>
-                </span>
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <div class="form-group">
-            <label>Cor do fundo do cabeçalho :</label>
-            <div class="color-picker input-group colorpicker-element focused">
-              <input type="text" class="form-control" name="email_cor_header_bg" value="<?php echo $config['email_cor_header_bg']; ?>">
-              <span class="input-group-append">
-                <span class="input-group-text add-on white">
-                  <i class="circle"></i>
-                </span>
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <div class="form-group">
-            <label>Cor do texto do cabeçalho :</label>
-            <div class="color-picker input-group colorpicker-element focused">
-              <input type="text" class="form-control" name="email_cor_header_texto" value="<?php echo $config['email_cor_header_texto']; ?>">
-              <span class="input-group-append">
-                <span class="input-group-text add-on white">
-                  <i class="circle"></i>
-                </span>
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>-->
     </div>
 
     <div class="card-footer white">
@@ -885,33 +597,3 @@ $cod_busca_resultado .= '<script type="text/javascript">ImobiliariaBuscaResultad
 </script>
 
 
-<!-- 
-
-                                                                	RECICLA
-                                                                carrocel_cor_btn => Cor Tag
-                                                                carrocel_cor_hover_btn => Cor do Texto da Tag		
-                                                                carrocel_cor_btn_texto => Cor do Barra do Titulo
-                                                                carrocel_cor_titulo => Cor do Endereço
-                                                                carrocel_cor_hover_titulo => Cor dos Icones
-                                                                carrocel_cor_descricao => Cor do Texto do Botão
-                                                                carrocel_cor_setas => Cor do Texto Hover Botão
-                                                                carrocel_cor_hover_setas => Cor do Fundo
-                                                                carrinho_cor_btns => Cor hover Fundo
-                                                                carrinho_cor_btn_finalizar => Cor Sombra
-                                                                
-                                                                	MANTEM
-                                                                listagem_cor_titulo => Cor do Título
-                                                                listagem_cor_preco => Cor do Preço
-                                                                listagem_cor_botao => Cor do Botão
-                                                                listagem_cor_hover_botao => Cor hover Botão
-                                                                listagem_cor_borda => Cor da Borda
-                                                                
-                                                                	RESERVA
-                                                                btn_carrinho_cor_btn_meu_carrinho => 
-                                                                btn_carrinho_cor_fundo => 
-                                                                btn_carrinho_cor_texto => 
-                                                                btn_carrinho_cor_btn_ver_carrinho => 
-                                                                btn_carrinho_cor_hover_btn_ver_carrinho => 
-                                                                btn_carrinho_cor_texto_btn_ver_carrinho => 
-
--->
