@@ -46,7 +46,19 @@ if($lista['mostrar_paginacao'] == 'S'){
 
   if(!$ids_imoveis){
     $imoveis = array();
+  }else{
+      $limite 		= $lista['paginacao'];
+
+    $imoveis   = DBRead(
+      'imobiliaria',
+      'imobiliaria.*, imobiliaria_imov_imagens.uniq as id_foto_capa',
+      "INNER JOIN imobiliaria_imov_imagens ON imobiliaria.id_imagem_capa = imobiliaria_imov_imagens.id
+      WHERE imobiliaria.id IN ($ids_imoveis) 
+      ORDER BY imobiliaria.{$lista['ordenar_por']} {$lista['asc_desc']}
+      LIMIT $limite"
+    );
   }
+  
 }
 else{
   if(!$ids_imoveis){

@@ -13,6 +13,7 @@ ob_start();
 .fa {
     font-family: FontAwesome, Arial !important;
     color:<?php echo $config['email_cor_header_texto']; ?> !important;
+        font-weight: 500 !important;
 }
 .fas {
     color:<?php echo $config['email_cor_header_texto']; ?> !important;
@@ -243,7 +244,7 @@ window.onload = function(){
                         Banheiros
                     </span>
                 </i>
-                <i class="fas fa-couch">
+                <i class="fas fa-couch mobiliado">
                     <span class="fa">
                         Mobiliado
                     </span>

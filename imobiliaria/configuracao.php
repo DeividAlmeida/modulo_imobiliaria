@@ -497,7 +497,20 @@ $cod_busca_resultado .= '<script type="text/javascript">ImobiliariaBuscaResultad
           </div>
         </div>
         
-
+        <div class="col-md-4">
+          <div class="form-group">
+            <label>Cor da Descrição:</label>
+            <div class="color-picker input-group colorpicker-element focused">
+              <input type="text" class="form-control" name="email_servidor" value="<?php echo $config['email_servidor']; ?>">
+              <span class="input-group-append">
+                <span class="input-group-text add-on white">
+                  <i class="circle"></i>
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+        
         <div class="col-md-4">
           <div class="form-group">
             <label>Moeda:</label>
@@ -511,6 +524,7 @@ $cod_busca_resultado .= '<script type="text/javascript">ImobiliariaBuscaResultad
           </div>
         </div>
       </div>
+      
    <h4>Configuração Busca</h4>
       <div class="row">
         <div class="col-md-3">

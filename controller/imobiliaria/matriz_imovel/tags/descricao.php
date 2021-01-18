@@ -3,7 +3,7 @@ ob_start();
 ?>
 <style>
 .shop--imovel-page__description{
-  color: <?php echo $config['imovel_cor_texto_descricao']; ?>;
+  color: <?php echo $config['email_servidor']; ?>;
 }
 </style>
 <div class="shop--imovel-page__description">

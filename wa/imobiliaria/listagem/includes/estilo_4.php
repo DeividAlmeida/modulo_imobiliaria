@@ -240,7 +240,7 @@ color: <?php echo $config['listagem_cor_titulo']; ?> !important;
 }
 
 #Ashop--list<?php echo $uniqid; ?> .shop--imovel__wrapper {
-    background: #ffffff;
+    background: <?php echo $config['carrocel_cor_hover_setas']; ?> !important;;
     border: 1px solid <?php echo $config['listagem_cor_borda']; ?> !important;
     border-bottom: 3px solid <?php echo $config['listagem_cor_borda']; ?> !important;
     border-radius: 8px;
@@ -434,7 +434,7 @@ overflow:hidden;
     #Ashop--list<?php echo $uniqid; ?> .shop--imovel__wrapper{
         display:block;
         margin-left: 0 !important;
-
+        margin-top: 30px !important;
     }
 
     

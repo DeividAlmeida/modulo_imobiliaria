@@ -24,7 +24,6 @@ if (is_array($query)) {
                 <select class="form-control custom-select" name="tipo">
                   <option value="1" <?php Selected($dados['tipo'], "1"); ?>>Categoria</option>
                   <option value="2" <?php Selected($dados['tipo'], "2"); ?>>Mais Vistos</option>
-                  <option value="3" <?php Selected($dados['tipo'], "3"); ?>>Mais Vendidos</option>
                   <option value="4" <?php Selected($dados['tipo'], "4"); ?>>Mais Recentes</option>
                 </select>
               </div>
@@ -69,7 +68,7 @@ if (is_array($query)) {
 
 
               <!-- `mostrar_filtro` enum('S', 'N') DEFAULT 'N' -->
-              <div class="form-group">
+              <div class="form-group d-none">
                 <label>Mostrar Filtro:</label>
                 <select class="form-control custom-select" name="mostrar_filtro">
                   <option value="S" <?php Selected($dados['mostrar_filtro'], "S"); ?>>Sim</option>

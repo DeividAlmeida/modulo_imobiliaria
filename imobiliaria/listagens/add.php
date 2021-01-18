@@ -21,7 +21,6 @@
             <select class="form-control custom-select" name="tipo">
               <option value="1" selected>Categoria</option>
               <option value="2">Mais Vistos</option>
-              <option value="3">Mais Vendidos</option>
               <option value="4">Mais Recentes</option>
             </select>
           </div>
@@ -64,11 +63,11 @@
           </div>
 
           <!-- `mostrar_filtro` enum('S', 'N') DEFAULT 'N' -->
-          <div class="form-group">
+          <div class="form-group d-none">
             <label>Mostrar Filtro:</label>
             <select class="form-control custom-select" name="mostrar_filtro">
-              <option value="S" selected>Sim</option>
-              <option value="N">Não</option>
+              <option value="S" >Sim</option>
+              <option value="N" selected>Não</option>
             </select>
           </div>
 
