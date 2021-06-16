@@ -59,21 +59,22 @@ function atualizarMatrizImovel($id_imovel){
   $url_img_capa = RemoveHttpS(ConfigPainel('base_url'))."wa/imobiliaria/uploads/".$foto_capa['uniq'];
 
   // TAGS - troca tags pelos seus conteudos
-  require('tags/nome.php');                            // [WAC_IMOBILIARIA_IMOV_NOME]
-  require('tags/codigo_imov.php');                     // [WAC_IMOBILIARIA_CODIGO]
-  require('tags/descricao.php');                       // [WAC_IMOBILIARIA_IMOV_DESCRICAO]
-  require('tags/cabecalho.php');                       // [WAC_IMOBILIARIA_IMOV_CABECALHO]
-  require('tags/palavras_chave.php');                  // [WAC_IMOBILIARIA_IMOV_PALAVRAS_CHAVES]
-  require('tags/resumo.php');                          // [WAC_IMOBILIARIA_IMOV_RESUMO]
-  require('tags/url.php');                             // [WAC_IMOBILIARIA_IMOV_URL]
-  require('tags/imagem_url.php');                      // [WAC_IMOBILIARIA_IMOV_IMAGEM_URL]
-  require('tags/lista_imov_mais_vistos.php');          // [WAC_IMOBILIARIA_LISTA_IMOV_MAIS_VISTOS]
-  require('tags/lista_imov_relacionados.php');         // [WAC_IMOBILIARIA_LISTA_IMOV_RELACIONADOS]
+  require_once('tags/nome.php');                            // [WAC_IMOBILIARIA_IMOV_NOME]
+  require_once('tags/codigo_imov.php');                     // [WAC_IMOBILIARIA_CODIGO]
+  require_once('tags/descricao.php');                       // [WAC_IMOBILIARIA_IMOV_DESCRICAO]
+  require_once('tags/cabecalho.php');                       // [WAC_IMOBILIARIA_IMOV_CABECALHO]
+  require_once('tags/palavras_chave.php');                  // [WAC_IMOBILIARIA_IMOV_PALAVRAS_CHAVES]
+  require_once('tags/resumo.php');                          // [WAC_IMOBILIARIA_IMOV_RESUMO]
+  require_once('tags/url.php');                             // [WAC_IMOBILIARIA_IMOV_URL]
+  require_once('tags/imagem_url.php');                      // [WAC_IMOBILIARIA_IMOV_IMAGEM_URL]
+  require_once('tags/lista_imov_mais_vistos.php');          // [WAC_IMOBILIARIA_LISTA_IMOV_MAIS_VISTOS]
+  require_once('tags/lista_imov_relacionados.php');         // [WAC_IMOBILIARIA_LISTA_IMOV_RELACIONADOS]
   // [WAC_IMOBILIARIA_LISTA_IMOV_MAIS_VENDIDOS]
 
-  require('header.php');
-  require('scripts.php');
-
+  require_once('header.php');
+  require_once('scripts.php');
+  
+  
   // Salvando HTML
   $caminhos_site_url = explode('/', ConfigPainel('site_url'));
 

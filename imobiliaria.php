@@ -145,7 +145,7 @@ $UrlPage	 = 'imobiliaria.php';
 
 						<tr>
 							<td>Imóvel - Código</td>
-							<td>[WAC_IMOBILIARIA_CODIGO]</td>
+							<td>[WAC_IMOBILIARIA_IMOV_CODIGO]</td>
 						</tr>
 
 						<tr>

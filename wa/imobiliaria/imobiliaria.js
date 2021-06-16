@@ -82,23 +82,3 @@ function shopUpdateListView(idList, isGrid, columnClass){
     $(this).attr('class', 'shop--imovel '+columnClass);
   });
 }
-function CarrinhoAdd(id, carrinho_url){
-  $.ajax({
-    type: 	"GET",
-    cache: 	false,
-    url: 		UrlPainel+'wa/imobiliaria/carrinho?AddItem='+id,
-    beforeSend: function (data){
-      $('.shop--imovel-page--header__button').html("Adicionando ao carrinho...");
-    },
-    success: function () {
-      $('.shop--imovel-page--header__button').html("Comprar");
-      Swal.fire({
-        type:  'success',
-				title: "Item adicionado no carrinho",
-        showConfirmButton: false,
-        showCloseButton: true,
-        html: '<p>Clique no botão abaixo para ir para o carrinho ou clique no X para continuar comprando</p><a class="btn btn-primary shop--modal-add-imovel__btn" href="'+carrinho_url+'">Ver carrinho</a>'
-			});
-    }
-  });
-}

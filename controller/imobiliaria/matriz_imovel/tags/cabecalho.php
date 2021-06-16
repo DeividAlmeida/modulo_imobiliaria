@@ -138,14 +138,14 @@ ob_start();
 }
 </style>
 <script>
-window.onload = function(){
+
     fetch('<?php echo ConfigPainel('base_url')."wa/imobiliaria/imoveis/api.json";?>').then((response)=>{
         response.json().then(data =>{
             document.getElementById('sol').innerHTML= data.Sol;
             document.getElementById('metro').innerHTML= data.metro;
         });
     });
-};
+
 </script>
 
 <div
@@ -218,7 +218,7 @@ window.onload = function(){
                 <i class="fa fa-building" aria-hidden="true"> 
                     <?php echo intval($imovel['andar']);  ?><span>&#9702;</span> Andar 
                 </i>
-                <i class="fa fa-sun-o sol" aria-hidden="true" algo="Sol da manhã"> 
+                <i class="fa fa-sun-o sol" aria-hidden="true" algo="Sol da manh锟�0锟�0"> 
                      <span id="sol"></span>
                 </i>
                 <i class="fa fa-car garagem" aria-hidden="true"> 
@@ -241,7 +241,7 @@ window.onload = function(){
             
                 <i class="fas fa-shower">  
                     <span class="fa"><?php echo intval($imovel['banheiros']);  ?> 
-                        Banheiros
+                        Banheiro(s)
                     </span>
                 </i>
                 <i class="fas fa-couch mobiliado">

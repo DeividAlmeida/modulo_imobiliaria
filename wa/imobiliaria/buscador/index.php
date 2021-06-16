@@ -118,7 +118,7 @@ select {
         <div class="col-md-3" id="find">
             <select name="cidade" onchange="bairros(this.value)" class="form-control custom-select" id="cidade">
                 <option disabled selected value="">Cidade</option>
-                <?php $cidades = DBRead('imobiliaria','*','GROUP BY cidade');
+                <?php $cidades = DBRead('imobiliaria','*','ORDER BY cidade');
                 foreach($cidades as $cidade): ?>
                 <option value="<?php echo $cidade['cidade'] ?>" <?php Selected($cidade); ?>><?php echo $cidade['cidade'] ?></option>
                 <?php endforeach ?>
