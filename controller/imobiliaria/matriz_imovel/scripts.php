@@ -6,7 +6,6 @@ ob_start();
   <script src="<?php echo RemoveHttpS(ConfigPainel('base_url')); ?>wa/imobiliaria/assets/js/elevateZoom.js"></script>
   <script src="<?php echo RemoveHttpS(ConfigPainel('base_url')); ?>wa/imobiliaria/assets/js/slick.js"></script>
   <script src="<?php echo RemoveHttpS(ConfigPainel('base_url')); ?>wa/imobiliaria/assets/js/imovel_footer.js"></script>
-  <script>CountProductView(<?php echo $imovel['id'];?>)</script>
 </body>
 
 <?php

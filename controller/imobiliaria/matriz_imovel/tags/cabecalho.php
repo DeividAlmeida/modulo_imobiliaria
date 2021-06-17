@@ -145,10 +145,10 @@ ob_start();
             document.getElementById('metro').innerHTML= data.metro;
         });
     });
-
+  new  CountProductView(<?php echo $imovel['id'];?>)
 </script>
 
-<div
+
 <div class="shop--imovel-page--header row">
   <div class="col-lg-8 ted">
     <div class="shop--imovel-page--header--main-photo__wrapper">
@@ -227,7 +227,7 @@ ob_start();
             </div>
             <div id="icones_column"> 
                 <i class="fa fa-bed" aria-hidden="true"> 
-                    <?php echo intval($imovel['quartos']);  ?> Quarto
+                    <?php echo intval($imovel['quartos']);  ?> Quarto(s)
                 </i>
                 <i class="fa fa-paw pet" aria-hidden="true"> 
                      Aceita pet 
@@ -299,6 +299,7 @@ ob_start();
       <a class="shop--imovel-page__header--share__link"  aria-label="Imprimir" id="printBtn" href="javascript:window.print()">
         <div class="shop--imovel-page__header--share shop--imovel-page__header--share--email shop--imovel-page__header--share--medium">Imprimir</div>
       </a>
+</div>
 <?php
 $cabecalho  = ob_get_clean();
 $matriz     = str_replace('[WAC_IMOBILIARIA_IMOV_CABECALHO]', $cabecalho, $matriz);

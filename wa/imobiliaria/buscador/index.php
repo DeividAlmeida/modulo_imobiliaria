@@ -118,7 +118,7 @@ select {
         <div class="col-md-3" id="find">
             <select name="cidade" onchange="bairros(this.value)" class="form-control custom-select" id="cidade">
                 <option disabled selected value="">Cidade</option>
-                <?php $cidades = DBRead('imobiliaria','*','ORDER BY cidade');
+                <?php $cidades = DBRead('imobiliaria','*','GROUP BY cidade');
                 foreach($cidades as $cidade): ?>
                 <option value="<?php echo $cidade['cidade'] ?>" <?php Selected($cidade); ?>><?php echo $cidade['cidade'] ?></option>
                 <?php endforeach ?>
@@ -134,8 +134,8 @@ select {
         <div class="col-md-2 " id="find" style="position:relative;" >
             <div class="selectBox"	onclick="showCheckboxes()">
                 <i class="fa fa-times" aria-hidden="true" id="xis" style="display:none"></i>
-                <select name=""  class="form-control custom-select" id="avancado" onclick="showCheckboxes()">
-                    <option disabled selected >Filtros avançados</option>
+                <select name=""  class="form-control custom-select" id="avancado" >
+                    <option disabled selected hidden>Filtros avançados</option>
                 </select>
                 <div class="overSelect"></div>
             </div>
