@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 if (isset($_GET['AdicionarItemLista'])) {
 	require_once('imobiliaria/listagens/item/add.php');
 }
