@@ -22,6 +22,8 @@
               <option value="1" selected>Categoria</option>
               <option value="2">Mais Vistos</option>
               <option value="4">Mais Recentes</option>
+              <option value="5">Imóveis para Aluguel</option>
+              <option value="6">Imóveis para Venda</option>
             </select>
           </div>
 

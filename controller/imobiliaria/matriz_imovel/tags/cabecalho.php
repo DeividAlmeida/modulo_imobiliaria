@@ -10,12 +10,12 @@ ob_start();
 .pix{
     padding:0 !important;
 }
-.fa {
+.shop--imovel-page--header .fa {
     font-family: FontAwesome, Arial !important;
     color:<?php echo $config['email_cor_header_texto']; ?> !important;
         font-weight: 500 !important;
 }
-.fas {
+.shop--imovel-page--header .fas {
     color:<?php echo $config['email_cor_header_texto']; ?> !important;
 }
   .garagem{

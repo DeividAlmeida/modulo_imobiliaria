@@ -25,6 +25,8 @@ if (is_array($query)) {
                   <option value="1" <?php Selected($dados['tipo'], "1"); ?>>Categoria</option>
                   <option value="2" <?php Selected($dados['tipo'], "2"); ?>>Mais Vistos</option>
                   <option value="4" <?php Selected($dados['tipo'], "4"); ?>>Mais Recentes</option>
+                  <option value="5" <?php Selected($dados['tipo'], "5"); ?>>Imóveis para Aluguel</option>
+                  <option value="6" <?php Selected($dados['tipo'], "6"); ?>>Imóveis para Venda</option>
                 </select>
               </div>
 

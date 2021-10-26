@@ -55,7 +55,7 @@ if($lista['mostrar_paginacao'] == 'S'){
       "INNER JOIN imobiliaria_imov_imagens ON imobiliaria.id_imagem_capa = imobiliaria_imov_imagens.id
       WHERE imobiliaria.id IN ($ids_imoveis) 
       ORDER BY imobiliaria.{$lista['ordenar_por']} {$lista['asc_desc']}
-      LIMIT $limite"
+      LIMIT {$inicio}, {$limite}"
     );
   }
   

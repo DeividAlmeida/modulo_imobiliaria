@@ -587,9 +587,43 @@ $cod_busca_resultado .= '<script type="text/javascript">ImobiliariaBuscaResultad
   </div>
 </form>
 
+<?php 
+    $imoveis   = DBRead('imobiliaria', 'id');
+    $jsonImoveis = json_encode($imoveis);
+?>
+
 
 <script type="text/javascript">
   function AtualizarMatrizes() {
+      
+    swal({
+      title: 'Aguarde!',
+      text: 'Estamos gerando as páginas dos imóveis atualizadas.\nNão recarregue a página até a mensagem de sucesso.',
+      type: "info",
+      html: true,
+      showConfirmButton: true
+    });
+      
+    var jsonImoveis = <?= $jsonImoveis; ?>;
+    let lastId = jsonImoveis.length - 1;
+    var time = 1000;
+  
+    $.each(jsonImoveis, function (index, value) {
+        setTimeout(function(){
+            $.get( "imobiliaria.php?AtualizaImovel="+value.id+"");
+            if(index == lastId){
+            swal("Matrizes Atualizadas!", "Matrizes atualizadas com sucesso!", "success");
+            }
+        }, time);
+        
+        time += 1000;
+    });
+  }
+</script>
+
+
+<script type="text/javascript">
+  /*function AtualizarMatrizes() {
     $.ajax({
       type: "GET",
       cache: false,
@@ -607,7 +641,7 @@ $cod_busca_resultado .= '<script type="text/javascript">ImobiliariaBuscaResultad
         swal("Matrizes Atualizadas!", "Matrizes atualizadas com sucesso!", "success")
       }
     });
-  }
+  }*/
 </script>
 
 

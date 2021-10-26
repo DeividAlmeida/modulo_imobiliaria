@@ -10,7 +10,7 @@
     display: flex;
     width:250px;
 }
-.fa {
+#shop--list<?php echo $uniqid; ?> .fa {
     font-family: FontAwesome, Arial !important;
     font-size: 14px !important;
 }
@@ -495,10 +495,10 @@ $todos_tipos =  DBRead('imobiliaria_categorias','*');
             <div class="shop--imovel__img col-lg-6">
               <a href="<?php echo $url;?>">
                  <!--<span class="shop--imovel__tag" style="background-color:<?php echo $imovel['etiqueta_cor'] ?>"><?php echo $imovel['etiqueta'] ?></span>-->
-                <img class="shop--imovel__primary-img" src="<?php echo RemoveHttpS(ConfigPainel('base_url')); ?>wa/imobiliaria/uploads/<?php echo $imovel['id_foto_capa']; ?>" alt="Foto Im¨®vel <?php echo $imovel['nome']; ?> 1">
+                <img class="shop--imovel__primary-img" src="<?php echo RemoveHttpS(ConfigPainel('base_url')); ?>wa/imobiliaria/uploads/<?php echo $imovel['id_foto_capa']; ?>" alt="Foto Imï¿½ï¿½vel <?php echo $imovel['nome']; ?> 1">
 
                 <?php if($segunda_foto){ ?>
-                  <!--<img class="shop--imovel__secondary-img" src="<?php echo RemoveHttpS(ConfigPainel('base_url')); ?>wa/imobiliaria/uploads/<?php echo $segunda_foto; ?>" alt="Foto Im¨®vel <?php echo $imovel['nome']; ?> 2"> -->
+                  <!--<img class="shop--imovel__secondary-img" src="<?php echo RemoveHttpS(ConfigPainel('base_url')); ?>wa/imobiliaria/uploads/<?php echo $segunda_foto; ?>" alt="Foto Imï¿½ï¿½vel <?php echo $imovel['nome']; ?> 2"> -->
                 <?php } ?>
               </a>
             </div>
@@ -539,11 +539,11 @@ $todos_tipos =  DBRead('imobiliaria_categorias','*');
               
             </div>
             <div class="shop--imovel__action" >
-              <center>  <a class="btn btn-primary btn-lg btn-block" href="<?php echo $url;?>"><i class="fa fa-eye" aria-hidden="true"></i> Ver o Im¨®vel</a></center>
+              <center>  <a class="btn btn-primary btn-lg btn-block" href="<?php echo $url;?>"><i class="fa fa-eye" aria-hidden="true"></i> Ver o Imï¿½ï¿½vel</a></center>
              </div>
           </div>
         </div>
-      <?php }; }else{ echo "<center class='col-md-8' >Nenhum im¨®vel encontrado</center>" ;} ?>
+      <?php }; }else{ echo "<center class='col-md-8' >Nenhum imï¿½ï¿½vel encontrado</center>" ;} ?>
     </div>
   </div>
 </div>
@@ -572,10 +572,10 @@ $todos_tipos =  DBRead('imobiliaria_categorias','*');
             <div class="Ashop--imovel__img">
               <a href="<?php echo $url;?>">
                  <!--<span class="shop--imovel__tag" style="background-color:<?php echo $imovel['etiqueta_cor'] ?>"><?php echo $imovel['etiqueta'] ?></span> -->
-                <img class="shop--imovel__primary-img" src="<?php echo RemoveHttpS(ConfigPainel('base_url')); ?>wa/imobiliaria/uploads/<?php echo $imovel['id_foto_capa']; ?>" alt="Foto Im¨®vel <?php echo $imovel['nome']; ?> 1">
+                <img class="shop--imovel__primary-img" src="<?php echo RemoveHttpS(ConfigPainel('base_url')); ?>wa/imobiliaria/uploads/<?php echo $imovel['id_foto_capa']; ?>" alt="Foto Imï¿½ï¿½vel <?php echo $imovel['nome']; ?> 1">
 
                 <?php if($segunda_foto){ ?>
-                  <!-- <img class="shop--imovel__secondary-img" src="<?php echo RemoveHttpS(ConfigPainel('base_url')); ?>wa/imobiliaria/uploads/<?php echo $segunda_foto; ?>" alt="Foto Im¨®vel <?php echo $imovel['nome']; ?> 2"> -->
+                  <!-- <img class="shop--imovel__secondary-img" src="<?php echo RemoveHttpS(ConfigPainel('base_url')); ?>wa/imobiliaria/uploads/<?php echo $segunda_foto; ?>" alt="Foto Imï¿½ï¿½vel <?php echo $imovel['nome']; ?> 2"> -->
                 <?php } ?>
               </a>
             </div>
@@ -615,7 +615,7 @@ $todos_tipos =  DBRead('imobiliaria_categorias','*');
                     </i>
                     <i class="fa Ashop--imovel__action" aria-hidden="true"> 
                         <a class="btn btn-primary btn-lg btn-block" href="<?php echo $url;?>">
-                            <i class="fa fa-eye" aria-hidden="true"></i> Ver Im¨®vel
+                            <i class="fa fa-eye" aria-hidden="true"></i> Ver Imï¿½ï¿½vel
                            
                         </a>
                     </i>

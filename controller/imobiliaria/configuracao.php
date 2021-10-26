@@ -5,6 +5,11 @@
 //
 require_once('matriz_imovel/index.php');
 
+if(isset($_GET['AtualizaImovel'])){
+  atualizarMatrizImovel($_GET['AtualizaImovel']);
+  return;
+}
+
 if (isset($_GET['AtualizarMatrizesTodosImoveis'])) {
   try {
     atualizarMatrizesTodosImoveis();

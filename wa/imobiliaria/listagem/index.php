@@ -42,6 +42,14 @@
 		case '4':
 			require_once('tipo/tipo_4.php');
 			break;
+
+		case '5':
+			require_once('tipo/tipo_5.php');
+			break;
+		
+		case '6':
+			require_once('tipo/tipo_6.php');
+			break;
 		default:
 			require_once('tipo/tipo_1.php');
 	}

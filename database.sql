@@ -179,3 +179,5 @@ INSERT INTO `imobiliaria_categorias` (`id`, `nome`, `descricao`) VALUES (1, 'Apa
 INSERT INTO `imobiliaria_config` (`id`, `valor`) VALUES ('moeda', 'R&#x00024;');
 INSERT INTO `imobiliaria_config` (`id`, `valor`) VALUES ('tipo_orcamento', 'email');
 INSERT INTO `imobiliaria_config` (`id`, `valor`) VALUES ('whatsapp', '5511912345678');
+
+ALTER TABLE imobiliaria_listas CHANGE tipo tipo ENUM('1','2','3','4','5','6') CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT '1';

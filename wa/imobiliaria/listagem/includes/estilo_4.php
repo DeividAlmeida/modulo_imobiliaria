@@ -10,7 +10,7 @@
     display: flex;
     width:250px;
 }
-.fa {
+#shop--list<?php echo $uniqid; ?> .fa {
     font-family: FontAwesome, Arial !important;
     font-size: 14px !important;
 }
