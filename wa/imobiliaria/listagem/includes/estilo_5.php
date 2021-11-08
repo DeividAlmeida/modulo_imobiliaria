@@ -432,7 +432,16 @@ overflow:hidden;
         margin: 15px 0 15px !important;
 
     }
-
+@media only screen and (min-width 991px) {
+  .Ashop--imovel__img{
+    height: 200px !important;
+  }
+  .Ashop--imovel__img>a>img {
+    object-fit: cover !important;
+    min-height: 200px !important;
+    width: 100% !important;
+  }
+}
 
 @media (max-width: 1200px){
     #Ashop--list<?php echo $uniqid; ?> .Ashop--imovel__price{

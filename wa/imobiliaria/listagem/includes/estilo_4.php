@@ -417,6 +417,16 @@ overflow:hidden;
     cursor: pointer
       
 }
+@media only screen and (min-width 991px) {
+  .Ashop--imovel__img{
+    height: 200px !important;
+  }
+  .Ashop--imovel__img>a>img {
+    object-fit: cover !important;
+    min-height: 200px !important;
+    width: 100% !important;
+  }
+}
 
 <?php if($config['listagem_estilo'] == '4'): ?>
 @media (min-width: 1200px) {

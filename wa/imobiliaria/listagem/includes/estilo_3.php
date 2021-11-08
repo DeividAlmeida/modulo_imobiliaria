@@ -135,6 +135,16 @@
     overflow: hidden; 
     text-overflow: ellipsis
 }
+@media only screen and (min-width 991px) {
+  .Ashop--imovel__img{
+    height: 200px !important;
+  }
+  .Ashop--imovel__img>a>img {
+    object-fit: cover !important;
+    min-height: 200px !important;
+    width: 100% !important;
+  }
+}
 </style>
 
 <div id="shop--list<?php echo $uniqid; ?>" class="wow <?php echo $lista['efeito']; ?> shop--list__wrapper">
