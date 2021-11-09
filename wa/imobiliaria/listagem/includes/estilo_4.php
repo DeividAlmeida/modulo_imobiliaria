@@ -4,6 +4,11 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <style>
+  @media only screen and (max-width: 1000px){
+    .trimText{
+      width: 100% !important;
+    }
+  }
 #frist_objects{
     height: auto;
     -webkit-justify-content: space-between;
@@ -236,7 +241,7 @@ color: <?php echo $config['listagem_cor_titulo']; ?> !important;
 .trimText{
     white-space: nowrap;
     overflow: normal; 
-    text-overflow: ellipsis
+    text-overflow: ellipsis;
 }
 
 #Ashop--list<?php echo $uniqid; ?> .shop--imovel__wrapper {
@@ -323,7 +328,7 @@ color: <?php echo $config['listagem_cor_titulo']; ?> !important;
   padding: 0 10px 0;
 }
 #Ashop--list<?php echo $uniqid; ?> .Ashop--imovel__img img {
-    max-width: 100%;
+    width: 100%;
     max-height: 100%;
     overflow:hidden;
     -webkit-transition: 0.3s all ease;
@@ -417,7 +422,7 @@ overflow:hidden;
     cursor: pointer
       
 }
-@media only screen and (min-width 991px) {
+@media only screen and (min-width: 991px) {
   .Ashop--imovel__img{
     height: 200px !important;
   }
@@ -437,7 +442,7 @@ overflow:hidden;
     
 }
 @media (max-width: 1200px) {
-    
+
     #shop--list<?php echo $uniqid; ?> .shop--imovel__wrapper{
         display:none;
     }
@@ -484,6 +489,7 @@ overflow:hidden;
     .Ashop--imovel__resume{
         width:200%;
     }
+    
 }
 @media (max-width: 770px){
     #Ashop--list<?php echo $uniqid; ?> .Ashop--imovel__price{
@@ -657,4 +663,3 @@ $todos_tipos =  DBRead('imobiliaria_categorias','*');
     </div>
   </div>
 </div>
-

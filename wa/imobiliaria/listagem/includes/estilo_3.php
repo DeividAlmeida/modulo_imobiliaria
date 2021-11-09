@@ -135,7 +135,7 @@
     overflow: hidden; 
     text-overflow: ellipsis
 }
-@media only screen and (min-width 991px) {
+@media only screen and (min-width: 991px) {
   .Ashop--imovel__img{
     height: 200px !important;
   }

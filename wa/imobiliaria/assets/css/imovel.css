@@ -89,8 +89,7 @@
   border: 2px solid #ccc !important;
 }
 .shop--imovel-page__header--share__wrapper{
-  margin-left: -7px;
-  margin-right: -7px;
+  margin:0px 0 20px 20px !important;
 }
 
 
@@ -102,7 +101,7 @@
 .shop--imovel-page__header--share__link {
   text-decoration: none !important;
   color: #fff !important;
-  margin: 0.3em;
+  margin: 0.1em;
 }
 
 .shop--imovel-page__header--share {
@@ -282,4 +281,9 @@ background-color: #FF6600
 .shop--imovel-page__header--share--whatsapp:active {
   background-color: #1DA851;
   border-color: #1DA851;
+}
+@media only screen and (min-width: 1100px){
+  .shop--imovel-page__header--share--facebook{
+    margin-top: 50px !important;
+  }
 }
